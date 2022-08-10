@@ -3,6 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
+  API_URL: 'http//localhost:3000', //'https://ads-stflabs-virtualassistant2-api-backend.develop.stefanini.io',
+  STORAGE_NAME: 'front',
   production: false
 };
 

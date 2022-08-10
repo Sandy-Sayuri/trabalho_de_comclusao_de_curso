@@ -1,0 +1,53 @@
+body{ 
+    background-color: black;
+    height:100%;
+    width:100% ; 
+    
+   background-repeat: no-repeat;
+   background-size: cover;
+   background-attachment: fixed;
+}
+.logo{
+    height:60%;
+    width:60%
+     
+}
+.form{
+    width: 400px;
+    margin:auto;
+    padding-top: 40px;
+}
+.card{
+    box-shadow: 1px 1px 5px black;
+    background-color: rgb(255, 255, 255);
+    padding: 30px;
+    border-radius: 10px;
+}
+.card-top{
+    text-align: center;
+    font-family:sans-serif;
+    width:100%;
+    
+}
+.title{
+    color: blue;
+}
+
+.Login{
+    width:20%; 
+}
+.LoginInput{
+    width: 100%;
+}
+.btn-success{
+    background-color:blue ;
+}
+a{
+    color: blue;
+    font-weight: bold;
+    text-decoration: none;
+}
+a:hover{
+    color: #272262;
+}
+
