@@ -4,7 +4,7 @@
 
 export const environment = {
   API_URL: 'http//localhost:3000', //'https://ads-stflabs-virtualassistant2-api-backend.develop.stefanini.io',
-  STORAGE_NAME: 'front',
+  STORAGE_NAME: 'TCC',
   production: false
 };
 

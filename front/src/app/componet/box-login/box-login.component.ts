@@ -7,11 +7,11 @@ import { environment } from '../../../environments/environment';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: 'app-box-login',
+  templateUrl: './box-login.component.html',
+  styleUrls: ['./box-login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class BoxLoginComponent implements OnInit {
   loginForm: FormGroup
   redirectTo: string
   validacao: boolean = false
