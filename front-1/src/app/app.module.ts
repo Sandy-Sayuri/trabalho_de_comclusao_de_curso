@@ -10,14 +10,15 @@ import { AppComponent } from './app.component';
 import { MaterialModule } from './material.module';
 import { getPaginatorIntl } from './paginator';
 import { LoginService } from './shared/services/login.service';
-import { BoxLoginComponent } from './componet/box-login/box-login.component';
+import { LoginComponent } from './view/login/login.component';
+
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    BoxLoginComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

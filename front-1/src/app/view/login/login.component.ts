@@ -1,22 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Usuario } from '../../shared/model/user.module';
-import { LoginService } from '../../shared/services/login.service';
-import { environment } from '../../../environments/environment';
+import { Usuario } from 'src/app/shared/model/user.module';
+import { LoginService } from 'src/app/shared/services/login.service';
+import { environment } from 'src/environments/environment';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-box-login',
-  templateUrl: './box-login.component.html',
-  styleUrls: ['./box-login.component.css']
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
 })
-export class BoxLoginComponent implements OnInit {
-  loginForm: FormGroup
-  redirectTo: string
-  validacao: boolean = false
-  hideSenha:boolean = true
-  msgErro: string
+export class LoginComponent implements OnInit{
+  loginForm: FormGroup;
+  redirectTo: string;
+  validacao: boolean = false;
+  hideSenha:boolean = true;
+  msgErro: string;
   constructor(public loginService: LoginService,
               private fb: FormBuilder,
               private activatedRoute: ActivatedRoute,
