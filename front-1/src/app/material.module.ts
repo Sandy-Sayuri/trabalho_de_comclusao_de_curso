@@ -39,7 +39,14 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { CommonModule } from '@angular/common';
 @NgModule({
+  imports: [
+    CommonModule,
+    MatTabsModule,
+    MatSidenavModule,
+    MatToolbarModule
+  ],
   exports: [
     A11yModule,
     CdkStepperModule,
