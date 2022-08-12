@@ -10,6 +10,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
+import { testeComponent } from './components/home/home.component';
+
+import { MenuLateralComponent } from './components/menu-lateral/menu-lateral.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { MaterialModule } from './material.module';
 import { getPaginatorIntl } from './paginator';
@@ -27,7 +30,9 @@ import { LoginComponent } from './view/login/login.component';
     HeaderComponent,
     FooterComponent,
     MenuComponent,
-    HomeComponent
+    HomeComponent, 
+    MenuLateralComponent,
+    testeComponent
   ],
   imports: [
     BrowserModule,
