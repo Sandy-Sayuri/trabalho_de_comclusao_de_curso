@@ -1,12 +1,4 @@
-body{ 
-    background-color: black;
-    height:100%;
-    width:100% ; 
-    
-   background-repeat: no-repeat;
-   background-size: cover;
-   background-attachment: fixed;
-}
+
 .logo{
     height:60%;
     width:60%
@@ -30,10 +22,10 @@ body{
     
 }
 .title{
-    color: blue;
+    color:#F28907;
     margin-left: auto;
     margin-right: auto;
-    width: 7em
+    width: 12em
 
 }
 
@@ -44,10 +36,10 @@ body{
     width: 100%;
 }
 .btn-success{
-    background-color:blue ;
+    background-color:#F28907 ;
 }
 a{
-    color: blue;
+    color: #F28907;
     font-weight: bold;
     text-decoration: none;
 }

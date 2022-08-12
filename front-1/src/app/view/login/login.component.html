@@ -9,7 +9,8 @@
     <mat-card-content>
       <form class="card-top" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px" [formGroup]="loginForm">
         <mat-form-field class="input">
-          <input (input)="validacao = false" matInput placeholder="Email" formControlName="username">
+          <input (input)="validacao = false" matInput 
+          placeholder="Email" formControlName="username">
           <!-- <mat-error *ngIf="loginForm.controls.username.invalid">Informe seu nome de usuário.</mat-error> -->
         </mat-form-field>
         <mat-form-field class="input"> 
@@ -19,7 +20,7 @@
         </mat-form-field>
         <section class="sectionLogin">
           <div class="button">
-            <button mat-button color="primary" style="color:white; "class="btn-success"(click)="login(loginForm.value)"routerLink="/dashboard/apdata/feriados" [disabled]="!loginForm.valid">Entrar</button>
+            <button mat-button color="primary" style="color:white; "class="btn-success"(click)="login(loginForm.value)"routerLink="/home" [disabled]="!loginForm.valid">Entrar</button>
           </div>
         </section>
         <section class="sectionLogin">
