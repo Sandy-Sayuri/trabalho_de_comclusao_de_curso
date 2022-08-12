@@ -1,5 +1,6 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatPaginatorIntl } from '@angular/material/paginator';
 import { BrowserModule } from '@angular/platform-browser';
@@ -29,6 +30,7 @@ import { LoginComponent } from './view/login/login.component';
     HttpClientModule,
     MaterialModule,
     ReactiveFormsModule,
+    FlexLayoutModule,
     ToastrModule.forRoot()
   ],
   providers: [ LoginService,
