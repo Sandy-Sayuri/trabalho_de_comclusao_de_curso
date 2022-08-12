@@ -1,1 +1,11 @@
-<p>menu works!</p>
+<mat-toolbar >
+        <button mat-icon-button (click)="onToggleSidenav()">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <div fxFlex fxLayout fxLayoutAlign="center" fxHide.xs>
+            <ul fxLayout  class="navigation-items">
+                <img src="../../../assets/Logo.png" alt="Red Seller" class="logo" >
+            </ul>
+        </div>
+  </mat-toolbar>
+
