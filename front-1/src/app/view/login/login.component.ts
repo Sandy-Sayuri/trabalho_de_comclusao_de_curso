@@ -32,6 +32,7 @@ export class LoginComponent implements OnInit{
     this.redirectTo = this.activatedRoute.snapshot.params['to'] || btoa('dashboard/home')
   }
   login(usuario: Usuario) {
+    this.loginService.username(usuario)
     let login = this.loginService.login(usuario).subscribe({ 
       next: (retorno:any)=>{      
         if(retorno["errors"] != undefined){
@@ -56,5 +57,8 @@ export class LoginComponent implements OnInit{
         login.unsubscribe()  
       }
     })
+  }
+  Users(usuario: Usuario){
+    this.loginService.username(usuario)
   }
 }

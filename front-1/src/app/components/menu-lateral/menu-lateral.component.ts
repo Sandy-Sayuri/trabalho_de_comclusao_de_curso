@@ -1,4 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { LoginService } from 'src/app/shared/services/login.service';
+import { LoginComponent } from 'src/app/view/login/login.component';
 
 @Component({
   selector: 'app-menu-lateral',
@@ -8,9 +10,13 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 export class MenuLateralComponent implements OnInit {
   @Output() sidenavClose = new EventEmitter();
 
-  constructor() { }
-
+  constructor(public LoginService: LoginService) { }
+  usuario:string
+  pontuacao:number
   ngOnInit() {
+    this.usuario=this.LoginService.user
+    this.pontuacao=200
+
   }
  
   public onSidenavClose = () => {

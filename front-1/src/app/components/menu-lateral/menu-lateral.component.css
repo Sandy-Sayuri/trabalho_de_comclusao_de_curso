@@ -1,13 +1,28 @@
+.menu{
+   background-color: #d5d5d5;
+   height: 100%; 
+}
 a{
     text-decoration: none;
-    color: white;
+    color: #F28907;
 }
 
 a:hover, a:active{
-    color: lightgray;
+    color: #F28907;
 }
 
 .nav-caption{
     display: inline-block;
     padding-left: 6px;
+}
+.Usuario{
+    width: 50%;
+    padding: 60px;
+    margin-top: -40px;
+}
+.welcome{
+    font-size: larger;
+    text-align: center;
+    color:#D97700 ;
+    font-weight: 900;
 }
