@@ -1,19 +1,12 @@
-section div p{ 
-    color: #3f51b5; 
-    font-size: 30px; 
-    text-shadow: 2px 3px 5px grey; 
-    margin: 30px 0; 
-} 
-section div + p{ 
-    color: #3f51b5; 
-    font-weight: bold; 
-    font-size: 20px; 
-    padding-bottom: 20px; 
+.card{
+    box-shadow: 1px 1px 2px black;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    align-items: center;
+
 }
-mat-tab-group {
-    text-align: center;
-}
- 
-mat-tab-group p {
-    padding-top: 20px;
+.form{
+    align-items: center;
+    width: 500px;
+    margin:auto;
 }

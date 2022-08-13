@@ -4,23 +4,18 @@
         <p class="welcome">Bem vindo! {{usuario}}</p>
         <p class="welcome">Pontuação: {{pontuacao}}</p>
     </div>
-    <mat-nav-list>
-        <a mat-list-item routerLink="/home" (click)="onSidenavClose()">
-            <mat-icon>home</mat-icon> <span class="nav-caption">Home</span>
+    <mat-nav-list class="teste">
+        <a mat-list-item routerLink="/home" (click)="onSidenavClose()"class='aqui' style="background-color: #D97700; color: white;">
+            <mat-icon >home</mat-icon> <span >Home</span>
         </a>
-        <a mat-list-item routerLink="/owner" (click)="onSidenavClose()">
-            <mat-icon>assignment_ind</mat-icon> <span class="nav-caption">Owner Actions</span>   
+        <a mat-list-item routerLink="/ranking" (click)="onSidenavClose()" >
+            <mat-icon>emoji_events</mat-icon> <span >Ranking</span>   
         </a>
-        <a mat-list-item routerLink="#" (click)="onSidenavClose()">
-            <mat-icon>account_balance</mat-icon><span class="nav-caption">Account Actions</span>
+        <a mat-list-item routerLink="/perfil" (click)="onSidenavClose()">
+            <mat-icon >account_circle</mat-icon><span>Perfil</span>
         </a>
-        <mat-list-item [matMenuTriggerFor]="menu">
-            <mat-icon>unfold_more</mat-icon>
-            <a matline>Example</a>
-        </mat-list-item>
-        <mat-menu #menu="matMenu">
-        <button mat-menu-item (click)="onSidenavClose()">View profile</button>
-        <button mat-menu-item (click)="onSidenavClose()">Add contact</button>
-        </mat-menu>
+        <a mat-list-item routerLink="/Jogadoras" (click)="onSidenavClose()">
+            <mat-icon >sports_volleyball</mat-icon><span >Jogadoras</span>
+        </a>
     </mat-nav-list>
 </div>
