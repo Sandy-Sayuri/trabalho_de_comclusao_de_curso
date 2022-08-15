@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { CadastreComponent } from './components/cadastro/cadastro.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { testeComponent } from './components/home/home.component';
@@ -17,6 +18,7 @@ import { MenuComponent } from './components/menu/menu.component';
 import { MaterialModule } from './material.module';
 import { getPaginatorIntl } from './paginator';
 import { LoginService } from './shared/services/login.service';
+import { CadastroComponent } from './view/cadastro/cadastro.component';
 import { HomeComponent } from './view/home/home.component';
 import { LoginComponent } from './view/login/login.component';
 
@@ -32,7 +34,9 @@ import { LoginComponent } from './view/login/login.component';
     MenuComponent,
     HomeComponent, 
     MenuLateralComponent,
-    testeComponent
+    testeComponent,
+    CadastreComponent,
+    CadastroComponent
   ],
   imports: [
     BrowserModule,
