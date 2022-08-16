@@ -1,5 +1,7 @@
 mat-toolbar{
-    background-color:#d5d5d5
+    background-color:#d5d5d5;
+    width: 100%;
+    
 }
 .logo{
     margin-block: 40%;
