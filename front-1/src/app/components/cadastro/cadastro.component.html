@@ -1,9 +1,10 @@
 <section class="form" >
     <mat-card class="card">
-        <form class="card-top" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px" [formGroup]="formcadastro">
+        <form class="card-top" fxLayout="column" fxLayoutAlign="center " fxLayoutGap="10px" [formGroup]="formcadastro">
         <mat-form-field class="input">
             <input (input)="validacao = false" matInput 
-            placeholder="Email" formControlName="username">
+            class="email"
+            placeholder="Email" formControlName="Email">
              <!-- <mat-error *ngIf="loginForm.controls.username.invalid">Informe seu nome de usuário.</mat-error>  -->
           </mat-form-field>
           <mat-form-field class="input">

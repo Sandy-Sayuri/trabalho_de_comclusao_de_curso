@@ -10,11 +10,6 @@ mat-sidenav {
  
 main {
     padding: 10px;
-    height: 84%;
-    width: 73%;
-
-}
-body { 
     height: 100%;
- 
+    width: 100%;
 }

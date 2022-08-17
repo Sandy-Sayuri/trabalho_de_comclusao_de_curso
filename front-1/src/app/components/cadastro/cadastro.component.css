@@ -10,3 +10,6 @@
     height: 100%;
     margin:auto;
 }
+.input{
+    word-wrap: break-word;
+}

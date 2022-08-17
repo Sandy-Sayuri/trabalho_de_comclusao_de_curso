@@ -1,33 +1,73 @@
-@media(max-width:2220px) {
-    .card{
+@media  (max-width:2220px) {
+.card{
     box-shadow: 1px 1px 2px black;
     border-radius: 10px;
     height: 90%;
-    width: 39%;
+    width: 33%;
     background-size: 100%;
     background-image: url('../../../assets/Meia_quadra.png');
     background-repeat: no-repeat;
 }
 .form{
-    width: 100%;
-    height: 100%;
-    margin:auto;
-    overflow: hidden;
-    padding-left: 30px;
-    
-}
-}
-@media(max-width:700px) {
-
-}
-
-
-.form{
-    width: 100%;
-    height: 100%;
+    width:1200px;
+    height:550px;
     margin:auto;
     overflow: hidden
 }
-.oii{
-    margin-top: -30px;
+
+}
+
+@media (max-width:700px) {
+    mat-card{
+        padding: 1%;
+    }
+    .card{
+        box-shadow: 1px 1px 2px black;
+        border-radius: 10px;
+        height: 500px;
+        width: 400px;
+        background-size: 100%;
+        background-image: url('../../../assets/Meia_quadra.png');
+        background-repeat: no-repeat;
+    }
+    .form{
+        width:500px;
+        height:600px;
+        overflow: hidden
+    }
+    
+    .oii{
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+    }
+    .oi{
+        width: 38px;
+        height: 38px;
+        border-radius: 50%; 
+    }
+    .botao_1{
+        padding-top: 150px;
+        margin-left: 1px;
+    }
+    .botao_2{
+        padding-top: 40px;
+    }
+    .botao_3{
+        padding-top: 35px;
+        padding-left: 70pt;
+    }
+    .botao_4{
+        padding-left: 60pt;
+        padding-top: -10pt;
+    }
+    .botao_5{
+        padding-top: -30pt;
+        padding-left: 70pt;
+    }
+    .botao_6{
+        padding-left: 100pt;
+        padding-top: -5pt;
+
+    }
 }
