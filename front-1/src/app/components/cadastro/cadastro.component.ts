@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-cadastre',
@@ -7,9 +7,11 @@ import { FormGroup } from '@angular/forms';
   styleUrls: ['./cadastro.component.css']
 })
 export class CadastreComponent implements OnInit {
-  formcadastro: FormGroup;
+  nameFormControl = new FormControl('', [Validators.required, Validators.email]);
+  emailFormControl = new FormControl('', [Validators.required, Validators.email]);
   validacao: boolean = false;
-
+  msgErro: string;
+  value = 'Clear me';
   constructor() { }
 
   ngOnInit(): void {

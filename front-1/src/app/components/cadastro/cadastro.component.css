@@ -1,15 +1,47 @@
+
+.form{
+    width: 400px;
+    margin:auto;
+    padding: 20px;
+}
 .card{
-    box-shadow: 1px 1px 2px black;
+    box-shadow: 1px 1px 5px black;
     background-color: rgb(255, 255, 255);
+    padding: 30px;
     border-radius: 10px;
-    height: 100%;
+}
+.card-top{
+    text-align: center;
+    font-family:sans-serif;
+    width:100%;
+    
+}
+.title{
+    color:#F28907;
+    margin-left: auto;
+    margin-right: auto;
+    width: 10em
 
 }
-.form{
-    width: 500px;
-    height: 100%;
-    margin:auto;
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+.example-full-width {
+    width: 100%;
 }
-.input{
-    word-wrap: break-word;
+.btn-success{
+    background-color:#F28907 ;
 }
+button{
+    color:#F28907;
+    margin-left: auto;
+    margin-right: auto;
+    width: 10em
+}
+
+
+
+
