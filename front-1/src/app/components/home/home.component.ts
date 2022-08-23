@@ -14,12 +14,13 @@ export class testeComponent implements OnInit {
     {value: 'pizza-1', viewValue: 'Pizza'},
     {value: 'tacos-2', viewValue: 'Tacos'},
   ];
-
   constructor() { }
 
   ngOnInit(): void {
   }
-
+  setJogadora(val:any) {
+  
+  }
   public executeSelectedChange = (event :any) => {
     console.log(event);
   }
