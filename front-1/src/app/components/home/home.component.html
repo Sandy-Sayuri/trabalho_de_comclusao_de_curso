@@ -1,44 +1,68 @@
 <section class="home">
   <div class="right" >
     <div class="campo">
-    <mat-card class="card">
+      <mat-card class="card">
+        <div  class='botao_1'>
+        </div>
+        <div class="frente">
+          <div class='botao_2'(click)="Setjogadoras(1)">
+            <button class="tamanho_2">2</button >
+          </div>
+          <div class='botao_3'(click)="Setjogadoras(2)">
+            <button  class="tamanho_2">3</button >
+          </div>
+        </div> 
+        <div  class='botao_4'(click)="Setjogadoras(3)">
+          <button class=tamanho_1>4</button >
+        </div>
+        <div class="centro">
+          <div class='botao_5'(click)="Setjogadoras(4)">
+            <button class="tamanho_2" >5</button >
+          </div>
+        </div> 
+        <div class="fundo">
+          <div class='botao_6'(click)="Setjogadoras(5)">
+            <button class="tamanho_2" >6</button >
+          </div>
+          <div class='botao_7'(click)="Setjogadoras(6)">
+            <button class="tamanho_2" >7</button >
+        </div>
+        <div class='botao_8'(click)="Setjogadoras(7)">
+          <button class="tamanho_2" >8</button >
+        </div>
+      </div>
     </mat-card>
     </div>
   </div>
   <div class="left">
     <mat-card class="jogadoras" >
-      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
-  <!-- Position Column -->
-  <ng-container matColumnDef="position">
-    <th mat-header-cell *matHeaderCellDef>No.</th>
-    <td mat-cell *matCellDef="let element">{{element.position}}</td>
-  </ng-container>
-
-  <!-- Name Column -->
+      <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
   <ng-container matColumnDef="name">
-    <th mat-header-cell *matHeaderCellDef>Name</th>
-    <td mat-cell *matCellDef="let element">{{element.name}}</td>
+    <mat-header-cell mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+    <mat-cell mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
   </ng-container>
-
-  <!-- Weight Column -->
-  <ng-container matColumnDef="weight">
-    <th mat-header-cell *matHeaderCellDef>Weight</th>
-    <td mat-cell *matCellDef="let element">{{element.weight}}</td>
+  <ng-container matColumnDef="time">
+    <mat-header-cell mat-header-cell *matHeaderCellDef>Time</mat-header-cell>
+    <mat-cell mat-cell *matCellDef="let element"> {{element.time}} </mat-cell>
   </ng-container>
-
-  <!-- Symbol Column -->
-  <ng-container matColumnDef="symbol">
-    <th mat-header-cell *matHeaderCellDef>Symbol</th>
-    <td mat-cell *matCellDef="let element">{{element.symbol}}</td>
+  <ng-container matColumnDef="vitorias">
+    <mat-header-cell mat-header-cell *matHeaderCellDef> Vitorias</mat-header-cell>
+    <mat-cell mat-cell *matCellDef="let element"> {{element.vitorias}} </mat-cell>
   </ng-container>
-
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr
-      mat-row
-      (click)="clickedRows(row) "
-      *matRowDef="let row; columns: displayedColumns;"
-  ></tr>
-</table>
+  <ng-container matColumnDef="derotas">
+    <mat-header-cell mat-header-cell *matHeaderCellDef> Derotas</mat-header-cell>
+    <mat-cell mat-cell *matCellDef="let element"> {{element.derotas}} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="preco">
+    <mat-header-cell mat-header-cell *matHeaderCellDef> Preço</mat-header-cell>
+    <mat-cell mat-cell *matCellDef="let element"> {{element.preco}} </mat-cell>
+  </ng-container>
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row matRipple 
+  (click)="clickedRows(row)"
+  *matRowDef="let row; columns: displayedColumns;"
+  ></mat-row>
+</mat-table>
     </mat-card>
   </div>
 </section>  

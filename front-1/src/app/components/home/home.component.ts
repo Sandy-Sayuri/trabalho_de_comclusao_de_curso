@@ -5,37 +5,51 @@ export interface PeriodicElement {
   weight: number;
   symbol: string;
 }
-const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-  {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
-  {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
-  {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
-  {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
-  {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
-  {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
-  {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
-  {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
-  {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
-];
+  const ELEMENT_DATA = [
+    {name: 'Hydrogen',vitorias:2,derotas:2,preco:'R$20',time:'okkkkk','posicao':1},
+    {name: 'Helium',vitorias:10,derotas:2,preco:'R$20',time:'oiiiii','posicao':2},
+    {name: 'Lithium',vitorias:20,derotas:2,preco:'R$20',time:'oiiiii','posicao':3},
+    {name: 'Beryllium',vitorias:10,derotas:2,preco:'R$20',time:'oiiiii','posicao':4},
+    {name: 'Boron',vitorias:10,derotas:2,preco:'R$20',time:'oiiiii','posicao':5},
+    {name: 'Carbon',vitorias:10,derotas:2,preco:'R$20',time:'oiiiii','posicao':6},
+    {name: 'Nitrogen',vitorias:10,derotas:2,preco:'R$20',time:'oiiiii','posicao':7},
+    {name: 'Oxygen',vitorias:10,derotas:2,preco:'R$20',time:'oiiiii','posicao':8},
+    {name: 'Fluorine',vitorias:10,derotas:2,preco:'R$20',time:'oiiiii','posicao':3},
+    {name: 'Neon',vitorias:10,derotas:2,preco:'R$20',time:'oiiiii','posicao':4},
+  ];
+
 @Component({
   selector: 'app-teste',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
+  
 })
 
 export class testeComponent implements OnInit {
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+  displayedColumns: string[] = ['name','time','vitorias','derotas','preco'];
   dataSource = ELEMENT_DATA;
-  clickedRow = new Set<PeriodicElement>();
+  tabela=ELEMENT_DATA;
   linha:string
   clicked: boolean = false
   constructor() { }
 
   ngOnInit(): void {
+    
+  }
+  Setjogadoras(n:number){
+    let lista=[]
+    for (let i = 0; i < this.tabela.length; i++) {
+      if(this.tabela[i].posicao==n){
+        lista.push(this.tabela[i])
+        console.log(lista);
+        
+      }
+    }
+    this.dataSource=lista 
+
   }
   clickedRows(row:any){
-    this.linha=row
-    console.log(this.linha);
+    console.log(row);
     
   }
  
