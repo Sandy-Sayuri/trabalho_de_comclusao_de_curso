@@ -13,13 +13,15 @@ export class MenuLateralComponent implements OnInit {
   constructor(public LoginService: LoginService) { }
   usuario:string
   pontuacao:number
+  estilo:false
   ngOnInit() {
     this.usuario=this.LoginService.user
     this.pontuacao=200
 
   }
  
-  public onSidenavClose = () => {
+  public onSidenavClose = (estilo:boolean) => {
     this.sidenavClose.emit();
+    estilo=true
   }
 }

@@ -17,6 +17,11 @@
 a:hover{
     color: rgb(255, 208, 105);
 }
+a:active{
+    background-color: #D97700; 
+    color: white;
+}
+
 
 
 

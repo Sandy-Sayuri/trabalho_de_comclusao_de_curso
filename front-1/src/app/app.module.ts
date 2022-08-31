@@ -15,12 +15,14 @@ import { testeComponent } from './components/home/home.component';
 
 import { MenuLateralComponent } from './components/menu-lateral/menu-lateral.component';
 import { MenuComponent } from './components/menu/menu.component';
+import { RankingComponent } from './components/ranking/ranking.component';
 import { MaterialModule } from './material.module';
 import { getPaginatorIntl } from './paginator';
 import { LoginService } from './shared/services/login.service';
 import { CadastroComponent } from './view/cadastro/cadastro.component';
 import { HomeComponent } from './view/home/home.component';
 import { LoginComponent } from './view/login/login.component';
+import { Ranking } from './view/ranking/ranking.component';
 
 
 
@@ -36,7 +38,9 @@ import { LoginComponent } from './view/login/login.component';
     MenuLateralComponent,
     testeComponent,
     CadastreComponent,
-    CadastroComponent
+    CadastroComponent,
+    Ranking,
+    RankingComponent
   ],
   imports: [
     BrowserModule,
