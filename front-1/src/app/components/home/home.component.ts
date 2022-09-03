@@ -29,7 +29,6 @@ export class testeComponent implements OnInit {
   displayedColumns: string[] = ['name','time','vitorias','derotas','preco'];
   dataSource = ELEMENT_DATA;
   tabela=ELEMENT_DATA;
-  linha:string
   clicked: boolean = false
   constructor() { }
 
