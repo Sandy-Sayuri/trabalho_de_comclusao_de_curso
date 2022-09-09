@@ -8,10 +8,8 @@ import { Usuario } from "../model/user.module";
 export class LoginService {
     constructor(private http: HttpClient){}
     user:string
-    login(usuario: Usuario): Observable<any> {
-        console.log(`${environment.API_URL}`);
-        
-        return this.http.post<any>(`http://localhost:3000/auth`, usuario)
+    login(): Observable<any> {
+        return this.http.get<any[]>(`${environment.API_URL}/users`) 	  
     }
     username(usuario: Usuario){
         this.user=usuario.username
