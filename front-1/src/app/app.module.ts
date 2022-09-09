@@ -18,6 +18,7 @@ import { MenuComponent } from './components/menu/menu.component';
 import { RankingComponent } from './components/ranking/ranking.component';
 import { MaterialModule } from './material.module';
 import { getPaginatorIntl } from './paginator';
+import { HomeService } from './shared/services/home.service';
 import { LoginService } from './shared/services/login.service';
 import { CadastroComponent } from './view/cadastro/cadastro.component';
 import { HomeComponent } from './view/home/home.component';
@@ -53,6 +54,7 @@ import { Ranking } from './view/ranking/ranking.component';
     ToastrModule.forRoot()
   ],
   providers: [ LoginService,
+    HomeService,
     {provide: MatPaginatorIntl, useValue: getPaginatorIntl()}
   ],
   bootstrap: [AppComponent]

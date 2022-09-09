@@ -5,11 +5,14 @@ import { environment } from '../../../environments/environment';
 import { Usuario } from "../model/user.module";
 
 @Injectable()
-export class LoginService {
+export class LoginService {	  
+    apiRef: string = environment.API_URL; 
     constructor(private http: HttpClient){}
     user:string
-    login(): Observable<any> {
-        return this.http.get<any[]>(`${environment.API_URL}/users`) 	  
+    login(usuario: Usuario): Observable<any> {
+        console.log(usuario);
+        console.log(this.apiRef);
+        return this.http.get<any>("localhost:8080/users")
     }
     username(usuario: Usuario){
         this.user=usuario.username
