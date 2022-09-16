@@ -34,7 +34,10 @@ export class LoginComponent implements OnInit{
   login(usuario: Usuario) {
     this.loginService.username(usuario)
     let login = this.loginService.login(usuario).subscribe({ 
-      // next: (retorno:any)=>{      
+      next: (retorno:any)=>{ 
+        console.log(retorno);
+      }
+
       //   if(retorno["errors"] != undefined){
       //     this.validacao = true
       //   } else {

@@ -1,22 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { HomeService } from 'src/app/shared/services/home.service';
 export interface PeriodicElement {
   name: string;
   position: number;
   weight: number;
   symbol: string;
 }
-  const ELEMENT_DATA = [
-    {name: 'Hydrogen',vitorias:2,derotas:2,preco:'R$20',time:'okkkkk','posicao':1},
-    {name: 'Helium',vitorias:10,derotas:2,preco:'R$20',time:'oiiiii','posicao':2},
-    {name: 'Lithium',vitorias:20,derotas:2,preco:'R$20',time:'oiiiii','posicao':3},
-    {name: 'Beryllium',vitorias:10,derotas:2,preco:'R$20',time:'oiiiii','posicao':4},
-    {name: 'Boron',vitorias:10,derotas:2,preco:'R$20',time:'oiiiii','posicao':5},
-    {name: 'Carbon',vitorias:10,derotas:2,preco:'R$20',time:'oiiiii','posicao':6},
-    {name: 'Nitrogen',vitorias:10,derotas:2,preco:'R$20',time:'oiiiii','posicao':7},
-    {name: 'Oxygen',vitorias:10,derotas:2,preco:'R$20',time:'oiiiii','posicao':8},
-    {name: 'Fluorine',vitorias:10,derotas:2,preco:'R$20',time:'oiiiii','posicao':3},
-    {name: 'Neon',vitorias:10,derotas:2,preco:'R$20',time:'oiiiii','posicao':4},
-  ];
 
 @Component({
   selector: 'app-teste',
@@ -26,30 +15,40 @@ export interface PeriodicElement {
 })
 
 export class testeComponent implements OnInit {
-  displayedColumns: string[] = ['name','time','vitorias','derotas','preco'];
-  dataSource = ELEMENT_DATA;
-  tabela=ELEMENT_DATA;
+  colTable: any[] = [
+    { field: 'name', header: 'Nome', type: 'text' },
+  ]
+  dataSource: any[];
   clicked: boolean = false
-  constructor() { }
+  constructor(private homeService:HomeService) { }
 
   ngOnInit(): void {
+    console.log('entrei');
+    
+    this.homeService.listPlayers()
+      .subscribe({
+        next: result => {
+          console.log('okkkkkkkkk');
+          console.log(result,'result')
+        }
+      })
     
   }
-  Setjogadoras(n:number){
-    let lista=[]
-    for (let i = 0; i < this.tabela.length; i++) {
-      if(this.tabela[i].posicao==n){
-        lista.push(this.tabela[i])
-        console.log(lista);
+  
+  // Setjogadoras(n:number){
+  //   let lista=[]
+  //   for (let i = 0; i < this.tabela.length; i++) {
+  //     if(this.tabela[i].posicao==n){
+  //       lista.push(this.tabela[i])
+  //       console.log(lista);
         
-      }
-    }
-    this.dataSource=lista 
+  //     }
+  //   }
+  //   this.dataSource=lista 
 
-  }
+  // }
   clickedRows(row:any){
     console.log(row);
-    
   }
  
   public executeSelectedChange = (event :any) => {
