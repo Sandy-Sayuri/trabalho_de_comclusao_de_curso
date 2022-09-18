@@ -1,3 +1,4 @@
+import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { HomeService } from 'src/app/shared/services/home.service';
 export interface PeriodicElement {
@@ -5,21 +6,28 @@ export interface PeriodicElement {
   position: number;
   weight: number;
   symbol: string;
+  description: string;
 }
 
 @Component({
   selector: 'app-teste',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
+  animations: [
+    trigger('detailExpand', [
+      state('collapsed', style({height: '0px', minHeight: '0'})),
+      state('expanded', style({height: '*'})),
+      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
+    ]),
+  ],
   
 })
 
 export class testeComponent implements OnInit {
-  colTable: any[] = [
-    { field: 'name', header: 'Nome', type: 'text' },
-  ]
-  dataSource: any[];
-  clicked: boolean = false
+  dataSource : any[];
+  columnsToDisplay = ['name', 'price', 'height','playerPosition', ];
+  columnsToDisplayWithExpand = [...this.columnsToDisplay, 'expand'];
+  expandedElement: PeriodicElement | null;
   constructor(private homeService:HomeService) { }
 
   ngOnInit(): void {
@@ -28,8 +36,7 @@ export class testeComponent implements OnInit {
     this.homeService.listPlayers()
       .subscribe({
         next: result => {
-          console.log('okkkkkkkkk');
-          console.log(result,'result')
+          this.dataSource=result
         }
       })
     
