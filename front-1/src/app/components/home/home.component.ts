@@ -25,7 +25,7 @@ export interface PeriodicElement {
 
 export class testeComponent implements OnInit {
   dataSource : any[];
-  columnsToDisplay = ['name', 'price', 'height','playerPosition', ];
+  columnsToDisplay = ['name', 'price', 'playerPosition', ];
   columnsToDisplayWithExpand = [...this.columnsToDisplay, 'expand'];
   expandedElement: PeriodicElement | null;
   constructor(private homeService:HomeService) { }
