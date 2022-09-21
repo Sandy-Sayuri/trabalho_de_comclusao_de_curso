@@ -11,10 +11,8 @@ export class HomeService {
 
 	constructor(private http: HttpClient){}
   
-   listPlayers(): Observable<any[]>{
-      console.log(this.http.get<any[]>(`${this.apiRef}players`), 'oiiii' );
-      
-      return this.http.get<any[]>(`http://localhost:8080/players`) 	   
+   listPlayers(): Observable<any[]>{  
+      return this.http.get<any[]>(`${this.apiRef}/players`) 	   
    }
 
    

@@ -12,7 +12,7 @@ export class LoginService {
     login(usuario: Usuario): Observable<any> {
         console.log(usuario);
         console.log(this.apiRef);
-        return this.http.get<any>("localhost:8080/users")
+        return this.http.get<any>(`${this.apiRef}/users`)
     }
     username(usuario: Usuario){
         this.user=usuario.username

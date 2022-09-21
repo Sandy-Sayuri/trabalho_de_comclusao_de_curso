@@ -24,7 +24,6 @@
             mat-button color="primary"
              style="color:white; "
              class="btn-success" 
-             routerLink="/home"
              (click)="login(loginForm.value)">Entrar</button>
           </div>
         </section>
@@ -34,7 +33,7 @@
       </form>      
     </mat-card-content>
     <mat-card-footer style="text-align: center; padding-bottom: 5px;">
-        <p [hidden]="!validacao" style="color:red; margin-top: -20px; padding-bottom: 5px;"><strong>{{msgErro}}</strong></p>
+        <p style="color:red; margin-top: -20px; padding-bottom: 5px;"><strong>{{msgErro}}</strong></p>
     </mat-card-footer>
   </mat-card>
 </section>

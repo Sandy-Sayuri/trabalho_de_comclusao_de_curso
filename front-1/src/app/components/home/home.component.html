@@ -6,10 +6,13 @@
         </div>
         <div class="frente">
           <div class='botao_2'>
-            <button class="tamanho_2">2</button >
+            <button 
+              class="tamanho_2"
+              (click)="Setjogadoras(5)"
+            >2</button >
           </div>
           <div class='botao_3'>
-            <button  class="tamanho_2">3</button >
+            <button  class="tamanho_2"(click)="Setjogadoras(4)">3</button >
           </div>
         </div> 
         <div  class='botao_4'>
@@ -17,18 +20,18 @@
         </div>
         <div class="centro">
           <div class='botao_5'>
-            <button class="tamanho_2" >5</button >
+            <button class="tamanho_2" (click)="Setjogadoras(1)">5</button >
           </div>
         </div> 
         <div class="fundo">
           <div class='botao_6'>
-            <button class="tamanho_2" >6</button >
+            <button class="tamanho_2"  (click)="Setjogadoras(2)">6</button >
           </div>
           <div class='botao_7'>
-            <button class="tamanho_2" >7</button >
+            <button class="tamanho_2"  (click)="Setjogadoras(6)">7</button >
         </div>
         <div class='botao_8'>
-          <button class="tamanho_2" >8</button >
+          <button class="tamanho_2" (click)="Setjogadoras(3)">8</button >
         </div>
       </div>
     </mat-card>
@@ -38,11 +41,12 @@
     <mat-card class="jogadoras" >
       <table mat-table
        [dataSource]="dataSource" multiTemplateDataRows
-       class="mat-elevation-z8">
+       class="mat-elevation-z8"> 
   <ng-container matColumnDef="{{column}}" *ngFor="let column of columnsToDisplay">
     <th mat-header-cell *matHeaderCellDef> {{column}} </th>
     <td mat-cell *matCellDef="let element"> {{element[column]}} </td>
   </ng-container>
+  
   <ng-container matColumnDef="expand">
     <th mat-header-cell *matHeaderCellDef aria-label="row actions">&nbsp;</th>
     <td mat-cell *matCellDef="let element">
@@ -52,6 +56,15 @@
       </button>
     </td>
   </ng-container>
+  <ng-container>
+    <th mat-header-cell *matHeaderCellDef aria-label="row actions">&nbsp;</th>
+    <td mat-cell *matCellDef="let element">
+      <button mat-icon-button aria-label="button" >
+        oiiiiiiiiii 
+      </button>
+    </td>
+  </ng-container>
+
 
   <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
   <ng-container matColumnDef="expandedDetail">

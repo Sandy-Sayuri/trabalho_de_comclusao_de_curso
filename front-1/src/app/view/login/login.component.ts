@@ -13,6 +13,7 @@ import Swal from 'sweetalert2';
 })
 export class LoginComponent implements OnInit{
   loginForm: FormGroup;
+  tabela : any[];
   redirectTo: string;
   validacao: boolean = false;
   hideSenha:boolean = true;
@@ -23,6 +24,7 @@ export class LoginComponent implements OnInit{
               private router: Router) {
   }
   ngOnInit() {
+    
     Swal.close()
     this.loginForm = this.fb.group({
       username: this.fb.control('', [Validators.required]),
@@ -35,30 +37,27 @@ export class LoginComponent implements OnInit{
     this.loginService.username(usuario)
     let login = this.loginService.login(usuario).subscribe({ 
       next: (retorno:any)=>{ 
-        console.log(retorno);
+        this.tabela=retorno
+        for (let i = 0; i < retorno.length; i++) {
+            this.msgErro=''
+          if(retorno[i].email==usuario.username && retorno[i].password==usuario.password){ 
+            this.router.navigate(['home'])
+            break
+          }
+          // if(retorno[i].email!=usuario.username && retorno[i].password==usuario.password){
+          //   this.msgErro = "Email Incorreto!"
+            
+          // }
+          // if(retorno[i].email==usuario.username && retorno[i].password!=usuario.password){
+          //   this.msgErro = "Senha Incorreta!"
+            
+          // }
+          else{
+            this.msgErro = "Usuário não exite!"
+            break
+          }
+        } 
       }
-
-      //   if(retorno["errors"] != undefined){
-      //     this.validacao = true
-      //   } else {
-      //     if(retorno["tipo"] == 2){
-      //       this.msgErro = "Usuário sem acesso!"
-      //       this.validacao = true
-      //     } else {
-      //       localStorage.setItem(`${environment.STORAGE_NAME}:Token`, JSON.stringify(retorno.access_token))
-      //       // this.loginService.refresh()          
-      //       this.router.navigate(['dashboard'])
-      //     }
-      //   }
-      // }, 
-      // error: ()=>{
-      //   this.msgErro = "Usuário ou senha inválida!"
-      //   this.validacao = true
-      //   console.log("error") 
-      // }, 
-      // complete: ()=>{ 
-      //   login.unsubscribe()  
-      // }
     })
   }
   Users(usuario: Usuario){

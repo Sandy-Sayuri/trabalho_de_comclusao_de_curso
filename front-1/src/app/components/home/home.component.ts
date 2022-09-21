@@ -1,13 +1,6 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { HomeService } from 'src/app/shared/services/home.service';
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-  description: string;
-}
 
 @Component({
   selector: 'app-teste',
@@ -25,35 +18,36 @@ export interface PeriodicElement {
 
 export class testeComponent implements OnInit {
   dataSource : any[];
+  tabela : any[];
   columnsToDisplay = ['name', 'price', 'playerPosition', ];
   columnsToDisplayWithExpand = [...this.columnsToDisplay, 'expand'];
-  expandedElement: PeriodicElement | null;
+  expandedElement:  null;
   constructor(private homeService:HomeService) { }
 
   ngOnInit(): void {
-    console.log('entrei');
     
     this.homeService.listPlayers()
       .subscribe({
         next: result => {
           this.dataSource=result
+          this.tabela=result
         }
       })
     
   }
   
-  // Setjogadoras(n:number){
-  //   let lista=[]
-  //   for (let i = 0; i < this.tabela.length; i++) {
-  //     if(this.tabela[i].posicao==n){
-  //       lista.push(this.tabela[i])
-  //       console.log(lista);
+  Setjogadoras(n:number){
+    let lista=[]
+    for (let i = 0; i < this.tabela.length; i++) {
+      if(this.tabela[i].height==n){
+        lista.push(this.tabela[i])
+        console.log(lista);
         
-  //     }
-  //   }
-  //   this.dataSource=lista 
+      }
+    }
+    this.dataSource=lista 
 
-  // }
+  }
   clickedRows(row:any){
     console.log(row);
   }
