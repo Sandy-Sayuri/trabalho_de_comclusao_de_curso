@@ -44,17 +44,16 @@ export class LoginComponent implements OnInit{
             this.router.navigate(['home'])
             break
           }
-          // if(retorno[i].email!=usuario.username && retorno[i].password==usuario.password){
-          //   this.msgErro = "Email Incorreto!"
+          if(retorno[i].email!=usuario.username && retorno[i].password==usuario.password){
+            this.msgErro = "Email Incorreto!"
             
-          // }
-          // if(retorno[i].email==usuario.username && retorno[i].password!=usuario.password){
-          //   this.msgErro = "Senha Incorreta!"
+          }
+          if(retorno[i].email==usuario.username && retorno[i].password!=usuario.password){
+            this.msgErro = "Senha Incorreta!"
             
-          // }
+          }
           else{
             this.msgErro = "Usuário não exite!"
-            break
           }
         } 
       }
