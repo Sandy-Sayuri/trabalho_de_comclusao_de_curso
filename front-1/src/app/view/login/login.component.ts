@@ -32,6 +32,7 @@ export class LoginComponent implements OnInit{
       conected: this.fb.control(''),
     })
     this.redirectTo = this.activatedRoute.snapshot.params['to'] || btoa('dashboard/home')
+    
   }
   login(usuario: Usuario) {
     this.loginService.username(usuario)
