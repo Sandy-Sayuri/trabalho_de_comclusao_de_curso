@@ -9,7 +9,7 @@
     <mat-card-content>
       <form class="card-top" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px" [formGroup]="loginForm">
         <mat-form-field class="input">
-          <input (input)="validacao = false" matInput 
+          <input (input)="validacao = false" matInput type="email"
           placeholder="Email" formControlName="username">
            <mat-error *ngIf="loginForm.controls">Informe seu email.</mat-error> 
         </mat-form-field>
