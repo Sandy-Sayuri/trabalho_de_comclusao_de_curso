@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit{
     
     Swal.close()
     this.loginForm = this.fb.group({
-      username: this.fb.control('', [Validators.required]),
+      username: this.fb.control('', [Validators.required, Validators.email]),
       password: this.fb.control('', [Validators.required]),
       conected: this.fb.control(''),
     })
@@ -41,23 +41,19 @@ export class LoginComponent implements OnInit{
         for (let i = 1; i <= retorno.length; i++)  {
           this.loginService.users(i).subscribe({ 
               next: (retorno:any)=>{
-                console.log(usuario.username)
-                console.log(retorno.email);
-                console.log(usuario.password)
-                console.log(retorno.password);
               this.msgErro=''
             if(retorno.email==usuario.username && retorno.password==usuario.password){ 
               this.router.navigate(['home'])
             }
             if(retorno.email!=usuario.username && retorno.password==usuario.password){
-              this.msgErro = "Email Incorreto!"
+              Swal.fire({position: 'top-end',icon: 'error', title: "Email Incorreto!"})
               
             }
             if(retorno.email==usuario.username && retorno.password!=usuario.password){
-              this.msgErro = "Senha Incorreta!"
+              Swal.fire({position: 'top-end',icon: 'error', title: "Senha Incorreta!"})
             }
             else{
-              this.msgErro = "Usuário não exite!"
+              Swal.fire({position: 'top-end',icon: 'error', title: "Usuário não exite!"})
             }
           }
         })
