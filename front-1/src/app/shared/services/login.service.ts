@@ -10,9 +10,13 @@ export class LoginService {
     constructor(private http: HttpClient){}
     user:string
     login(usuario: Usuario): Observable<any> {
-        console.log(usuario);
-        console.log(this.apiRef);
         return this.http.get<any>(`${this.apiRef}/users`)
+    }
+    users(n:number): Observable<any>{
+        console.log(n);
+        
+        return this.http.get<any>(`${this.apiRef}/users/${n}`)
+        n=0
     }
     username(usuario: Usuario){
         this.user=usuario.username

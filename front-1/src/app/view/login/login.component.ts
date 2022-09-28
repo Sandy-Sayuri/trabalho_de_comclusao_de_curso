@@ -37,29 +37,34 @@ export class LoginComponent implements OnInit{
   login(usuario: Usuario) {
     this.loginService.username(usuario)
     let login = this.loginService.login(usuario).subscribe({ 
-      next: (retorno:any)=>{ 
-        this.tabela=retorno
-        for (let i = 0; i < retorno.length; i++) {
-            this.msgErro=''
-          if(retorno[i].email==usuario.username && retorno[i].password==usuario.password){ 
-            this.router.navigate(['home'])
-            break
+      next: (retorno:any)=>{  
+        for (let i = 1; i <= retorno.length; i++)  {
+          this.loginService.users(i).subscribe({ 
+              next: (retorno:any)=>{
+                console.log(usuario.username)
+                console.log(retorno.email);
+                console.log(usuario.password)
+                console.log(retorno.password);
+              this.msgErro=''
+            if(retorno.email==usuario.username && retorno.password==usuario.password){ 
+              this.router.navigate(['home'])
+            }
+            if(retorno.email!=usuario.username && retorno.password==usuario.password){
+              this.msgErro = "Email Incorreto!"
+              
+            }
+            if(retorno.email==usuario.username && retorno.password!=usuario.password){
+              this.msgErro = "Senha Incorreta!"
+            }
+            else{
+              this.msgErro = "Usuário não exite!"
+            }
           }
-          if(retorno[i].email!=usuario.username && retorno[i].password==usuario.password){
-            this.msgErro = "Email Incorreto!"
-            
-          }
-          if(retorno[i].email==usuario.username && retorno[i].password!=usuario.password){
-            this.msgErro = "Senha Incorreta!"
-            
-          }
-          else{
-            this.msgErro = "Usuário não exite!"
-          }
-        } 
+        })
       }
-    })
-  }
+    }
+  })
+}
   Users(usuario: Usuario){
     this.loginService.username(usuario)
   }
