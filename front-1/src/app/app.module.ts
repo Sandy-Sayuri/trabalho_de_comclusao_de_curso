@@ -2,6 +2,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { MatPaginatorIntl } from '@angular/material/paginator';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -55,7 +56,8 @@ import { Ranking } from './view/ranking/ranking.component';
   ],
   providers: [ LoginService,
     HomeService,
-    {provide: MatPaginatorIntl, useValue: getPaginatorIntl()}
+    {provide: MatPaginatorIntl, useValue: getPaginatorIntl()},
+    {provide: MAT_DATE_LOCALE, useValue: 'en-GB' }
   ],
   bootstrap: [AppComponent]
 })
