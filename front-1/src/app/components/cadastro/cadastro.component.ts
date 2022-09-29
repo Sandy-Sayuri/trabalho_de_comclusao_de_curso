@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import * as moment from 'moment';
 import { Cadastro } from 'src/app/shared/model/cadastro.module';
 import { CadastroService } from 'src/app/shared/services/cadastro.service';
@@ -23,7 +24,8 @@ export class CadastreComponent implements OnInit {
   msgErro: string;
   value = 'Clear me';
   constructor(public loginService:LoginService,
-              public cadastroService:CadastroService) { }
+              public cadastroService:CadastroService,
+              private router: Router) { }
 
   ngOnInit(): void {
       Swal.close()
@@ -36,33 +38,38 @@ export class CadastreComponent implements OnInit {
       })
   }
  cadastro(cadastro: Cadastro) {
-  
   if(cadastro.senha==cadastro.senha2){
     this.date=moment(cadastro.date).format('DDMMYYYY')
     this.loginService.login().subscribe({ 
       next: (retorno:any)=>{
-        for (let i = 1; i <= retorno.length; i++)  {
+      for (let i = 1; i < retorno.length; i++)  {
+        console.log(retorno[i].email);
         if(retorno[i].email!=undefined){
-            if(retorno[i].email==cadastro.email){ 
-                Swal.fire({position: 'top-end',icon: 'error', title: "Já tem uma conta afiliada e esse email",showConfirmButton:false})
-              break
-            }else{
+            if(retorno[i].email!=cadastro.email){ 
               this.post=1 
+            }else{
+              this.post=0
+              Swal.fire({position: 'top-end',icon: 'error', title: "Já tem uma conta afiliada e esse email",showConfirmButton:false})
+              break
             }
-          }
+        }
+      }
+      console.log(this.post,'saida');
           if(this.post==1){
             this.Cadastro = {
               "email": cadastro.email,
               "name":cadastro.name,
               "birthDate":this.date ,
             }
+            console.log(this.post);
+            
             this.cadastroService.cadastro(this.Cadastro).subscribe({
               next: (() => {
+                this.router.navigate(['loguin'])
 
               })
             })
-          }
-        }  
+          }  
 
       }})
   }
