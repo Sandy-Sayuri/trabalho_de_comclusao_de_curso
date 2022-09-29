@@ -19,6 +19,7 @@ import { MenuComponent } from './components/menu/menu.component';
 import { RankingComponent } from './components/ranking/ranking.component';
 import { MaterialModule } from './material.module';
 import { getPaginatorIntl } from './paginator';
+import { CadastroService } from './shared/services/cadastro.service';
 import { HomeService } from './shared/services/home.service';
 import { LoginService } from './shared/services/login.service';
 import { CadastroComponent } from './view/cadastro/cadastro.component';
@@ -56,6 +57,7 @@ import { Ranking } from './view/ranking/ranking.component';
   ],
   providers: [ LoginService,
     HomeService,
+    CadastroService,
     {provide: MatPaginatorIntl, useValue: getPaginatorIntl()},
     {provide: MAT_DATE_LOCALE, useValue: 'en-GB' }
   ],
