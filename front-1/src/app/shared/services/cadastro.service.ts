@@ -5,21 +5,12 @@ import { environment } from '../../../environments/environment';
 import { Usuario } from "../model/user.module";
 
 @Injectable()
-export class LoginService {	  
+export class CadastroService {	  
     apiRef: string = environment.API_URL; 
     constructor(private http: HttpClient){}
     user:string
-    login(): Observable<any> {
-        return this.http.get<any>(`${this.apiRef}/users`)
-    }
-    users(n:number): Observable<any>{
-        console.log(n);
-        
-        return this.http.get<any>(`${this.apiRef}/users/${n}`)
-        n=0
-    }
-    username(usuario: Usuario){
-        this.user=usuario.username
-    }
+    cadastro(item:any){
+		return this.http.post<any>(`${this.apiRef}/users`, item)
+	}
         
 }
