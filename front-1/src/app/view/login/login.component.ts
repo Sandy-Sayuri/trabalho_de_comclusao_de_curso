@@ -41,19 +41,18 @@ export class LoginComponent implements OnInit{
         for (let i = 1; i <= retorno.length; i++)  {
           this.loginService.users(i).subscribe({ 
               next: (retorno:any)=>{
-              this.msgErro=''
             if(retorno.email==usuario.username && retorno.password==usuario.password){ 
               this.router.navigate(['home'])
             }
             if(retorno.email!=usuario.username && retorno.password==usuario.password){
-              Swal.fire({position: 'top-end',icon: 'error', title: "Email Incorreto!"})
+              Swal.fire({icon: 'error', title: "Email Incorreto!"})
               
             }
             if(retorno.email==usuario.username && retorno.password!=usuario.password){
-              Swal.fire({position: 'top-end',icon: 'error', title: "Senha Incorreta!"})
+              Swal.fire({icon: 'error', title: "Senha Incorreta!"})
             }
             else{
-              Swal.fire({position: 'top-end',icon: 'error', title: "Usuário não exite!"})
+              Swal.fire({icon: 'error', title: "Usuário não exite!"})
             }
           }
         })

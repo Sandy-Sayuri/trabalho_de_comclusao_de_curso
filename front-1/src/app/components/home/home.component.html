@@ -8,30 +8,30 @@
           <div class='botao_2'>
             <button 
               class="tamanho_2"
-              (click)="Setjogadoras(5)"
+              (click)="Setjogadoras('PONTEIRO')"
             >2</button >
           </div>
           <div class='botao_3'>
-            <button  class="tamanho_2"(click)="Setjogadoras(4)">3</button >
+            <button  class="tamanho_2"(click)="Setjogadoras('OPOSTO')">3</button >
           </div>
         </div> 
         <div  class='botao_4'>
-          <button class=tamanho_1>4</button >
+          <button class=tamanho_1 (click)="Setjogadoras('LIBERO')">4</button >
         </div>
         <div class="centro">
           <div class='botao_5'>
-            <button class="tamanho_2" (click)="Setjogadoras(1)">5</button >
+            <button class="tamanho_2" (click)="Setjogadoras('CENTRAL')">5</button >
           </div>
         </div> 
         <div class="fundo">
           <div class='botao_6'>
-            <button class="tamanho_2"  (click)="Setjogadoras(2)">6</button >
+            <button class="tamanho_2"  (click)="Setjogadoras('LEVANTADOR')">6</button >
           </div>
           <div class='botao_7'>
-            <button class="tamanho_2"  (click)="Setjogadoras(6)">7</button >
+            <button class="tamanho_2"  (click)="Setjogadoras('PONTEIRO')">7</button >
         </div>
         <div class='botao_8'>
-          <button class="tamanho_2" (click)="Setjogadoras(3)">8</button >
+          <button class="tamanho_2" (click)="Setjogadoras('LIBERO')">8</button >
         </div>
       </div>
     </mat-card>

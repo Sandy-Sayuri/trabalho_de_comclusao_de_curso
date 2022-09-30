@@ -36,10 +36,12 @@ export class testeComponent implements OnInit {
     
   }
   
-  Setjogadoras(n:number){
+  Setjogadoras(n:string){
     let lista=[]
+    console.log(n);
+    
     for (let i = 0; i < this.tabela.length; i++) {
-      if(this.tabela[i].height==n){
+      if(this.tabela[i].playerPosition==n){
         lista.push(this.tabela[i])
         console.log(lista);
         

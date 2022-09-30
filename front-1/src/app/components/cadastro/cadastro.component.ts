@@ -49,7 +49,7 @@ export class CadastreComponent implements OnInit {
               this.post=1 
             }else{
               this.post=0
-              Swal.fire({position: 'top-end',icon: 'error', title: "Já tem uma conta afiliada e esse email",showConfirmButton:false})
+              Swal.fire({icon: 'error', title: "Já tem uma conta afiliada e esse email",showConfirmButton:false})
               break
             }
         }
@@ -60,6 +60,7 @@ export class CadastreComponent implements OnInit {
               "email": cadastro.email,
               "name":cadastro.name,
               "birthDate":this.date ,
+              "password":cadastro.senha
             }
             console.log(this.post);
             
