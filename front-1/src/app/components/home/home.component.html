@@ -8,30 +8,34 @@
           <div class='botao_2'>
             <button 
               class="tamanho_2"
-              (click)="Setjogadoras('PONTEIRO')"
-            >2</button >
+              (click)="Setjogadoras('PONTEIRO',2)"
+            ><p *ngIf=" name_2 == undefined">2</p>
+            <img *ngIf="name_2 != undefined" src="../../../assets/jogadoras/{{name_2}}.png"  ></button >
           </div>
           <div class='botao_3'>
-            <button  class="tamanho_2"(click)="Setjogadoras('OPOSTO')">3</button >
+            <button  class="tamanho_2"(click)="Setjogadoras('OPOSTO',3)">3</button >
           </div>
         </div> 
         <div  class='botao_4'>
-          <button class=tamanho_1 (click)="Setjogadoras('LIBERO')">4</button >
+          <button class=tamanho_1 (click)="Setjogadoras('LIBERO',4)">4</button >
         </div>
         <div class="centro">
           <div class='botao_5'>
-            <button class="tamanho_2" (click)="Setjogadoras('CENTRAL')">5</button >
+            <button class="tamanho_2" (click)="Setjogadoras('CENTRAL',5)">
+              <p *ngIf=" name_5 == undefined">5</p>
+              <img *ngIf="name_5 != undefined" src="../../../assets/jogadoras/{{name_5}}.png"  >
+            </button >
           </div>
         </div> 
         <div class="fundo">
           <div class='botao_6'>
-            <button class="tamanho_2"  (click)="Setjogadoras('LEVANTADOR')">6</button >
+            <button class="tamanho_2"  (click)="Setjogadoras('LEVANTADOR',6)">6</button >
           </div>
           <div class='botao_7'>
-            <button class="tamanho_2"  (click)="Setjogadoras('PONTEIRO')">7</button >
+            <button class="tamanho_2"  (click)="Setjogadoras('PONTEIRO',7)">7</button >
         </div>
         <div class='botao_8'>
-          <button class="tamanho_2" (click)="Setjogadoras('LIBERO')">8</button >
+          <button class="tamanho_2" (click)="Setjogadoras('LIBERO',8)">8</button >
         </div>
       </div>
     </mat-card>
@@ -56,14 +60,16 @@
       </button>
     </td>
   </ng-container>
-  <ng-container>
-    <th mat-header-cell *matHeaderCellDef aria-label="row actions">&nbsp;</th>
-    <td mat-cell *matCellDef="let element">
-      <button mat-icon-button aria-label="button" >
-        oiiiiiiiiii 
+  <ng-container matColumnDef="teste">
+    <th mat-header-cell *matHeaderCellDef aria-label="row "></th>
+    <td mat-cell *matCellDef="let elements">
+      <button mat-icon-button aria-label="expand row" (click)="clickedRows(elements)">
+        <mat-icon *ngIf="check ==false">radio_button_unchecked</mat-icon>
+        <mat-icon *ngIf="check ==true">check_circle</mat-icon>
       </button>
     </td>
   </ng-container>
+  
 
 
   <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
@@ -85,11 +91,9 @@
     </td>
   </ng-container>
 
-  <tr mat-header-row *matHeaderRowDef="columnsToDisplayWithExpand"></tr>
-  <tr mat-row *matRowDef="let element; columns: columnsToDisplayWithExpand;"
-      class="example-element-row"
-      [class.example-expanded-row]="expandedElement === element"
-      (click)="expandedElement = expandedElement === element ? null : element">
+  <tr mat-header-row *matHeaderRowDef="columnsButton"></tr>
+  <tr mat-row *matRowDef="let element; columns: columnsButton;"
+      class="row">
   </tr>
   <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
 </table>

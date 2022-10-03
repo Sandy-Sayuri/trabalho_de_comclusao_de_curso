@@ -51,6 +51,7 @@ table {
   }
 @media  (max-width:2100px) {
     mat-card{
+        background-color: blueviolet;
         padding: 8pt;
     }
     .home{
@@ -75,7 +76,7 @@ table {
     .card{
         border-radius: 10px;
         height: 100%;
-        width: 370pt;
+        width: 450pt;
         background-size: 100%;
         background-image: url('../../../assets/Meia_quadra.png');
         background-repeat: no-repeat;
@@ -96,21 +97,21 @@ table {
         border-radius: 50%;
     }
     .tamanho_2{
-        width: 40px;
-        height: 40px;
+        width: 45px;
+        height: 45px;
         border-radius: 50%;
     }
     .frente{
-        padding-top: 10px;
-        padding-left: 40pt;
+        padding-top: 30px;
+        padding-left: 60pt;
     }
     .centro{
         padding-top: 5px;
-        padding-left: 160pt;
+        padding-left: 200pt;
     }
     .fundo{
-        padding-top: 160px;
-        padding-left: 20pt;
+        padding-top: 200px;
+        padding-left: 40pt;
     }
     .botao_1{
         padding-top: 120pt;
@@ -122,7 +123,7 @@ table {
     }
     .botao_3{
         display: inline-block;
-        padding-left: 110pt;  
+        padding-left: 130pt;  
     }
     .botao_6{
         display: inline-block;
@@ -130,12 +131,12 @@ table {
     }
     .botao_7{
         display: inline-block;
-        padding-left: 80pt;
+        padding-left: 95pt;
         
     }
     .botao_8{
         display: inline-block;
-        padding-left: 80pt;
+        padding-left: 95pt;
     }
 }
 @media  (max-width:1090px) {
