@@ -28,12 +28,12 @@ table {
   }
   
   .example-element-diagram {
-    min-width: 80px;
+    min-width: 100px;
     border: 2px solid black;
     padding: 8px;
     font-weight: lighter;
     margin: 8px 0;
-    height: 104px;
+    height: 150px;
   }
   
   .example-element-symbol {
