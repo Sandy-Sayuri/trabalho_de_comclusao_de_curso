@@ -3,7 +3,7 @@
     height: 60%;
 }
 table {
-    width: 100%;
+    width: 90%;
   }
   
   tr.example-detail-row {
@@ -49,31 +49,31 @@ table {
   .example-element-description-attribution {
     opacity: 0.5;
   }
-@media  (max-width:2100px) {
+
     mat-card{
-        background-color: blueviolet;
         padding: 8pt;
     }
     .home{
         height: 90%;
         width: 100%;
+        overflow: hidden;
     }
     .right{
         height: 100%;
-        width: 50%;
+        width: 40%;
         float: left;
     }
     .left{
         height: 100%;
-        width: 50%;
+        width: 60%;
         float: right;
     }
     .campo{
         height: 100%;
         width: 100%;
-        padding: 30px;
     }
     .card{
+        background-color: blueviolet;
         border-radius: 10px;
         height: 100%;
         width: 450pt;
@@ -87,9 +87,8 @@ table {
         padding: 20px;
       }
     .jogadoras{
-        height: 100%;
-        width: 100%;
-        padding: 30px;
+        height: 60%;
+        width: 97%;
     }
     .tamanho_1{
         width: 39px;
@@ -138,186 +137,4 @@ table {
         display: inline-block;
         padding-left: 95pt;
     }
-}
-@media  (max-width:1090px) {
-    mat-card{
-        padding: 8pt;
-        background-color:crimson ;
-    }
-    .home{
-        height: 90%;
-        width: 100%;
-    }
-    .right{
-        height: 100%;
-        width: 50%;
-        float: left;
-    }
-    .left{
-        height: 100%;
-        width: 50%;
-        float: right;
-    }
-    .campo{
-        height: 100%;
-        width: 100%;
-        padding: 30px;
-    }
-    .card{
-        border-radius: 10px;
-        height: 95%;
-        width: 350pt;
-        background-size: 100%;
-        background-image: url('../../../assets/Meia_quadra.png');
-        background-repeat: no-repeat;
-        
-    }
-    table {
-        width: 100%;
-        padding: 20px;
-      }
-    .jogadoras{
-        height: 100%;
-        width: 100%;
-        padding: 30px;
-    }
-    .tamanho_1{
-        width: 39px;
-        height: 39px;
-        border-radius: 50%;
-    }
-    .tamanho_2{
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-    }
-    .frente{
-        padding-top: 10px;
-        padding-left: 40pt;
-    }
-    .centro{
-        padding-top: 5px;
-        padding-left: 160pt;
-    }
-    .fundo{
-        padding-top: 160px;
-        padding-left: 20pt;
-    }
-    .botao_1{
-        padding-top: 120pt;
-        padding-left: 5pt;
-    }
-    .botao_2{
-        display: inline-block;
-        padding-left: 50pt;
-    }
-    .botao_3{
-        display: inline-block;
-        padding-left: 110pt;  
-    }
-    .botao_6{
-        display: inline-block;
-        padding-left: 40pt;   
-    }
-    .botao_7{
-        display: inline-block;
-        padding-left: 80pt;
-        
-    }
-    .botao_8{
-        display: inline-block;
-        padding-left: 80pt;
-    }
-}
-@media  (max-width:1060px) {
-    mat-card{
-        padding: 8pt;
-        background-color:chartreuse ;
-    }
-    .home{
-        height: 90%;
-        width: 100%;
-    }
-    .right{
-        height: 100%;
-        width: 50%;
-        float: left;
-    }
-    .left{
-        height: 100%;
-        width: 50%;
-        float: right;
-    }
-    .campo{
-        height: 100%;
-        width: 100%;
-        padding: 30px;
-    }
-    .card{
-        border-radius: 10px;
-        height: 95%;
-        width: 350pt;
-        background-size: 100%;
-        background-image: url('../../../assets/Meia_quadra.png');
-        background-repeat: no-repeat;
-        
-    }
-    table {
-        width: 100%;
-        padding: 20px;
-      }
-    .jogadoras{
-        height: 100%;
-        width: 100%;
-        padding: 30px;
-    }
-    .tamanho_1{
-        width: 39px;
-        height: 39px;
-        border-radius: 50%;
-    }
-    .tamanho_2{
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-    }
-    .frente{
-        padding-top: 10px;
-        padding-left: 40pt;
-    }
-    .centro{
-        padding-top: 5px;
-        padding-left: 160pt;
-    }
-    .fundo{
-        padding-top: 160px;
-        padding-left: 20pt;
-    }
-    .botao_1{
-        padding-top: 120pt;
-        padding-left: 5pt;
-    }
-    .botao_2{
-        display: inline-block;
-        padding-left: 50pt;
-    }
-    .botao_3{
-        display: inline-block;
-        padding-left: 110pt;  
-    }
-    .botao_6{
-        display: inline-block;
-        padding-left: 40pt;   
-    }
-    .botao_7{
-        display: inline-block;
-        padding-left: 80pt;
-        
-    }
-    .botao_8{
-        display: inline-block;
-        padding-left: 80pt;
-    }
-}
 
-    

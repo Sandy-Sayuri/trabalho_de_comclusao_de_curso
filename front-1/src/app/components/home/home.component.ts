@@ -1,6 +1,7 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { HomeService } from 'src/app/shared/services/home.service';
+import { LoginService } from 'src/app/shared/services/login.service';
 
 @Component({
   selector: 'app-teste',
@@ -26,20 +27,28 @@ export class testeComponent implements OnInit {
   name_3:string
   name_4:string
   name_5:string
+  name_6:string
+  name_7:string
+  name_8:string
   jogadora_2:string
   jogadora_3:string
   jogadora_4:string
   jogadora_5:string
+  jogadora_6:string
+  jogadora_7:string
+  jogadora_8:string
   score="score"
   columnsToDisplay = ['name', 'price', 'playerPosition'];
   columnsScore=[...this.columnsToDisplay,'ataque','saque','bloqueio','passe']
   columnsToDisplayWithExpand = [...this.columnsScore, 'expand'];
   columnsButton = [...this.columnsToDisplayWithExpand, 'teste'];
   expandedElement:  null;
-  constructor(private homeService:HomeService) { }
+  id:number
+  constructor(private homeService:HomeService,
+    public LoginService: LoginService) { }
 
   ngOnInit(): void {
-    
+    this.id=this.LoginService.dados
     this.homeService.listPlayers()
       .subscribe({
         next: result => {
@@ -48,8 +57,6 @@ export class testeComponent implements OnInit {
           
         }
       })
-      
-    
   }
   
   Setjogadoras(posição:string, n:number){
@@ -81,9 +88,21 @@ export class testeComponent implements OnInit {
         this.jogadora_4=row.id
         break;
       case 5:
-          this.name_5=row.name
-          this.jogadora_5=row.id;
-          break;
+        this.name_5=row.name
+        this.jogadora_5=row.id;
+        break;
+      case 6:
+        this.name_6=row.name
+        this.jogadora_6=row.id;
+        break;
+      case 7:
+        this.name_7=row.name
+        this.jogadora_7=row.id;
+        break;
+      case 8:
+        this.name_8=row.name
+        this.jogadora_8=row.id;
+        break;
       default:
         console.log(`Sorry, we are out of `)
         break
