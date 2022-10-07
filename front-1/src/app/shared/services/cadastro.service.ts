@@ -10,7 +10,6 @@ export class CadastroService {
     constructor(private http: HttpClient){}
     
     cadastro(item:JSON): Observable<any>{
-
 		return this.http.post<any>(`https://tcc2022unip.herokuapp.com/users`, item)
 	}
         

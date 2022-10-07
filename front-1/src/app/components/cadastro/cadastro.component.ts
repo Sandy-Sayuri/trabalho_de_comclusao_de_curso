@@ -40,20 +40,7 @@ export class CadastreComponent implements OnInit {
  cadastro(cadastro: Cadastro) {
   if(cadastro.senha==cadastro.senha2){
     this.date=moment(cadastro.date).format('DDMMYYYY')
-    this.loginService.login().subscribe({ 
-      next: (retorno:any)=>{
-      for (let i = 1; i < retorno.length; i++)  {
-        console.log(retorno[i].email);
-        if(retorno[i].email!=undefined){
-            if(retorno[i].email!=cadastro.email){ 
-              this.post=1 
-            }else{
-              this.post=0
-              Swal.fire({icon: 'error', title: "Já tem uma conta afiliada e esse email",showConfirmButton:false})
-              break
-            }
-        }
-      }
+     this.post=1 
       console.log(this.post,'saida');
           if(this.post==1){
             this.Cadastro =   {
@@ -62,17 +49,18 @@ export class CadastreComponent implements OnInit {
               "birthDate":`${this.date}` ,
               "password":`${cadastro.senha}`
             }
-            console.log(this.post);
             
             this.cadastroService.cadastro(this.Cadastro).subscribe({
-              next: (() => {
-                this.router.navigate(['loguin'])
-
-              })
-            })
-          }  
-
-      }})
+                next:(()=>{	
+                  this.router.navigate(['loguin'])
+                }),		
+          error: (err) => {
+          if(err.error.status==400){
+          Swal.fire({icon: 'error', title: "Email já afiliado a uma conta!"})
+        }    
+      }
+    })
+   }  
   }
   else{
     this.msgErro='as senhas não são iguais'
