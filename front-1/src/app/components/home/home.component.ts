@@ -19,26 +19,31 @@ import { HomeService } from 'src/app/shared/services/home.service';
 export class testeComponent implements OnInit {
   dataSource : any[];
   tabela : any[];
+  lista: any[];
+  check:any[];
   botão:number
   name_2:string
-  check:boolean
   name_5:string
-  columnsToDisplay = ['name', 'price', 'playerPosition', ];
-  columnsToDisplayWithExpand = [...this.columnsToDisplay, 'expand'];
+  score="score"
+  columnsToDisplay = ['name', 'price', 'playerPosition'];
+  columnsScore=[...this.columnsToDisplay,'ataque','saque','bloqueio','passe']
+  columnsToDisplayWithExpand = [...this.columnsScore, 'expand'];
   columnsButton = [...this.columnsToDisplayWithExpand, 'teste'];
   expandedElement:  null;
   constructor(private homeService:HomeService) { }
 
   ngOnInit(): void {
-    this.check=false
     
     this.homeService.listPlayers()
       .subscribe({
         next: result => {
           this.dataSource=result
           this.tabela=result
+          console.log(this.dataSource[0].score.saque);
+          
         }
       })
+      
     
   }
   
@@ -55,7 +60,6 @@ export class testeComponent implements OnInit {
     }
     this.dataSource=lista 
     this.botão=n
-    console.log(this.botão);
     
   }
   clickedRows(row:any){
@@ -70,13 +74,14 @@ export class testeComponent implements OnInit {
         break;
       case 5:
           this.name_5=row.name
+          this.lista.push(row.name)
+          console.log(this.lista);
+          
           break;
       default:
         console.log(`Sorry, we are out of `)
         break
     }
-    console.log(row);
-    console.log(this.botão);
   }
  
   public executeSelectedChange = (event :any) => {
