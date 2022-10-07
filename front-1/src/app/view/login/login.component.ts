@@ -35,13 +35,13 @@ export class LoginComponent implements OnInit{
     
   }
   login(usuario: Usuario) {
-    this.loginService.username(usuario)
     let login = this.loginService.login().subscribe({ 
       next: (retorno:any)=>{  
         for (let i = 1; i <= retorno.length; i++)  {
           this.loginService.users(i).subscribe({ 
               next: (retorno:any)=>{
             if(retorno.email==usuario.username && retorno.password==usuario.password){ 
+              this.loginService.username(retorno)
               this.router.navigate(['home'])
             }
             if(retorno.email!=usuario.username && retorno.password==usuario.password){

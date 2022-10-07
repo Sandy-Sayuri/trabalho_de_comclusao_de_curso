@@ -23,7 +23,13 @@ export class testeComponent implements OnInit {
   check:any[];
   botão:number
   name_2:string
+  name_3:string
+  name_4:string
   name_5:string
+  jogadora_2:string
+  jogadora_3:string
+  jogadora_4:string
+  jogadora_5:string
   score="score"
   columnsToDisplay = ['name', 'price', 'playerPosition'];
   columnsScore=[...this.columnsToDisplay,'ataque','saque','bloqueio','passe']
@@ -39,7 +45,6 @@ export class testeComponent implements OnInit {
         next: result => {
           this.dataSource=result
           this.tabela=result
-          console.log(this.dataSource[0].score.saque);
           
         }
       })
@@ -54,7 +59,6 @@ export class testeComponent implements OnInit {
     for (let i = 0; i < this.tabela.length; i++) {
       if(this.tabela[i].playerPosition==posição){
         lista.push(this.tabela[i])
-        console.log(lista, 'lista');
         
       }
     }
@@ -66,17 +70,19 @@ export class testeComponent implements OnInit {
     switch (this.botão) {
       case 2:
         this.name_2=row.name
+        this.jogadora_2=row.id
         break;
       case 3:
+        this.name_3=row.name
+        this.jogadora_3=row.id
         break
       case 4:
-        console.log('Mangoes and papayas are $2.79 a pound.');
+        this.name_4=row.name
+        this.jogadora_4=row.id
         break;
       case 5:
           this.name_5=row.name
-          this.lista.push(row.name)
-          console.log(this.lista);
-          
+          this.jogadora_5=row.id;
           break;
       default:
         console.log(`Sorry, we are out of `)

@@ -8,18 +8,18 @@ import { Usuario } from "../model/user.module";
 export class LoginService {	  
     apiRef: string = environment.API_URL; 
     constructor(private http: HttpClient){}
-    user:string
+dados:number
     login(): Observable<any> {
         return this.http.get<any>(`${this.apiRef}/users`)
     }
     users(n:number): Observable<any>{
-        console.log(n);
         
         return this.http.get<any>(`${this.apiRef}/users/${n}`)
         n=0
     }
-    username(usuario: Usuario){
-        this.user=usuario.username
+    username(dados:any){
+        this.dados=dados.id
+
     }
         
 }

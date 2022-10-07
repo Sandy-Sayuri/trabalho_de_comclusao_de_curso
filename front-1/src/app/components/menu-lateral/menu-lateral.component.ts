@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Observable } from 'rxjs';
 import { LoginService } from 'src/app/shared/services/login.service';
 import { LoginComponent } from 'src/app/view/login/login.component';
 
@@ -9,14 +10,20 @@ import { LoginComponent } from 'src/app/view/login/login.component';
 })
 export class MenuLateralComponent implements OnInit {
   @Output() sidenavClose = new EventEmitter();
-
-  constructor(public LoginService: LoginService) { }
   usuario:string
   pontuacao:number
+  constructor(public LoginService: LoginService) { }
+  id:number
   estilo:false
   ngOnInit() {
-    this.usuario=this.LoginService.user
-    this.pontuacao=200
+    this.id=this.LoginService.dados
+    this.LoginService.users(this.id).subscribe({ 
+      next: (retorno:any)=>{
+        this.usuario=retorno.name
+        this.pontuacao=retorno.team.total
+      }
+    })
+
 
   }
  
