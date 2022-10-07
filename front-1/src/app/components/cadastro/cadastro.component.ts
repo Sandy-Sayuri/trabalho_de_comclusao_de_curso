@@ -56,11 +56,11 @@ export class CadastreComponent implements OnInit {
       }
       console.log(this.post,'saida');
           if(this.post==1){
-            this.Cadastro = {
-              "email": cadastro.email,
-              "name":cadastro.name,
-              "birthDate":this.date ,
-              "password":cadastro.senha
+            this.Cadastro =   {
+              "email": `${cadastro.email}`,
+              "name":`${cadastro.name}`,
+              "birthDate":`${this.date}` ,
+              "password":`${cadastro.senha}`
             }
             console.log(this.post);
             

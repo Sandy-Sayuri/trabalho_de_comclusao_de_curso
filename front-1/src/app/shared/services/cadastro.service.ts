@@ -9,8 +9,9 @@ export class CadastroService {
     apiRef: string = environment.API_URL; 
     constructor(private http: HttpClient){}
     
-    cadastro(item:any): Observable<any>{
-		return this.http.post<any>(`${this.apiRef}/users`, item)
+    cadastro(item:JSON): Observable<any>{
+
+		return this.http.post<any>(`https://tcc2022unip.herokuapp.com/users`, item)
 	}
         
 }
