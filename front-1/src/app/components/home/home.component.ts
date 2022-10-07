@@ -108,6 +108,18 @@ export class testeComponent implements OnInit {
         break
     }
   }
+  Salvar_time(){
+    this.LoginService.users(this.id).subscribe({ 
+      next: (retorno:any)=>{
+        console.log(retorno);
+        
+        if(retorno.tean==undefined){
+
+        }
+        
+      }
+    })
+  }
  
   public executeSelectedChange = (event :any) => {
     console.log(event);
