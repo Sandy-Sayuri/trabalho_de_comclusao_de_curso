@@ -1,7 +1,9 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { HomeService } from 'src/app/shared/services/home.service';
 import { LoginService } from 'src/app/shared/services/login.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-teste',
@@ -22,6 +24,7 @@ export class testeComponent implements OnInit {
   tabela : any[];
   lista: any[];
   check:any[];
+  Time:any
   botão:number
   name_2:string
   name_3:string
@@ -45,10 +48,14 @@ export class testeComponent implements OnInit {
   expandedElement:  null;
   id:number
   constructor(private homeService:HomeService,
-    public LoginService: LoginService) { }
+    public LoginService: LoginService,
+    private router: Router,) { }
 
   ngOnInit(): void {
     this.id=this.LoginService.dados
+    if(this.id==undefined){
+      this.router.navigateByUrl('/login')
+    }
     this.homeService.listPlayers()
       .subscribe({
         next: result => {
@@ -109,16 +116,67 @@ export class testeComponent implements OnInit {
     }
   }
   Salvar_time(){
+  if(this.jogadora_2!=null && this.jogadora_3!=null && this.jogadora_4!=null && this.jogadora_5!=null && this.jogadora_6!=null && this.jogadora_7!=null &&this.jogadora_8!=null){
     this.LoginService.users(this.id).subscribe({ 
       next: (retorno:any)=>{
-        console.log(retorno);
-        
-        if(retorno.tean==undefined){
-
+        if(retorno.tean==null){
+          Swal.fire({
+            title: ' Cadastre de um time',
+            input: 'text',
+            inputAttributes: {
+              autocapitalize: 'off'
+            },
+            showCancelButton: true,
+            confirmButtonText: 'save',
+            showLoaderOnConfirm: true,
+            preConfirm: (time) => {
+              this.Time =   {
+                "name":`${time}`,
+                "user":{
+                  "id":`${this.id}`
+                }
+              }
+              return this.homeService.criateteam(this.Time).subscribe({
+              next:(result)=>{	
+                console.log(result);
+                },		
+            error: (err) => {
+            console.log(err);  
         }
-        
+        })
+        },
+            allowOutsideClick: () => !Swal.isLoading()
+          }).then((result) => {
+            if (result.isConfirmed) {
+              Swal.fire({
+                icon:'success',
+                title: 'Time cadastrado',
+                text:`As jogadoras que vão ser add no time são: ${this.name_2},${this.name_3},${this.name_4},${this.name_5},${this.name_6},${this.name_7},${this.name_8}`,
+                showDenyButton: true,
+                showCancelButton: true,
+                confirmButtonText: 'Save',
+                denyButtonText: `Don't save`,
+              }).then((result) => {
+                if (result.isConfirmed) {
+                  //falta mandar o id do time  antes de mandar o alerte de sucesseo
+                  Swal.fire('Saved!', '', 'success')
+                } else if (result.isDenied) {
+                  Swal.fire('Changes are not saved', '', 'info')
+                }
+              })
+            }
+          })
+
+        }else{
+          console.log(retorno);
+        }  
       }
     })
+   }
+   else if(this.jogadora_2==null || this.jogadora_3==null || this.jogadora_4==null || this.jogadora_5==null || this.jogadora_6==null || this.jogadora_7==null ||this.jogadora_8==null){
+    Swal.fire({icon: 'error', title: "Você esqueceu de selecionar as jogadora!!",text:'Só é possivel jogar se você selecionar um jogadora para cada um das posições'})
+
+   }
   }
  
   public executeSelectedChange = (event :any) => {

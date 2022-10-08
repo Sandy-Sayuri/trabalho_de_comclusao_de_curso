@@ -14,6 +14,12 @@ export class HomeService {
    listPlayers(): Observable<any[]>{  
       return this.http.get<any[]>(`${this.apiRef}/players`) 	   
    }
+   criateteam(team:JSON):Observable<any[]>{
+      return this.http.post<any[]>(`${this.apiRef}/team`,team)
+   }
+   altualizarteam(id_jogadora:number, id_time:number):Observable<any[]>{
+      return this.http.post<any[]>(`${this.apiRef}/players${id_jogadora}/`,id_time)
+   }
 
    
        

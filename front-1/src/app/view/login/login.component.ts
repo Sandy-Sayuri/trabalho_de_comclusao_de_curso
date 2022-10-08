@@ -37,8 +37,11 @@ export class LoginComponent implements OnInit{
   login(usuario: Usuario) {
     let login = this.loginService.login().subscribe({ 
       next: (retorno:any)=>{  
-        for (let i = 1; i <= retorno.length; i++)  {
-          this.loginService.users(i).subscribe({ 
+        console.log(retorno);
+        for (let i = 0; i < retorno.length; i++)  {
+          console.log(retorno.length);
+          
+          this.loginService.users(retorno[i].id).subscribe({ 
               next: (retorno:any)=>{
             if(retorno.email==usuario.username && retorno.password==usuario.password){ 
               this.loginService.username(retorno)
