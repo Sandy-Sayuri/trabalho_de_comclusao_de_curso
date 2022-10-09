@@ -32,15 +32,13 @@
 .example-full-width {
     width: 100%;
 }
-.btn-success{
-    background-color:#F28907 ;
-}
-button{
-    margin-left: 100px;
-    width: 10em;
+.button{
     display: inline-block;
+    padding: 10px;
 }
-
-
+.voltar{
+    display: inline-block;
+    padding-right: 140px;
+}
 
 

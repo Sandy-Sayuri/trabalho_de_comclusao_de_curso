@@ -36,15 +36,21 @@
           <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
         <div class="button">
+          <div class="voltar">
+          <button mat-raised-button 
+          color="primary"  
+          routerLink="/login" 
+          style="color:white;display: inline-block; background-color: #F28907;" >voltar
+          </button>
+          </div>
           <button mat-raised-button
           color="orenge" 
           [disabled]="cadastroForm.invalid" 
           (click)="cadastro(cadastroForm.value)" 
-          style="color:white; "
-          class="btn-success">Adicionar
+          style="color:white; display: inline-block;  background-color: #F28907;"
+          >Cadastrar
           </button>
-          <button mat-raised-button color="primary"  routerLink="/login" style="color:white; "class="btn-success">voltar
-          </button>
+  
         </div>
       </form>    
     </mat-card-content>
