@@ -39,17 +39,15 @@ export class CadastreComponent implements OnInit {
   }
  cadastro(cadastro: Cadastro) {
   if(cadastro.senha==cadastro.senha2){
-    this.date=moment(cadastro.date).format('DDMMYYYY')
+    this.date=moment(cadastro.date).format('DD/MM/YYYY')
      this.post=1 
-      console.log(this.post,'saida');
           if(this.post==1){
             this.Cadastro =   {
               "email": `${cadastro.email}`,
               "name":`${cadastro.name}`,
               "birthDate":`${this.date}` ,
               "password":`${cadastro.senha}`
-            }
-            
+            }           
             this.cadastroService.cadastro(this.Cadastro).subscribe({
                 next:(()=>{	
                   this.router.navigate(['loguin'])

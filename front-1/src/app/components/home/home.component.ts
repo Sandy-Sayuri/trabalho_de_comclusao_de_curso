@@ -23,8 +23,10 @@ export class testeComponent implements OnInit {
   dataSource : any[];
   tabela : any[];
   lista: any[];
+  lista_jogadora:any[];
   check:any[];
   Time:any
+  id_time:number
   botão:number
   name_2:string
   name_3:string
@@ -33,13 +35,13 @@ export class testeComponent implements OnInit {
   name_6:string
   name_7:string
   name_8:string
-  jogadora_2:string
-  jogadora_3:string
-  jogadora_4:string
-  jogadora_5:string
-  jogadora_6:string
-  jogadora_7:string
-  jogadora_8:string
+  jogadora_2:number
+  jogadora_3:number
+  jogadora_4:number
+  jogadora_5:number
+  jogadora_6:number
+  jogadora_7:number
+  jogadora_8:number
   score="score"
   columnsToDisplay = ['name', 'price', 'playerPosition'];
   columnsScore=[...this.columnsToDisplay,'ataque','saque','bloqueio','passe']
@@ -116,10 +118,12 @@ export class testeComponent implements OnInit {
     }
   }
   Salvar_time(){
-  if(this.jogadora_2!=null && this.jogadora_3!=null && this.jogadora_4!=null && this.jogadora_5!=null && this.jogadora_6!=null && this.jogadora_7!=null &&this.jogadora_8!=null){
+  this.lista_jogadora=[this.jogadora_2,this.jogadora_3,this.jogadora_4,this.jogadora_5,this.jogadora_6,this.jogadora_7,this.jogadora_8]
+  // if(this.jogadora_2!=null && this.jogadora_3!=null && this.jogadora_4!=null && this.jogadora_5!=null && this.jogadora_6!=null && this.jogadora_7!=null &&this.jogadora_8!=null){
     this.LoginService.users(this.id).subscribe({ 
       next: (retorno:any)=>{
-        if(retorno.tean==null){
+        console.log(retorno);
+        if(retorno.team==null){
           Swal.fire({
             title: ' Cadastre de um time',
             input: 'text',
@@ -138,7 +142,14 @@ export class testeComponent implements OnInit {
               }
               return this.homeService.criateteam(this.Time).subscribe({
               next:(result)=>{	
-                console.log(result);
+                return this.LoginService.users(this.id).subscribe({
+                  next:(result)=>{	
+                    this.id_time=result.team.id
+
+                  }
+
+                })
+
                 },		
             error: (err) => {
             console.log(err);  
@@ -153,30 +164,61 @@ export class testeComponent implements OnInit {
                 title: 'Time cadastrado',
                 text:`As jogadoras que vão ser add no time são: ${this.name_2},${this.name_3},${this.name_4},${this.name_5},${this.name_6},${this.name_7},${this.name_8}`,
                 showDenyButton: true,
-                showCancelButton: true,
                 confirmButtonText: 'Save',
                 denyButtonText: `Don't save`,
               }).then((result) => {
                 if (result.isConfirmed) {
-                  //falta mandar o id do time  antes de mandar o alerte de sucesseo
-                  Swal.fire('Saved!', '', 'success')
+                  for (let i = 2; i <=this.lista_jogadora.length; i++) {
+                    this.homeService.altualizarteam(this.lista_jogadora[i],this.id_time).subscribe({
+                      next:()=>{
+                          Swal.fire('Salvado suas jogadoras', '', 'success')
+                      }
+                    })
+                  }
+                  
                 } else if (result.isDenied) {
-                  Swal.fire('Changes are not saved', '', 'info')
+                  Swal.fire('OKKK ! jogadoras não salvas', '', 'error')
                 }
               })
             }
           })
 
         }else{
-          console.log(retorno);
+          this.LoginService.users(this.id).subscribe({
+            next:(result)=>{
+              this.id_time=result.team.id
+            }
+          })
+          Swal.fire({
+            icon:'success',
+            title: 'Time cadastrado',
+            text:`As jogadoras que vão ser add no time são: ${this.name_2},${this.name_3},${this.name_4},${this.name_5},${this.name_6},${this.name_7},${this.name_8}`,
+            showDenyButton: true,
+            confirmButtonText: 'Save',
+            denyButtonText: `Don't save`,
+          }).then((result) => {
+            if (result.isConfirmed) {
+              for (let i = 2; i <=this.lista_jogadora.length; i++) {
+                this.homeService.altualizarteam(this.lista_jogadora[i],this.id_time).subscribe({
+                  next:()=>{
+                      Swal.fire('Salvado suas jogadoras', '', 'success')
+                  }
+                })
+              }
+              
+            } else if (result.isDenied) {
+              Swal.fire('OKKK ! jogadoras não salvas', '', 'error')
+            }
+          })
         }  
       }
     })
-   }
-   else if(this.jogadora_2==null || this.jogadora_3==null || this.jogadora_4==null || this.jogadora_5==null || this.jogadora_6==null || this.jogadora_7==null ||this.jogadora_8==null){
-    Swal.fire({icon: 'error', title: "Você esqueceu de selecionar as jogadora!!",text:'Só é possivel jogar se você selecionar um jogadora para cada um das posições'})
+  //  }
+  //  else if(this.jogadora_2==null || this.jogadora_3==null || this.jogadora_4==null || this.jogadora_5==null || this.jogadora_6==null || this.jogadora_7==null ||this.jogadora_8==null){
+  //   Swal.fire({icon: 'error', title: "Você esqueceu de selecionar uma/umas das jogadora/s!!",text:'Só é possivel jogar se você selecionar um jogadora para cada um das posições'})
 
-   }
+  //  }
+  // }
   }
  
   public executeSelectedChange = (event :any) => {

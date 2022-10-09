@@ -17,7 +17,13 @@ export class MenuLateralComponent implements OnInit {
     private router: Router,) { }
   id:number
   estilo:false
+  time: any[]
   ngOnInit() {
+  this.LoginService.users(this.id).subscribe({
+      next:(result)=>{	
+        this.time=result.team
+      }
+    })
     this.id=this.LoginService.dados
     if(this.id==undefined){
       this.router.navigateByUrl('/login')
