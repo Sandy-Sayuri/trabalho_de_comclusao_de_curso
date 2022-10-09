@@ -33,12 +33,15 @@
     width: 100%;
 }
 .button{
-    display: inline-block;
     padding: 10px;
 }
 .voltar{
     display: inline-block;
-    padding-right: 140px;
+    float: left;
+}
+.cadastro{
+    display: inline-block;
+    float: right;
 }
 
 

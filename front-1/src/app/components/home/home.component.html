@@ -6,46 +6,64 @@
         </div>
         <div class="frente">
           <div class='botao_2'>
-            <button 
+            <button mat-flat-button 
+            style="background-color: rgba(76, 175, 80, 0.0);" 
               class="tamanho_2"
               (click)="Setjogadoras('PONTEIRO',2)">
-              <p *ngIf=" name_2 == undefined">2</p>
-              <img *ngIf="name_2 != undefined" src="../../../assets/jogadoras/{{name_2}}.png"></button >
-          </div>
-          <div class='botao_3'>
-            <button  class="tamanho_2"(click)="Setjogadoras('OPOSTO',3)">
-              <p *ngIf=" name_3 == undefined"></p>
-              <img *ngIf="name_3 != undefined" src="../../../assets/jogadoras/{{name_3}}.png"  ></button >
-          </div>
-        </div> 
-        <div  class='botao_4'>
-          <button class=tamanho_1 (click)="Setjogadoras('LIBERO',4)">
-            <p *ngIf=" name_4 == undefined"></p>
-            <img *ngIf="name_4 != undefined" src="../../../assets/jogadoras/{{name_4}}.png"  ></button >
-        </div>
-        <div class="centro">
-          <div class='botao_5'>
-            <button class="tamanho_2" (click)="Setjogadoras('CENTRAL',5)">
-              <p *ngIf=" name_5 == undefined">5</p>
-              <img *ngIf="name_5 != undefined" src="../../../assets/jogadoras/{{name_5}}.png"  >
+              <img class='jog-4'*ngIf="name_2 != undefined" src="../../../assets/jogadoras/{{name_2}}.png">
+              <img class='camisa'*ngIf=" name_2 == undefined" src="../../../assets/CAMISA.png">
             </button >
           </div>
+          <div class='botao_5'>
+            <button mat-flat-button 
+            style="background-color: rgba(76, 175, 80, 0.0);" 
+            class="tamanho_2" 
+            (click)="Setjogadoras('CENTRAL',5)">
+              <img class='camisa'*ngIf=" name_5== undefined" src="../../../assets/CAMISA.png">
+              <img class='jog-4' style="background-color: brown"*ngIf="name_5 != undefined" src="../../../assets/jogadoras/{{name_5}}.png"> 
+            </button >
+          </div>
+          <div class='botao_3'>
+            <button  mat-flat-button 
+            style="background-color: rgba(76, 175, 80, 0.0);" 
+            class="tamanho_2"
+            (click)="Setjogadoras('OPOSTO',3)">
+            <img class='camisa'*ngIf=" name_3 == undefined" src="../../../assets/CAMISA.png">
+              <img class='jog-4'*ngIf="name_3 != undefined" src="../../../assets/jogadoras/{{name_3}}.png"  ></button >
+          </div>
+          <div  class='botao_4'>
+            <button mat-flat-button 
+            style="background-color: rgba(76, 175, 80, 0.0);" 
+            class=tamanho_2
+            (click)="Setjogadoras('LIBERO',4)">
+            <img class='camisa'*ngIf=" name_4== undefined" src="../../../assets/CAMISA.png">
+            <img  class='jog-4'*ngIf="name_4 != undefined"  src="../../../assets/jogadoras/{{name_4}}.png"></button >
+          </div>
+          <div class='botao_7'>
+            <button  mat-flat-button 
+            style="background-color: rgba(76, 175, 80, 0.0);" 
+            class="tamanho_2"  
+            (click)="Setjogadoras('PONTEIRO',7)">
+              <img class='camisa'*ngIf=" name_7== undefined" src="../../../assets/CAMISA.png">
+              <img class='jog-4' *ngIf="name_7 != undefined" src="../../../assets/jogadoras/{{name_7}}.png"></button>
+        </div> 
         </div> 
         <div class="fundo">
           <div class='botao_6'>
-            <button class="tamanho_2"  (click)="Setjogadoras('LEVANTADOR',6)"> 
-              <p *ngIf=" name_6 == undefined">6</p>
-              <img *ngIf="name_6 != undefined" src="../../../assets/jogadoras/{{name_6}}.png"></button >
+            <button mat-flat-button 
+            style="background-color: rgba(76, 175, 80, 0.0);" 
+            class="tamanho_2" 
+            (click)="Setjogadoras('LEVANTADOR',6)"> 
+              <img class='camisa'*ngIf=" name_6== undefined" src="../../../assets/CAMISA.png">
+              <img class='jog-4'*ngIf="name_6 != undefined" src="../../../assets/jogadoras/{{name_6}}.png"></button >
           </div>
-          <div class='botao_7'>
-            <button class="tamanho_2"  (click)="Setjogadoras('PONTEIRO',7)">
-              <p *ngIf=" name_7 == undefined">7</p>
-              <img *ngIf="name_7 != undefined" src="../../../assets/jogadoras/{{name_7}}.png"></button>
-        </div>
         <div class='botao_8'>
-          <button class="tamanho_2" (click)="Setjogadoras('LIBERO',8)">
-            <p *ngIf=" name_8== undefined">8</p>
-            <img *ngIf="name_8 != undefined" src="../../../assets/jogadoras/{{name_8}}.png"></button>
+          <button mat-flat-button 
+          style="background-color: rgba(76, 175, 80, 0.0);" 
+          class="tamanho_2"
+           (click)="Setjogadoras('LIBERO',8)">
+           <img class='camisa'*ngIf=" name_8== undefined" src="../../../assets/CAMISA.png">
+            <img class='jog-4' *ngIf="name_8 != undefined" src="../../../assets/jogadoras/{{name_8}}.png"></button>
         </div>
       </div>
     </mat-card>
@@ -97,7 +115,7 @@
       <div class="example-element-detail"
            [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
         <div class="example-element-diagram">
-          <img src="../../../assets/jogadoras/{{element.name}}.png"  >
+          <img  class='jogadora'src="../../../assets/jogadoras/{{element.name}}.png"  >
           <br>
           
         </div>
@@ -119,7 +137,7 @@
   </tr>
   <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
 </table>
-<button mat-raised-button color="primary"(click)="Salvar_time()" class="salvar">Salvar time</button>
+<button mat-raised-button color="primary"(click)="Salvar_time()" style="background-color:#0066ff ;" class="salvar">Salvar time</button>
     </mat-card>
   </div>
 </section>  

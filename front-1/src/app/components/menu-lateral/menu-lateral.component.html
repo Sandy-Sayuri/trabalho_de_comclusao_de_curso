@@ -3,7 +3,6 @@
         <img src="../../../assets/Usuario.png" alt="usuario" class="Usuario">
         <p class="welcome">Bem vindo! {{usuario}}</p>
         <p class="welcome"*ngIf="pontuacao!=undefined">Pontuação: {{pontuacao}}</p>
-        <button mat-raised-button  color="primary" [disabled]="time!=undefined">Mudar nome do time</button>
     </div>
     <mat-nav-list class="teste">
         <a (click)="onSidenavClose(estilo)"
@@ -15,8 +14,8 @@
         <a mat-list-item routerLink="/ranking" (click)="onSidenavClose(estilo)" >
             <mat-icon>emoji_events</mat-icon> <span >Ranking</span>   
         </a>
+        <a mat-list-item (click)="teste(estilo)" >
+            <mat-icon>settings</mat-icon> <span >Opções</span>   
+        </a>
     </mat-nav-list>
-    <footer>
-        <button mat-raised-button  color="primary">excluir conta</button>
-    </footer>
 </div>

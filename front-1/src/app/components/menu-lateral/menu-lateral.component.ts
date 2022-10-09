@@ -25,9 +25,9 @@ export class MenuLateralComponent implements OnInit {
       }
     })
     this.id=this.LoginService.dados
-    if(this.id==undefined){
-      this.router.navigateByUrl('/login')
-    }else{
+    // if(this.id==undefined){
+    //   this.router.navigateByUrl('/login')
+    // }else{
       this.LoginService.users(this.id).subscribe({ 
         next: (retorno:any)=>{
           this.usuario=retorno.name
@@ -35,10 +35,14 @@ export class MenuLateralComponent implements OnInit {
         }
       })
      
-    }
+    // }
     
   }
-
+teste=(estilo:boolean)=>{
+  this.sidenavClose.emit();
+    estilo=true
+    
+}
  
   public onSidenavClose = (estilo:boolean) => {
     this.sidenavClose.emit();

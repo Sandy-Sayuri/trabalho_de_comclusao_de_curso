@@ -54,10 +54,10 @@ export class testeComponent implements OnInit {
     private router: Router,) { }
 
   ngOnInit(): void {
-    this.id=this.LoginService.dados
-    if(this.id==undefined){
-      this.router.navigateByUrl('/login')
-    }
+    // this.id=this.LoginService.dados
+    // if(this.id==undefined){
+    //   this.router.navigateByUrl('/login')
+    // }
     this.homeService.listPlayers()
       .subscribe({
         next: result => {
