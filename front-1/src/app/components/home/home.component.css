@@ -1,6 +1,7 @@
 
 table {
     width: 90%;
+    overflow: hidden;
   }
   
   tr.example-detail-row {
@@ -53,6 +54,8 @@ table {
     .home{
         height: 90%;
         width: 100%;
+        overflow-x: hidden;
+        overflow: hidden;
     }
     .right{
         height: 100%;
