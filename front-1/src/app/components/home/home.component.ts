@@ -70,8 +70,6 @@ export class testeComponent implements OnInit {
   
   Setjogadoras(posição:string, n:number){
     let lista=[]
-    console.log(posição,n);
-    
     for (let i = 0; i < this.tabela.length; i++) {
       if(this.tabela[i].playerPosition==posição){
         lista.push(this.tabela[i])

@@ -1,7 +1,8 @@
 
 table {
     width: 90%;
-    overflow: hidden;
+ 
+    overflow-x: hidden;
   }
   
   tr.example-detail-row {
@@ -54,8 +55,7 @@ table {
     .home{
         height: 90%;
         width: 100%;
-        overflow-x: hidden;
-        overflow: hidden;
+
     }
     .right{
         height: 100%;
@@ -72,10 +72,9 @@ table {
         width: 100%;
     }
     .card{
-        background-color: blueviolet;
         border-radius: 10px;
-        height: 100%;
-        width: 456pt;
+        height: 97%;
+        width: 505pt;
         background-size: 100%;
         background-image: url('../../../assets/Quadra_metade_com_banco_2.png');
         background-repeat: no-repeat;
@@ -85,12 +84,6 @@ table {
         width: 100%;
         padding: 20px;
       }
-    .jogadoras{
-        height: auto;
-        width: 93%;
-        padding-top: 0;
-        padding: 60px;
-    }
 
     .tamanho_2{
       width: 120px;
