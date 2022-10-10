@@ -19,15 +19,12 @@ export class MenuLateralComponent implements OnInit {
   estilo:false
   time: any[]
   ngOnInit() {
-  this.LoginService.users(this.id).subscribe({
-      next:(result)=>{	
-        this.time=result.team
-      }
-    })
-    this.id=this.LoginService.dados
-    // if(this.id==undefined){
-    //   this.router.navigateByUrl('/login')
-    // }else{
+  this.id=this.LoginService.dados
+    console.log(this.id);
+    
+    if(this.id==undefined){
+      this.router.navigateByUrl('/login')
+    }else{
       this.LoginService.users(this.id).subscribe({ 
         next: (retorno:any)=>{
           this.usuario=retorno.name
@@ -35,7 +32,7 @@ export class MenuLateralComponent implements OnInit {
         }
       })
      
-    // }
+    }
     
   }
 teste=(estilo:boolean)=>{

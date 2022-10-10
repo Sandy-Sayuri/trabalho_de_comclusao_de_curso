@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit{
   login(usuario: Usuario) {
     let login = this.loginService.login().subscribe({ 
       next: (retorno:any)=>{  
-        console.log(retorno);
+        console.log(retorno,'teste');
         for (let i = 0; i < retorno.length; i++)  {
           console.log(retorno.length);
           

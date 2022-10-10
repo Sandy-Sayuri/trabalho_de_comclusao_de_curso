@@ -54,10 +54,10 @@ export class testeComponent implements OnInit {
     private router: Router,) { }
 
   ngOnInit(): void {
-    // this.id=this.LoginService.dados
-    // if(this.id==undefined){
-    //   this.router.navigateByUrl('/login')
-    // }
+    this.id=this.LoginService.dados
+    if(this.id==undefined){
+      this.router.navigateByUrl('/login')
+    }
     this.homeService.listPlayers()
       .subscribe({
         next: result => {
@@ -138,8 +138,7 @@ export class testeComponent implements OnInit {
                   "id":`${this.id}`
                 }
               }
-              return this.homeService.criateteam(this.Time).subscribe({
-              next:(result)=>{	
+              return this.homeService.criateteam(this.Time).subscribe({next:(result)=>{	
                 return this.LoginService.users(this.id).subscribe({
                   next:(result)=>{	
                     this.id_time=result.team.id
