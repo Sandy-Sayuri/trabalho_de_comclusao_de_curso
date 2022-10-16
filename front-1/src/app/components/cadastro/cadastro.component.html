@@ -37,18 +37,14 @@
         </mat-form-field>
         <div class="button">
           <div class="voltar">
-          <button mat-raised-button 
-          color="primary"  
-          routerLink="/login" 
-          style="color:white;display: inline-block; background-color: #F28907;" >voltar
+          <button mat-raised-button  
+          routerLink="/login" >voltar
           </button>
           </div>
             <div class="cadastro">
           <button mat-raised-button
-          color="orenge" 
           [disabled]="cadastroForm.invalid" 
           (click)="cadastro(cadastroForm.value)" 
-          style="color:white; display: inline-block;  background-color: #F28907;"
           >Cadastrar
           </button>
             </div>
@@ -61,4 +57,3 @@
     </mat-card-footer>
   </mat-card>
 </section>
-<app-footer></app-footer>
