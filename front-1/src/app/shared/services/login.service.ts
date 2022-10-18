@@ -11,8 +11,10 @@ export class LoginService {
     constructor(private http: HttpClient,
         private router: Router,){}
 dados:number
-    login(): Observable<any> {
-        return this.http.get<any>(`${this.apiRef}/users`)
+    login(usuario: Usuario): Observable<any> {
+        console.log(usuario);
+        
+        return this.http.post<any>(`${this.apiRef}/login`,usuario)
     }
     users(n:number): Observable<any>{
         return this.http.get<any>(`${this.apiRef}/users/${n}`)
