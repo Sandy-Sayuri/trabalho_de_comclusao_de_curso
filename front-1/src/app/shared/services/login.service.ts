@@ -14,7 +14,7 @@ dados:number
     login(usuario: Usuario): Observable<any> {
         console.log(usuario);
         
-        return this.http.post<any>(`${this.apiRef}/login`,usuario)
+        return this.http.post<any>(`${this.apiRef}/auth`,usuario)
     }
     users(n:number): Observable<any>{
         return this.http.get<any>(`${this.apiRef}/users/${n}`)

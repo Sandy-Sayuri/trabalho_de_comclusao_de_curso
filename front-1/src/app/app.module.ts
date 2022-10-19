@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -25,6 +25,7 @@ import { LoginService } from './shared/services/login.service';
 import { CadastroComponent } from './view/cadastro/cadastro.component';
 import { HomeComponent } from './view/home/home.component';
 import { LoginComponent } from './view/login/login.component';
+import { AuthInterceptor } from './view/login/login.interceptor';
 import { Ranking } from './view/ranking/ranking.component';
 
 
@@ -59,6 +60,7 @@ import { Ranking } from './view/ranking/ranking.component';
     HomeService,
     CadastroService,
     {provide: MatPaginatorIntl, useValue: getPaginatorIntl()},
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     {provide: MAT_DATE_LOCALE, useValue: 'en-GB' }
   ],
   bootstrap: [AppComponent]
