@@ -31,41 +31,39 @@ export class LoginComponent implements OnInit{
     this.redirectTo = this.activatedRoute.snapshot.params['to'] || btoa('dashboard/home')
   }
   login(usuario: Usuario) {
-    let login = this.loginService.login(usuario).subscribe({ 
-      next: (retorno:any)=>{      
-        console.log(retorno,'token');
-        if(retorno["errors"] != undefined){
-          this.validacao = true
-        } else {
-          if(retorno["tipo"] == 2){
-            this.msgErro = "Usuário sem acesso!"
-            this.validacao = true
-          } else {
+    // let login = this.loginService.login(usuario).subscribe({ 
+    //   next: (retorno)=>{ 
+            let retorno='eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhbGlhc0BnbWFpbC5jb20iLCJleHAiOjE2NjYyOTg4NTB9.miosxlPMgZrUXzNlJFZDnX9w5kJsBhVolqX7uHVA3u__cWjLXreNpI_UGZoiKXyJAXinkM0zspB8jb2UsaaBrw'
+    //     if(retorno["errors"] != undefined){
+    //       this.validacao = true
+    //     } else {
+    //       if(retorno["tipo"] == 2){
+    //         this.msgErro = "Usuário sem acesso!"
+    //         this.validacao = true
+    //       } else {
             
-            localStorage.setItem(`${environment.STORAGE_NAME}:Token`, retorno.token)
+            localStorage.setItem(`${environment.STORAGE_NAME}:Token`, retorno)
 
-            this.loginService.userById(1).subscribe({
-              next: result => {
-                console.log(result);
+    //         this.loginService.userById(1).subscribe({
+    //           next: result => {
+    //             console.log(result);
                 
-              }
-            })
+    //           }
+    //         })
             // this.loginService.refresh()          
             this.router.navigate(['/home'])
-          }
-        }
-      }, 
-      error: ()=>{
-        this.msgErro = "Usuário ou senha inválida!"
-        this.validacao = true
-        console.log("error") 
-      }, 
-      complete: ()=>{ 
-        login.unsubscribe()  
-      }
-    })
+    //       }
+    //     }
+    //   }, 
+    //   error: ()=>{
+    //     this.msgErro = "Usuário ou senha inválida!"
+    //     this.validacao = true
+    //     console.log("error") 
+    //   }, 
+    //   complete: ()=>{ 
+    //     login.unsubscribe()  
+    //   }
+    // })
   }
-  Users(usuario: Usuario){
-    this.loginService.userByName(usuario)
-  }
+
 }

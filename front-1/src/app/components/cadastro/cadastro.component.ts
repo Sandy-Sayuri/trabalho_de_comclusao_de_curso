@@ -50,7 +50,7 @@ export class CadastreComponent implements OnInit {
             }           
             this.cadastroService.cadastro(this.Cadastro).subscribe({
                 next:(()=>{	
-                  this.router.navigate(['loguin'])
+                  this.router.navigate(['login'])
                 }),		
           error: (err) => {
           if(err.error.status==400){

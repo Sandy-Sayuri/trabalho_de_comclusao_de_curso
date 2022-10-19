@@ -13,8 +13,7 @@ export class AuthInterceptor implements HttpInterceptor {
 				private router: Router){}
 	
 	intercept(request: HttpRequest<any>, next:HttpHandler): Observable<HttpEvent<any>>{
-		let token = localStorage.getItem(`${environment.STORAGE_NAME}:Token`);
-		console.log(token);
+		let token = localStorage.getItem(`${environment.STORAGE_NAME}:Token`)
 		
 		if (token) {		
 			
