@@ -25,7 +25,7 @@ export class MenuLateralComponent implements OnInit {
     if(this.id==undefined){
       this.router.navigateByUrl('/login')
     }else{
-      this.LoginService.users(this.id).subscribe({ 
+      this.LoginService.userById(this.id).subscribe({ 
         next: (retorno:any)=>{
           this.usuario=retorno.name
           this.pontuacao=retorno.team.total

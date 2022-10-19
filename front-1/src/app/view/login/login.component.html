@@ -9,22 +9,18 @@
     <mat-card-content>
       <form class="card-top" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px" [formGroup]="loginForm">
         <mat-form-field class="input">
-          <input (input)="validacao = false" matInput type="email"
+          <input (input)="validacao = false" matInput 
           placeholder="Email" formControlName="email">
-           <mat-error *ngIf="loginForm.controls">Informe seu email.</mat-error> 
+           <!-- <mat-error *ngIf="loginForm.controls.username.invalid">Informe seu nome de usuário.</mat-error>  -->
         </mat-form-field>
         <mat-form-field class="input"> 
           <input (input)="validacao = false" [type]="hideSenha ? 'password' : 'text'" matInput placeholder="Senha" formControlName="password">
           <mat-icon matSuffix (click)="hideSenha = !hideSenha" class="linkPointer" style="font-size: 100%;">{{hideSenha ? 'visibility_off' : 'visibility'}}</mat-icon>
-          <mat-error *ngIf="loginForm.controls">Insira sua senha.</mat-error> 
+          <!-- <mat-error *ngIf="loginForm.controls.password.invalid">Insira sua senha.</mat-error>  -->
         </mat-form-field>
         <section class="sectionLogin">
           <div class="button">
-            <button 
-            mat-button color="primary"
-             style="color:white; "
-             class="btn-success" 
-            (click)="login(loginForm.value)">Entrar</button>
+            <button mat-button color="primary" style="color:white; "class="btn-success"routerLink="/home" (click)="login(loginForm.value)">Entrar</button>
           </div>
         </section>
         <section class="sectionLogin">
@@ -33,8 +29,7 @@
       </form>      
     </mat-card-content>
     <mat-card-footer style="text-align: center; padding-bottom: 5px;">
-        <p style="color:red; margin-top: -20px; padding-bottom: 5px;"><strong>{{msgErro}}</strong></p>
+        <p [hidden]="!validacao" style="color:red; margin-top: -20px; padding-bottom: 5px;"><strong>{{msgErro}}</strong></p>
     </mat-card-footer>
   </mat-card>
 </section>
-

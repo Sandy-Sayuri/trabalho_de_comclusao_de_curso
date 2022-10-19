@@ -10,21 +10,25 @@ export class LoginService {
     apiRef: string = environment.API_URL; 
     constructor(private http: HttpClient,
         private router: Router,){}
-dados:number
+
+    dados:number
+
     login(usuario: Usuario): Observable<any> {
         console.log(usuario);
         
-        return this.http.post<any>(`${this.apiRef}/auth`,usuario)
+        return this.http.post<any>(`${this.apiRef}/login`,usuario)
     }
-    users(n:number): Observable<any>{
-        return this.http.get<any>(`${this.apiRef}/users/${n}`)
+
+    userById(n:number): Observable<any>{
+        return this.http.get<any>(`${this.apiRef}/user/findbyid/${n}`) //s/${n}`)
     }
-    username(dados:any){
-        console.log(dados.id,'id-teste');
-        if(dados.id!= undefined){
+
+    userByName(dados:any){
+        console.log(dados,"dados");
+        if(dados.name!= undefined){
             this.router.navigateByUrl('/login')
         }
-        this.dados=dados.id
+        this.dados=dados.name
     }
         
 }

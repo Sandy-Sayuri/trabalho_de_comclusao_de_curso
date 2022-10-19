@@ -13,7 +13,6 @@ import Swal from 'sweetalert2';
 })
 export class LoginComponent implements OnInit{
   loginForm: FormGroup;
-  tabela : any[];
   redirectTo: string;
   validacao: boolean = false;
   hideSenha:boolean = true;
@@ -24,23 +23,49 @@ export class LoginComponent implements OnInit{
               private router: Router) {
   }
   ngOnInit() {
-    
     Swal.close()
     this.loginForm = this.fb.group({
-      email: this.fb.control('', [Validators.required, Validators.email]),
+      email: this.fb.control('', [Validators.required]),
       password: this.fb.control('', [Validators.required]),
     })
     this.redirectTo = this.activatedRoute.snapshot.params['to'] || btoa('dashboard/home')
-    
   }
   login(usuario: Usuario) {
-    this.loginService.login(usuario).subscribe( 
-      retorno=>{
-        
-      }) 
-       
-}
+    let login = this.loginService.login(usuario).subscribe({ 
+      next: (retorno:any)=>{      
+        console.log(retorno,'token');
+        if(retorno["errors"] != undefined){
+          this.validacao = true
+        } else {
+          if(retorno["tipo"] == 2){
+            this.msgErro = "Usuário sem acesso!"
+            this.validacao = true
+          } else {
+            
+            localStorage.setItem(`${environment.STORAGE_NAME}:Token`, retorno.token)
+
+            this.loginService.userById(1).subscribe({
+              next: result => {
+                console.log(result);
+                
+              }
+            })
+            // this.loginService.refresh()          
+            this.router.navigate(['/home'])
+          }
+        }
+      }, 
+      error: ()=>{
+        this.msgErro = "Usuário ou senha inválida!"
+        this.validacao = true
+        console.log("error") 
+      }, 
+      complete: ()=>{ 
+        login.unsubscribe()  
+      }
+    })
+  }
   Users(usuario: Usuario){
-    this.loginService.username(usuario)
+    this.loginService.userByName(usuario)
   }
 }

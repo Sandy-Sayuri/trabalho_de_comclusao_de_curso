@@ -118,7 +118,7 @@ export class testeComponent implements OnInit {
   Salvar_time(){
   this.lista_jogadora=[this.jogadora_2,this.jogadora_3,this.jogadora_4,this.jogadora_5,this.jogadora_6,this.jogadora_7,this.jogadora_8]
   // if(this.jogadora_2!=null && this.jogadora_3!=null && this.jogadora_4!=null && this.jogadora_5!=null && this.jogadora_6!=null && this.jogadora_7!=null &&this.jogadora_8!=null){
-    this.LoginService.users(this.id).subscribe({ 
+    this.LoginService.userById(this.id).subscribe({ 
       next: (retorno:any)=>{
         console.log(retorno);
         if(retorno.team==null){
@@ -139,7 +139,7 @@ export class testeComponent implements OnInit {
                 }
               }
               return this.homeService.criateteam(this.Time).subscribe({next:(result)=>{	
-                return this.LoginService.users(this.id).subscribe({
+                return this.LoginService.userById(this.id).subscribe({
                   next:(result)=>{	
                     this.id_time=result.team.id
 
@@ -181,7 +181,7 @@ export class testeComponent implements OnInit {
           })
 
         }else{
-          this.LoginService.users(this.id).subscribe({
+          this.LoginService.userById(this.id).subscribe({
             next:(result)=>{
               this.id_time=result.team.id
             }
