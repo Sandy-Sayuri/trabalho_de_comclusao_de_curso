@@ -14,21 +14,20 @@ export class LoginService {
     dados:number
 
     login(usuario: Usuario): Observable<any> {
-        console.log(usuario);
-        
         return this.http.post<any>(`${this.apiRef}/login`,usuario)
     }
 
     userById(n:number): Observable<any>{
-        return this.http.get<any>(`${this.apiRef}/user/findbyid/${n}`) //s/${n}`)
+        console.log(n);
+        
+        return this.http.get<any>(`${this.apiRef}/users/${n}`)
     }
 
     userByName(dados:any){
-        console.log(dados,"dados");
-        if(dados.name!= undefined){
-            this.router.navigateByUrl('/login')
-        }
-        this.dados=dados.name
+        dados=1
+        let token=localStorage.getItem(`${environment.STORAGE_NAME}:Token`)
+        console.log(token);
+        
     }
         
 }

@@ -19,8 +19,8 @@ export class MenuLateralComponent implements OnInit {
   estilo:false
   time: any[]
   ngOnInit() {
-  this.id=this.LoginService.dados
-    console.log(this.id);
+  this.id=2
+    console.log(this.id,'teste');
     
     if(this.id==undefined){
       this.router.navigateByUrl('/login')
