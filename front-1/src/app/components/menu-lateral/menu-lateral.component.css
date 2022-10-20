@@ -11,14 +11,14 @@
 .welcome{
     font-size: larger;
     text-align: center;
-    color:#D97700 ;
+    color:#7acfc4;;
     font-weight: 900;
 }
 a:hover{
     color: rgb(255, 208, 105);
 }
 a:active{
-    background-color: #D97700; 
+    background-color:#7acfc4; 
     color: white;
 }
 

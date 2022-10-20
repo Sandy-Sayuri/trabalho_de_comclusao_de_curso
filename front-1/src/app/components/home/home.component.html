@@ -72,10 +72,10 @@
 
   <div class="left">
     <div class="teste">
+ 
     <table mat-table
        [dataSource]="dataSource" multiTemplateDataRows
        class="mat-elevation-z8"> 
->
   <ng-container matColumnDef="{{column}}" *ngFor="let column of columnsToDisplay">
     <th mat-header-cell *matHeaderCellDef> {{column}}</th>
     <td mat-cell *matCellDef="let element "> {{element[column]}}</td>
@@ -137,11 +137,22 @@
       class="row">
   </tr>
   <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+   
 </table>
-<mat-paginator [pageSize]="5"[length]="resultsLength" aria-label="Select page of users"></mat-paginator>
-<button mat-raised-button color="primary"(click)="Salvar_time()" style="background-color:#0066ff ;" class="salvar">Salvar time</button>
+ <div class="botao_tabela" >
+  <div class="botao_atras">
+    <button mat-raised-button style="background-color:#0066ff ;"color="primary"[disabled]="this.pagina==0" class="botao_tabela" (click)="Atras(5)">
+      <mat-icon>arrow_forward_ios</mat-icon>
+    </button>
+  </div>
+  <div class="botao_frente">
+    <button mat-raised-button style="background-color:#0066ff ;"color="primary"class="botao_tabela"[disabled]="this.mais_pagina==false" (click)="Frente(5)">
+      <mat-icon>arrow_back_ios</mat-icon>
+    </button>
+  </div>
+</div>
+<button mat-raised-button color="primary"(click)="Salvar_time()" style="background-color:#0066ff ;" class="salvar" *ngIf="this.botao!=null">Salvar time</button>
   </div>
 </div>
 </section>  
-<app-footer></app-footer>
   

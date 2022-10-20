@@ -5,6 +5,21 @@ table {
 
     
   }
+  .botao_tabela{
+    width: 100%
+  }
+  .botao_atras{
+    float: right;
+    background-color:#0066ff;
+    display: inline-block;
+    width: 50%
+  }
+  .botao_frente{
+    float: right;
+    background-color:#0066ff;
+    display: inline-block;
+    width: 50%
+  }
   
   tr.example-detail-row {
     height: 0;
@@ -66,15 +81,16 @@ table {
     .left{
         height: 100%;
         width: 50%;
-        float: right;}
+        float: right;
+      }
     .campo{
         height: 100%;
         width: 100%;
     }
     .card{
         border-radius: 10px;
-        height: 97%;
-        width: 505pt;
+        height: 90%;
+        width: 500pt;
         background-size: 100%;
         background-image: url('../../../assets/Quadra_metade_com_banco_2.png');
         background-repeat: no-repeat;

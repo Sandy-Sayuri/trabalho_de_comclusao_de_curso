@@ -26,8 +26,11 @@ export class testeComponent implements OnInit {
   lista_jogadora:any[];
   check:any[];
   Time:any
+  ate:number
+  pagina:number
+  mais_pagina:boolean
   id_time:number
-  botão:number
+  botao:number
   name_2:string
   name_3:string
   name_4:string
@@ -55,17 +58,52 @@ export class testeComponent implements OnInit {
     private router: Router,) { }
 
   ngOnInit(): void {
-
     this.homeService.listPlayers()
       .subscribe({
         next: result => {
-          this.dataSource=result
-          this.tabela=result
-          
+         let lista=[] 
+         this.tabela=result 
+        for (let i = 1; i <= 5; i++) {
+          lista.push(result[i])
+        }
+        this.dataSource=lista
+        this.ate=5
+        this.pagina=0
         }
       })
   }
-  
+  Frente(n:number){
+    this.ate=this.ate+n
+    this.pagina=this.pagina + n
+    if(this.tabela.length>=this.ate){
+      let lista=[] 
+      for (let i = this.pagina; i <= this.ate; i++) {
+        lista.push(this.tabela[i])
+      }
+      this.dataSource=lista
+      this.mais_pagina=true
+    }else{
+      let lista=[] 
+      for (let i = this.pagina; i < this.tabela.length; i++) {
+        lista.push(this.tabela[i]) 
+      }
+      this.dataSource=lista
+      this.mais_pagina=false
+      
+      
+    }
+    
+  }
+  Atras(n:number){
+    let lista=[]
+    for(let i = this.pagina; i > this.pagina-5; i--){ 
+        lista.push(this.tabela[i]) 
+    }
+    this.dataSource=lista
+    this.pagina=this.pagina - n
+    this.mais_pagina=true
+    console.log(this.pagina);
+  }
   Setjogadoras(posição:string, n:number){
     let lista=[]
     for (let i = 0; i < this.tabela.length; i++) {
@@ -75,11 +113,11 @@ export class testeComponent implements OnInit {
       }
     }
     this.dataSource=lista 
-    this.botão=n
+    this.botao=n
     
   }
   clickedRows(row:any){
-    switch (this.botão) {
+    switch (this.botao) {
       case 2:
         this.name_2=row.name
         this.jogadora_2=row.id
