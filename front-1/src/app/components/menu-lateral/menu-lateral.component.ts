@@ -19,9 +19,10 @@ export class MenuLateralComponent implements OnInit {
   estilo:false
   time: any[]
   ngOnInit() {
-  this.id=2
-    console.log(this.id,'teste');
-    
+    this.id=2
+//   this.LoginService.userByName().then((res:any) => {
+//   console.log(res,'teste');
+//   this.id=res
     if(this.id==undefined){
       this.router.navigateByUrl('/login')
     }else{
@@ -31,8 +32,9 @@ export class MenuLateralComponent implements OnInit {
           this.pontuacao=retorno.team.total
         }
       })
-     
     }
+// })
+ 
     
   }
 teste=(estilo:boolean)=>{

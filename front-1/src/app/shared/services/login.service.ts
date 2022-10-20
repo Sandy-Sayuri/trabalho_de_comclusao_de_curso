@@ -4,6 +4,7 @@ import { Router } from "@angular/router";
 import { Observable } from "rxjs";
 import { environment } from '../../../environments/environment';
 import { Usuario } from "../model/user.module";
+import jwt_decode from "jwt-decode";
 
 @Injectable()
 export class LoginService {	  
@@ -11,8 +12,8 @@ export class LoginService {
     constructor(private http: HttpClient,
         private router: Router,){}
 
-    dados:number
-
+    dados:any
+    decoded:any
     login(usuario: Usuario): Observable<any> {
         return this.http.post<any>(`${this.apiRef}/login`,usuario)
     }
@@ -23,10 +24,16 @@ export class LoginService {
         return this.http.get<any>(`${this.apiRef}/users/${n}`)
     }
 
-    userByName(dados:any){
-        dados=1
-        let token=localStorage.getItem(`${environment.STORAGE_NAME}:Token`)
-        console.log(token);
+    async userByName(): Promise<any>{
+        this.dados=2
+        this.decoded = jwt_decode(`${localStorage.getItem(`${environment.STORAGE_NAME}:Token`)}`);
+        if(this.decoded!=null){
+            return await this.decoded['sub']
+        }else{
+            return  this.dados
+        }
+        
+        
         
     }
         
