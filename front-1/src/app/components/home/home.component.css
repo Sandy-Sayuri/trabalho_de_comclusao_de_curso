@@ -1,8 +1,9 @@
 
 table {
     width: 90%;
- 
     overflow-x: hidden;
+
+    
   }
   
   tr.example-detail-row {
@@ -64,9 +65,8 @@ table {
     }
     .left{
         height: 100%;
-        width: 60%;
-        float: right;
-    }
+        width: 50%;
+        float: right;}
     .campo{
         height: 100%;
         width: 100%;
@@ -83,6 +83,7 @@ table {
     table {
         width: 100%;
         padding: 20px;
+
       }
 
     .tamanho_2{
