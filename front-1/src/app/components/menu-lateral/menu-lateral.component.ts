@@ -2,6 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { LoginService } from 'src/app/shared/services/login.service';
+import { MenuService } from 'src/app/shared/services/menu.service';
 import { LoginComponent } from 'src/app/view/login/login.component';
 import Swal from 'sweetalert2';
 
@@ -15,10 +16,11 @@ export class MenuLateralComponent implements OnInit {
   usuario:string
   pontuacao:number
   constructor(public LoginService: LoginService,
-    private router: Router,) { }
+    private router: Router,
+    public MenuService:MenuService,) { }
   id:number
   estilo:false
-  time: any[]
+  time: any
   ngOnInit() {
     this.id=2
   // this.LoginService.userByName().then((res:any) => {
@@ -41,40 +43,28 @@ export class MenuLateralComponent implements OnInit {
 teste(estilo:boolean){
   this.sidenavClose.emit();
     estilo=true
-    const swalWithBootstrapButtons = Swal.mixin({
-      customClass: {
-        confirmButton: 'btn btn-success',
-        cancelButton: 'btn btn-danger'
+    Swal.fire({
+      title: ' Cadastre de um time',
+      input: 'text',
+      inputAttributes: {
+        autocapitalize: 'off'
       },
-      buttonsStyling: false
-    })
-    
-    swalWithBootstrapButtons.fire({
-      title: 'Are you sure?',
-      text: "You won't be able to revert this!",
-      icon: 'warning',
       showCancelButton: true,
-      confirmButtonText: 'Yes, delete it!',
-      cancelButtonText: 'No, cancel!',
-      reverseButtons: true
-    }).then((result) => {
-      if (result.isConfirmed) {
-        swalWithBootstrapButtons.fire(
-          'Deleted!',
-          'Your file has been deleted.',
-          'success'
-        )
-      } else if (
-        /* Read more about handling dismissals below */
-        result.dismiss === Swal.DismissReason.cancel
-      ) {
-        swalWithBootstrapButtons.fire(
-          'Cancelled',
-          'Your imaginary file is safe :)',
-          'error'
-        )
-      }
-    })
+      confirmButtonText: 'save',
+      showLoaderOnConfirm: true,
+      preConfirm: (time) => {
+        this.time = {"name":`${time}`}
+        this.MenuService.updateById(this.time).subscribe({ 
+        next: (retorno:any)=>{
+          Swal.fire({
+            icon: 'success',
+            title: 'Your work has been saved',
+            showConfirmButton: false,
+          })
+          
+        }})
+        }
+      })
     
 }
  

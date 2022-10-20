@@ -22,6 +22,7 @@ import { getPaginatorIntl } from './paginator';
 import { CadastroService } from './shared/services/cadastro.service';
 import { HomeService } from './shared/services/home.service';
 import { LoginService } from './shared/services/login.service';
+import { MenuService } from './shared/services/menu.service';
 import { CadastroComponent } from './view/cadastro/cadastro.component';
 import { HomeComponent } from './view/home/home.component';
 import { LoginComponent } from './view/login/login.component';
@@ -59,6 +60,7 @@ import { Ranking } from './view/ranking/ranking.component';
   providers: [ LoginService,
     HomeService,
     CadastroService,
+    MenuService,
     {provide: MatPaginatorIntl, useValue: getPaginatorIntl()},
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     {provide: MAT_DATE_LOCALE, useValue: 'en-GB' }
