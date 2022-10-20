@@ -43,6 +43,7 @@ export class testeComponent implements OnInit {
   jogadora_7:number
   jogadora_8:number
   score="score"
+  resultsLength = 0;
   columnsToDisplay = ['name', 'price', 'playerPosition'];
   columnsScore=[...this.columnsToDisplay,'ataque','saque','bloqueio','passe']
   columnsToDisplayWithExpand = [...this.columnsScore, 'expand'];

@@ -16,9 +16,7 @@ export class AuthInterceptor implements HttpInterceptor {
 		let token = localStorage.getItem(`${environment.STORAGE_NAME}:Token`)
 		
 		if (token) {		
-			
-			let authRequest = request.clone({headers: request.headers.set('Authorization', `Bearer ${token}`)})
-			
+			let authRequest = request.clone({headers: request.headers.set('Authorization', `${token}`)})
 			return next.handle(authRequest).pipe(
 				catchError(err => {
 					throw 'error in source. Details: ' + err;

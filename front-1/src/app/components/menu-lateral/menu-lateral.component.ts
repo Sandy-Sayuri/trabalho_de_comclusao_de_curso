@@ -20,10 +20,9 @@ export class MenuLateralComponent implements OnInit {
   time: any[]
   ngOnInit() {
     this.id=2
-// quando colocar o id no token
-//   this.LoginService.userByName().then((res:any) => {
-//   console.log(res,'teste');
-//  
+  // this.LoginService.userByName().then((res:any) => {
+  // console.log(res,'teste');
+ 
     if(this.id==undefined){
       this.router.navigateByUrl('/login')
     }else{
