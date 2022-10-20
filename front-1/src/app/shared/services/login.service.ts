@@ -27,12 +27,8 @@ export class LoginService {
     async userByName(): Promise<any>{
         this.dados=2
         this.decoded = jwt_decode(`${localStorage.getItem(`${environment.STORAGE_NAME}:Token`)}`);
-        if(this.decoded!=null){
+       
             return await this.decoded['sub']
-        }else{
-            return  this.dados
-        }
-        
         
         
     }
