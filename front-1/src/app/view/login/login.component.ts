@@ -33,8 +33,8 @@ export class LoginComponent implements OnInit{
   login(usuario: Usuario) {
     let login = this.loginService.login(usuario).subscribe({ 
       next: (retorno)=>{ 
-            
-        if(retorno["errors"] != undefined){
+       
+        if(retorno["error"] != undefined){
           this.validacao = true
         } else {
           if(retorno["tipo"] == 2){
@@ -47,6 +47,9 @@ export class LoginComponent implements OnInit{
             // this.loginService.refresh()          
             this.router.navigate(['/home'])
           }
+           if(retorno==null){
+          this.router.navigate(['/login'])
+        }
         }
       }, 
       error: ()=>{
@@ -59,5 +62,4 @@ export class LoginComponent implements OnInit{
       }
     })
   }
-
 }

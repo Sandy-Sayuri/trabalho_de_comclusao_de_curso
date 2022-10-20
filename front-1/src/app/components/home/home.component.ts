@@ -154,7 +154,7 @@ export class testeComponent implements OnInit {
   Salvar_time(){
   this.lista_jogadora=[this.jogadora_2,this.jogadora_3,this.jogadora_4,this.jogadora_5,this.jogadora_6,this.jogadora_7,this.jogadora_8]
   // if(this.jogadora_2!=null && this.jogadora_3!=null && this.jogadora_4!=null && this.jogadora_5!=null && this.jogadora_6!=null && this.jogadora_7!=null &&this.jogadora_8!=null){
-    this.LoginService.userById(this.id).subscribe({ 
+    this.LoginService.userById(2).subscribe({ 
       next: (retorno:any)=>{
         console.log(retorno);
         if(retorno.team==null){
@@ -175,8 +175,10 @@ export class testeComponent implements OnInit {
                 }
               }
               return this.homeService.criateteam(this.Time).subscribe({next:(result)=>{	
-                return this.LoginService.userById(this.id).subscribe({
+                return this.LoginService.userById(2).subscribe({
                   next:(result)=>{	
+                    console.log(result);
+                    
                     this.id_time=result.team.id
 
                   }
@@ -201,7 +203,9 @@ export class testeComponent implements OnInit {
                 denyButtonText: `Don't save`,
               }).then((result) => {
                 if (result.isConfirmed) {
-                  for (let i = 2; i <=this.lista_jogadora.length; i++) {
+                  for (let i = 0; i <=this.lista_jogadora.length; i++) {
+                    console.log(this.lista_jogadora[i]);
+                    
                     this.homeService.altualizarteam(this.lista_jogadora[i],this.id_time).subscribe({
                       next:()=>{
                           Swal.fire('Salvado suas jogadoras', '', 'success')
@@ -217,7 +221,7 @@ export class testeComponent implements OnInit {
           })
 
         }else{
-          this.LoginService.userById(this.id).subscribe({
+          this.LoginService.userById(2).subscribe({
             next:(result)=>{
               this.id_time=result.team.id
             }
@@ -231,13 +235,15 @@ export class testeComponent implements OnInit {
             denyButtonText: `Don't save`,
           }).then((result) => {
             if (result.isConfirmed) {
-              for (let i = 2; i <=this.lista_jogadora.length; i++) {
-                this.homeService.altualizarteam(this.lista_jogadora[i],this.id_time).subscribe({
+              // for (let i = 2; i <=this.lista_jogadora.length; i++) {
+                console.log(this.lista_jogadora);
+                
+                this.homeService.altualizarteam(this.jogadora_5,this.id_time).subscribe({
                   next:()=>{
                       Swal.fire('Salvado suas jogadoras', '', 'success')
                   }
                 })
-              }
+              // }
               
             } else if (result.isDenied) {
               Swal.fire('OKKK ! jogadoras não salvas', '', 'error')
