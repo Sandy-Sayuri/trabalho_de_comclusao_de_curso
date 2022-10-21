@@ -18,7 +18,7 @@ export class HomeService {
       return this.http.post<any[]>(`${this.apiRef}/team`,team)
    }
    altualizarteam(id_jogadora:number, id_time:number):Observable<any[]>{
-      return this.http.post<any[]>(`${this.apiRef}/players${id_jogadora}/${id_time}`,id_time)
+      return this.http.post<any[]>(`${this.apiRef}/players/add${id_jogadora}/${id_time}`,id_time)
    }
 
    

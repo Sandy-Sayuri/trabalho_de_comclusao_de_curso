@@ -22,7 +22,7 @@ export class MenuLateralComponent implements OnInit {
   estilo:false
   time: any
   ngOnInit() {
-    this.id=2
+    this.id=84
   // this.LoginService.userByName().then((res:any) => {
   // console.log(res,'teste');
  
@@ -31,8 +31,11 @@ export class MenuLateralComponent implements OnInit {
     }else{
       this.LoginService.userById(this.id).subscribe({ 
         next: (retorno:any)=>{
+          if(retorno.team !=null){
+            this.pontuacao=retorno.team.total
+          }
           this.usuario=retorno.name
-          this.pontuacao=retorno.team.total
+          
         }
       })
     }
