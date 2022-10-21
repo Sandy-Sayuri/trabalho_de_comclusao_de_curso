@@ -58,6 +58,56 @@ export class testeComponent implements OnInit {
     private router: Router,) { }
   ngOnInit(): void {
     this.id=84
+ this.LoginService.userById(this.id) .subscribe({
+  next: result => {
+    if(result.team!=null){
+      for (let i = 0; i < result.team.players.length; i++) {
+        switch (result.team.players[i].playerPosition) {
+
+          case "CENTRAL":
+            this.name_5=result.team.players[i].name
+            this.jogadora_5=result.team.players[i].id;
+            
+            break;
+          case"PONTEIRO":
+            if(this.name_2==null){
+              this.name_2=result.team.players[i].name
+              this.jogadora_2=result.team.players[i].id;
+              
+            }else{
+              this.name_7=result.team.players[i].name
+              this.jogadora_7=result.team.players[i].id;
+            
+            }
+          break;
+
+          case "OPOSTO":
+            this.name_3=result.team.players[i].name
+            this.jogadora_3=result.team.players[i].id;
+          break;
+
+            case"LIBERO":
+              if(this.name_4==null){
+                this.name_4=result.team.players[i].name
+                this.jogadora_4=result.team.players[i].id;
+              
+              }else{
+                this.name_8=result.team.players[i].name
+                this.jogadora_8=result.team.players[i].id;
+              }
+            break;
+            case"LEVANTADOR":
+              this.name_6=result.team.players[i].name
+              this.jogadora_6=result.team.players[i].id;
+            break;
+
+        }
+        
+      }
+
+    }
+  }})
+
     this.homeService.listPlayers()
       .subscribe({
         next: result => {
