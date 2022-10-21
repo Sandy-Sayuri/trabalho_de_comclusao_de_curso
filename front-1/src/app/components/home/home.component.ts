@@ -57,7 +57,8 @@ export class testeComponent implements OnInit {
     public LoginService: LoginService,
     private router: Router,) { }
   ngOnInit(): void {
-    this.id=84
+  
+  this.id=84
  this.LoginService.userById(this.id) .subscribe({
   next: result => {
     if(result.team!=null){

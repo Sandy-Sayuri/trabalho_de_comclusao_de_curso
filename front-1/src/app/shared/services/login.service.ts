@@ -28,7 +28,7 @@ export class LoginService {
         this.dados=2
         this.decoded = jwt_decode(`${localStorage.getItem(`${environment.STORAGE_NAME}:Token`)}`);
        
-            return await this.decoded['sub']
+            return await this.decoded
         
         
     }
