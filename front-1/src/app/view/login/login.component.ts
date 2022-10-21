@@ -33,28 +33,15 @@ export class LoginComponent implements OnInit{
   login(usuario: Usuario) {
     let login = this.loginService.login(usuario).subscribe({ 
       next: (retorno)=>{ 
-       
-        if(retorno["error"] != undefined){
-          this.validacao = true
-        } else {
-          if(retorno["tipo"] == 2){
-            this.msgErro = "Usuário sem acesso!"
-            this.validacao = true
-          } else {
-            
-            localStorage.setItem(`${environment.STORAGE_NAME}:Token`, retorno.token)
-
-            // this.loginService.refresh()          
+        if(retorno!="erro"){
+            localStorage.setItem(`${environment.STORAGE_NAME}:Token`, retorno.token)        
             this.router.navigate(['/home'])
           }
-           if(retorno==null){
-          this.router.navigate(['/login'])
-        }
-        }
       }, 
       error: ()=>{
         this.msgErro = "Usuário ou senha inválida!"
-        this.validacao = true
+        this.router.navigate(['/login'])
+        localStorage.clear();
         console.log("error") 
       }, 
       complete: ()=>{ 
