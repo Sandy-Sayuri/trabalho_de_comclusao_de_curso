@@ -3,6 +3,7 @@
         <img src="../../../assets/Usuario.png" alt="usuario" class="Usuario">
         <p class="welcome">Bem vindo! {{usuario}}</p>
         <p class="welcome"*ngIf="pontuacao!=undefined">Pontuação: {{pontuacao}}</p>
+        <p class="welcome"*ngIf="time!=undefined">Time: {{time}}</p>
     </div>
     <mat-nav-list class="teste">
         <a (click)="onSidenavClose(estilo)"

@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { LoginService } from 'src/app/shared/services/login.service';
 import { MenuService } from 'src/app/shared/services/menu.service';
+import { loadingReducer } from 'src/app/store/loading/loading.reducer';
 import { LoginComponent } from 'src/app/view/login/login.component';
 import Swal from 'sweetalert2';
 
@@ -33,6 +34,7 @@ export class MenuLateralComponent implements OnInit {
         next: (retorno:any)=>{
           if(retorno.team !=null){
             this.pontuacao=retorno.team.total
+            this.time=retorno.team.name
           }
           this.usuario=retorno.name
           
