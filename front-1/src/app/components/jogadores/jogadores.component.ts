@@ -19,13 +19,14 @@ interface Jogadoras {
 
 export class JogadoresComponent implements OnInit{
   JogadoraForm: FormGroup;
+  nameForm: FormGroup;
   floatLabelControl = new FormControl();
   Jogadoras:any[]   
   constructor(public  homeService:HomeService) { }
 
   ngOnInit(): void {
       this.JogadoraForm =  new FormGroup({
-      name: new FormControl(null, [Validators.required])|| new FormControl<Jogadoras | null>(null, Validators.required),
+      name: new FormControl('', [Validators.required])|| new FormControl<Jogadoras | null>(null, Validators.required),
       preco:new FormControl(null, [Validators.required]),
       altura:new FormControl(null, [Validators.required]),
       largura:new FormControl(null, [Validators.required]),
@@ -38,13 +39,12 @@ export class JogadoresComponent implements OnInit{
       passe:new FormControl('', [Validators.required]),
       playerPosition:new FormControl('', [Validators.required]),
       })
+      
       this.dropdowJogadora() 
       
      
   }
   dropdowJogadora(){
-    console.log(this.JogadoraForm);
-    
     this.homeService.listPlayers().subscribe({
       next: result => {
         let lista=[]
@@ -55,12 +55,8 @@ export class JogadoresComponent implements OnInit{
       }})
 
   }
-  teste(n:string){
-    if(n=='add'){
-      return true
-    }else{
-      return false
-    }
-    
+  teste(n:any){
+    console.log(n,'oiiiiiiii');
   }
+  
 }

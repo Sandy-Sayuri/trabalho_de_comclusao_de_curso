@@ -3,29 +3,30 @@
         <div>
             <label>Float label: </label>
             <mat-radio-group [formControl]="floatLabelControl"aria-label="Select an option">
-                <mat-radio-button value="1">Adicionar</mat-radio-button>
+                <mat-radio-button  value="1">Adicionar</mat-radio-button>
                 <mat-radio-button value="2">Editar</mat-radio-button>
-                <mat-radio-button value="3">Excluir</mat-radio-button>
+                <mat-radio-button  value="3">Excluir</mat-radio-button>
             </mat-radio-group>
         </div>
-        <div label=teste(floatLabelControl)>
+        
         <!-- nome add -->
-        <mat-form-field appearance="fill" *ngIf="floatLabelControl.value=='1'">
-            <input matInput formControlName="name" type='text' placeholder="Nome da jogadora" required>
+        <mat-form-field  appearance="fill" *ngIf="floatLabelControl.value=='1'">
+            <input [disabled]="floatLabelControl.value==null" matInput formControlName="name" type='text' placeholder="Nome da jogadora" required>
         </mat-form-field>  
         <!-- nome edit e excluir -->
-        <mat-form-field appearance="fill" *ngIf="floatLabelControl.value!='1'">
+        <mat-form-field appearance="fill" *ngIf="floatLabelControl.value!='1' ">
         <mat-label>Nome da jogadora</mat-label>
-        <mat-select  required formControlName="name" >
-            <mat-option *ngFor="let Jogadora of Jogadoras" [value]="Jogadora">
+        <mat-select [disabled]="floatLabelControl.value==null" required formControlName="name" >
+            <mat-option *ngFor="let Jogadora of Jogadoras" (click)='teste(Jogadora)'[value]="Jogadora">
             {{Jogadora.name}}
             </mat-option>
         </mat-select>
         </mat-form-field>
+        <div>
         <!-- preço -->
         <mat-form-field appearance="fill" floatLabel="always">
             <mat-label>Preço</mat-label>
-            <input matInput formControlName="preco"type="number" class="example-right-align" placeholder="0">
+            <input  matInput formControlName="preco"type="number" class="example-right-align" placeholder="0">
             <span matPrefix>$&nbsp;</span>
             <span matSuffix>.00</span>
         </mat-form-field>
