@@ -19,7 +19,7 @@ export class UserComponent implements OnInit {
     this.id=3
     this.LoginService.userById(this.id).subscribe({ 
       next: (retorno:any)=>{
-        if(retorno.perfis[0]!='ADMIN'){
+        if(retorno.perfis[1]!='ADMIN'){
           localStorage.clear();
           this.router.navigate(['login']);
         }else{

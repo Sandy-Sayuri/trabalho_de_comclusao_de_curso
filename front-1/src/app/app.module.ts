@@ -1,9 +1,11 @@
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { MatPaginatorIntl } from '@angular/material/paginator';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatSelectModule } from '@angular/material/select';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
@@ -63,6 +65,9 @@ import { UsersComponent } from './view/users/users.component';
     BrowserAnimationsModule, 
     HttpClientModule,
     MaterialModule,
+    MatRadioModule,
+    MatSelectModule,
+    FormsModule,
     ReactiveFormsModule,
     FlexLayoutModule,
     ToastrModule.forRoot()

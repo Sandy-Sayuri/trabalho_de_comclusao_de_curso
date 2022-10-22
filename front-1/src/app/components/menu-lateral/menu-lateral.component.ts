@@ -38,8 +38,8 @@ export class MenuLateralComponent implements OnInit {
             this.time=retorno.team.name
           }
           this.usuario=retorno.name
-          this.perfil=retorno.perfis[0]
-          console.log(retorno.perfis[0],'perfil');
+          this.perfil=retorno.perfis[1]
+          console.log(retorno.perfis[1],'perfil');
           
           
         }
