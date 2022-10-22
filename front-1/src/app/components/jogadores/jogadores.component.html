@@ -8,9 +8,10 @@
                 <mat-radio-button value="3">Excluir</mat-radio-button>
             </mat-radio-group>
         </div>
+        <div label=teste(floatLabelControl)>
         <!-- nome add -->
         <mat-form-field appearance="fill" *ngIf="floatLabelControl.value=='1'">
-            <input matInput formControlName="name"placeholder="Nome da jogadora" required>
+            <input matInput formControlName="name" type='text' placeholder="Nome da jogadora" required>
         </mat-form-field>  
         <!-- nome edit e excluir -->
         <mat-form-field appearance="fill" *ngIf="floatLabelControl.value!='1'">
@@ -23,9 +24,58 @@
         </mat-form-field>
         <!-- preço -->
         <mat-form-field appearance="fill" floatLabel="always">
-            <mat-label>Amount</mat-label>
-            <input matInput type="number" class="example-right-align" placeholder="0">
+            <mat-label>Preço</mat-label>
+            <input matInput formControlName="preco"type="number" class="example-right-align" placeholder="0">
+            <span matPrefix>$&nbsp;</span>
+            <span matSuffix>.00</span>
+        </mat-form-field>
+        <mat-form-field appearance="fill" >
+            <input matInput formControlName="altura" type='number' placeholder="Altura" required>
+        </mat-form-field>  
+        <mat-form-field appearance="fill" >
+            <input matInput formControlName="largura" type='number' placeholder="Largura" required>
+        </mat-form-field> 
+        <mat-form-field appearance="fill">
+            <mat-label>Data de nacimento</mat-label>
+            <input formControlName="date" matInput [matDatepicker]="picker">
+            <mat-hint>DD/MM/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field hintLabel="Max 2000 characters" appearance="fill">
+            <mat-label>Clube</mat-label>
+            <input matInput formControlName="clube" #input maxlength="2000">
+            <mat-hint align="end">{{input.value?.length || 0}}/2000</mat-hint>
+        </mat-form-field>
+        <mat-form-field hintLabel="Max 2000 characters" appearance="fill">
+            <mat-label>Titulos</mat-label>
+            <input matInput formControlName="titulos" #input maxlength="2000">
+            <mat-hint align="end">{{input.value?.length || 0}}/2000</mat-hint>
+        </mat-form-field>
+        <mat-form-field appearance="fill" >
+            <input matInput formControlName="ataque" type='number' placeholder="Ataque" required>
+        </mat-form-field> 
+        <mat-form-field appearance="fill" >
+            <input matInput formControlName="bloqueio" type='number' placeholder="Bloqueio" required>
+        </mat-form-field> 
+        <mat-form-field appearance="fill" >
+            <input matInput formControlName="saque" type='number' placeholder="Saque" required>
+        </mat-form-field> 
+        <mat-form-field appearance="fill" >
+            <input matInput formControlName="passe" type='number' placeholder="Passe" required>
+        </mat-form-field> 
+        <mat-form-field appearance="fill">
+            <mat-label>Select</mat-label>
+            <mat-select formControlName="playerPosition">
+              <mat-option value='PONTEIRO'>PONTEIRO</mat-option>
+              <mat-option value='CENTRAL'>CENTRAL</mat-option>
+              <mat-option value='OPOSTO'>OPOSTO</mat-option>
+              <mat-option value='LIBERO'>LIBERO</mat-option>
+              <mat-option value='LEVANTADOR'>LEVANTADOR</mat-option>
+            </mat-select>
           </mat-form-field>
+        </div>  
     </form>
+     <button mat-raised-button color="primary">Primary</button>
 </div>
 
