@@ -1,1 +1,10 @@
-<p>jogador works!</p>
+
+<mat-sidenav-container>
+    <mat-sidenav #sidenav role="navigation">
+      <app-menu-lateral (sidenavClose)="sidenav.close()"></app-menu-lateral>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <app-menu (sidenavToggle)="sidenav.toggle()"></app-menu>
+       <app-jogadores></app-jogadores>
+    </mat-sidenav-content>
+</mat-sidenav-container>
