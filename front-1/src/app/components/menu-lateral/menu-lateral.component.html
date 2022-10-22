@@ -1,33 +1,46 @@
 <div class="menu">
-    <div>
-        <img src="../../../assets/Usuario.png" alt="usuario" class="Usuario">
-        <p class="welcome">Bem vindo! {{usuario}}
-            <button class='edicao' mat-icon-button aria-label="Example icon button with a vertical three dot icon" (click)="editarNome(estilo)">
-                <mat-icon>edit</mat-icon>
-            </button>
-        </p>
-        <p class="welcome"*ngIf="pontuacao!=undefined">Pontuação: {{pontuacao}}</p>
-        <p 
-        class="welcome"
-        *ngIf="time!=undefined"
-        >Time: {{time}} 
-            <button class='edicao' mat-icon-button aria-label="Example icon button with a vertical three dot icon"(click)="teste(estilo)" >
-                <mat-icon>edit</mat-icon>
-            </button>
-        </p>
-    </div>
-    <mat-nav-list class="teste">
-        <a (click)="onSidenavClose(estilo)"
-         mat-list-item routerLink="/home"  
-         [class.clicked]='true' 
-        >
-            <mat-icon>home</mat-icon> <span >Home</span>
-        </a>
-        <a mat-list-item routerLink="/ranking" (click)="onSidenavClose(estilo)" >
-            <mat-icon>emoji_events</mat-icon> <span >Ranking</span>   
-        </a>
-        <a mat-list-item (click)="deleteById(estilo)" >
-            <mat-icon>settings</mat-icon> <span >Opções</span>   
-        </a>
-    </mat-nav-list>
+    <header>
+        <div>
+            <img src="../../../assets/Usuario.png" alt="usuario" class="Usuario">
+            <p class="welcome">Bem vindo! {{usuario}}
+                <button class='edicao' mat-icon-button aria-label="Example icon button with a vertical three dot icon" (click)="editarNome(estilo)">
+                    <mat-icon>edit</mat-icon>
+                </button>
+            </p>
+            <p class="welcome"*ngIf="pontuacao!=undefined">Pontuação: {{pontuacao}}</p>
+            <p 
+            class="welcome"
+            *ngIf="time!=undefined"
+            >Time: {{time}} 
+                <button class='edicao' mat-icon-button aria-label="Example icon button with a vertical three dot icon"(click)="teste(estilo)" >
+                    <mat-icon>edit</mat-icon>
+                </button>
+            </p>
+        </div>
+    </header>
+    <main>
+        <mat-nav-list class="teste">
+            <a (click)="onSidenavClose(estilo)"
+            mat-list-item routerLink="/home"  
+            [class.clicked]='true' 
+            >
+                <mat-icon>home</mat-icon> <span >Home</span>
+            </a>
+            <a mat-list-item routerLink="/ranking" (click)="onSidenavClose(estilo)" >
+                <mat-icon>emoji_events</mat-icon> <span >Ranking</span>   
+            </a>
+            <a mat-list-item *ngIf="this.perfil=='ADMIN'" routerLink="/usuario">
+                <mat-icon>view_list</mat-icon><span>Lista de jogadores</span>
+            </a>
+            <a mat-list-item *ngIf="this.perfil=='ADMIN'" >
+                <mat-icon>emoji_events</mat-icon> <span >Ranking</span>
+            </a>
+        </mat-nav-list>
+    </main>
+    
 </div>
+<footer class="footer">
+        <a mat-list-item  class='excluir'(click)="deleteById(estilo)" >
+            <mat-icon>delete</mat-icon> <span >Deletar conta</span>   
+        </a>
+</footer>

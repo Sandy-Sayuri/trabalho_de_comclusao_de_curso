@@ -20,10 +20,11 @@ export class MenuLateralComponent implements OnInit {
     private router: Router,
     public MenuService:MenuService,) { }
   id:number
+  perfil:string
   estilo:false
   time: any
   ngOnInit() {
-    this.id=84
+    this.id=3
   this.LoginService.userByName().then((res:any) => {
   console.log(res,'teste');
  
@@ -37,6 +38,9 @@ export class MenuLateralComponent implements OnInit {
             this.time=retorno.team.name
           }
           this.usuario=retorno.name
+          this.perfil=retorno.perfis[0]
+          console.log(retorno.perfis[0],'perfil');
+          
           
         }
       })

@@ -1,6 +1,6 @@
 .menu{
    background-color: #d5d5d5;
-   height: 100%; 
+   height: 95%; 
 }
 
 .Usuario{
@@ -13,6 +13,12 @@
     text-align: center;
     color:#7acfc4;;
     font-weight: 900;
+}
+.footer{
+    background-color: #d5d5d5;
+}
+.excluir{
+    height: 5%;
 }
 a:hover{
     color: rgb(255, 208, 105);

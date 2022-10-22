@@ -17,8 +17,8 @@ import { testeComponent } from './components/home/home.component';
 import { MenuLateralComponent } from './components/menu-lateral/menu-lateral.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { RankingComponent } from './components/ranking/ranking.component';
+import { UserComponent } from './components/user/user.component';
 import { MaterialModule } from './material.module';
-import { getPaginatorIntl } from './paginator';
 import { CadastroService } from './shared/services/cadastro.service';
 import { HomeService } from './shared/services/home.service';
 import { LoginService } from './shared/services/login.service';
@@ -28,6 +28,7 @@ import { HomeComponent } from './view/home/home.component';
 import { LoginComponent } from './view/login/login.component';
 import { AuthInterceptor } from './view/login/login.interceptor';
 import { Ranking } from './view/ranking/ranking.component';
+import { UsersComponent } from './view/users/users.component';
 
 
 
@@ -45,7 +46,10 @@ import { Ranking } from './view/ranking/ranking.component';
     CadastreComponent,
     CadastroComponent,
     Ranking,
-    RankingComponent
+    RankingComponent,
+    UsersComponent,
+    UserComponent
+
   ],
   imports: [
     BrowserModule,
@@ -61,7 +65,6 @@ import { Ranking } from './view/ranking/ranking.component';
     HomeService,
     CadastroService,
     MenuService,
-    {provide: MatPaginatorIntl, useValue: getPaginatorIntl()},
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     {provide: MAT_DATE_LOCALE, useValue: 'en-GB' }
   ],

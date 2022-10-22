@@ -5,4 +5,9 @@
 .roter{
     overflow: hidden;
     overflow-x: hidden;
+    background-color:#7acfc4;
+    align-items: center;
+}
+.escrita{
+    align-items: center;
 }
