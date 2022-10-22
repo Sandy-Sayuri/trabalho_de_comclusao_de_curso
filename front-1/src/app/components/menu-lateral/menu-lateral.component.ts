@@ -41,10 +41,40 @@ export class MenuLateralComponent implements OnInit {
         }
       })
     }
-})
- 
-    
-  }
+  })  
+}
+
+editarNome(estilo:boolean){
+  this.sidenavClose.emit();
+    estilo=true
+    Swal.fire({
+      title: ' Cadastre de um time',
+      input: 'text',
+      inputAttributes: {
+        autocapitalize: 'off'
+      },
+      showCancelButton: true,
+      confirmButtonText: 'save',
+      showLoaderOnConfirm: true,
+      preConfirm: (time) => {
+        this.time = {
+          "name":"pato",
+          "email":"teste123@teste.com",
+          "password":"123"
+      }
+        this.MenuService.updateName(this.time,this.id).subscribe({ 
+        next: ()=>{
+          Swal.fire({
+            icon: 'success',
+            title: 'Your work has been saved',
+            showConfirmButton: false,
+          })
+          
+        }})
+        }
+      })
+}
+
 teste(estilo:boolean){
   this.sidenavClose.emit();
     estilo=true
@@ -58,9 +88,12 @@ teste(estilo:boolean){
       confirmButtonText: 'save',
       showLoaderOnConfirm: true,
       preConfirm: (time) => {
-        this.time = {"name":`${time}`}
-        this.MenuService.updateById(this.time).subscribe({ 
-        next: (retorno:any)=>{
+        this.time = {
+          "name":"pato"
+      }
+        this.LoginService.userById(this.id).subscribe({ next: (retorno:any)=>{
+        this.MenuService.updateById(this.time,retorno.team.id).subscribe({ 
+        next: ()=>{
           Swal.fire({
             icon: 'success',
             title: 'Your work has been saved',
@@ -68,6 +101,8 @@ teste(estilo:boolean){
           })
           
         }})
+      }
+      })
         }
       })
     

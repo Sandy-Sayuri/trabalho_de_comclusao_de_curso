@@ -18,7 +18,6 @@ export class AuthInterceptor implements HttpInterceptor {
 		if (token) {		
 			let authRequest = request.clone({headers: request.headers.set('Authorization', `${token}`)})
 			console.log(authRequest);
-			
 			return next.handle(authRequest).pipe(
 				catchError(err => {
 					throw 'error in source. Details: ' + err;

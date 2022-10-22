@@ -8,9 +8,15 @@ import { environment } from "src/environments/environment";
 export class MenuService {
     apiRef: string = environment.API_URL;
     constructor(private http: HttpClient){}
-    updateById(team:any): Observable<any> {
+    updateById(team:any,id:number): Observable<any> {
         console.log(team,'team')
-        return this.http.put<any>(`https://tcc2022unip.herokuapp.com/team/2`,team)
+        console.log(id,'id');
+        return this.http.put<any>(`https://tcc2022unip.herokuapp.com/team/id/84`,team)
+    }
+        updateName(name:JSON,id:number): Observable<any> {
+        console.log(name,'team')
+        console.log(id,'id');
+        return this.http.put<any[]>(`https://tcc2022unip.herokuapp.com/users/84`,name)
     }
 
 }

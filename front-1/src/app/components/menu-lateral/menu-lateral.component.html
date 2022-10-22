@@ -1,9 +1,20 @@
 <div class="menu">
     <div>
         <img src="../../../assets/Usuario.png" alt="usuario" class="Usuario">
-        <p class="welcome">Bem vindo! {{usuario}}</p>
+        <p class="welcome">Bem vindo! {{usuario}}
+            <button class='edicao' mat-icon-button aria-label="Example icon button with a vertical three dot icon" (click)="editarNome(estilo)">
+                <mat-icon>edit</mat-icon>
+            </button>
+        </p>
         <p class="welcome"*ngIf="pontuacao!=undefined">Pontuação: {{pontuacao}}</p>
-        <p class="welcome"*ngIf="time!=undefined">Time: {{time}}</p>
+        <p 
+        class="welcome"
+        *ngIf="time!=undefined"
+        >Time: {{time}} 
+            <button class='edicao' mat-icon-button aria-label="Example icon button with a vertical three dot icon"(click)="teste(estilo)" >
+                <mat-icon>edit</mat-icon>
+            </button>
+        </p>
     </div>
     <mat-nav-list class="teste">
         <a (click)="onSidenavClose(estilo)"
