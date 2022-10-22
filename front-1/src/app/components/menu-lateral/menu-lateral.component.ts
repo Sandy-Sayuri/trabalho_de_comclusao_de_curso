@@ -48,7 +48,7 @@ editarNome(estilo:boolean){
   this.sidenavClose.emit();
     estilo=true
     Swal.fire({
-      title: ' Cadastre de um time',
+      title: ' Editar nome seu nome',
       input: 'text',
       inputAttributes: {
         autocapitalize: 'off'
@@ -74,12 +74,36 @@ editarNome(estilo:boolean){
         }
       })
 }
+deleteById(estilo:boolean){
+  this.sidenavClose.emit();
+  estilo=true
+  Swal.fire({
+    title: 'Você realmete quer deletar suam conta?',
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Sim eu quero'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      this.MenuService.deleteById(this.id).subscribe({ 
+        next: ()=>{
+           Swal.fire(
+        'Deleted!',
+        'Your file has been deleted.',
+        'success'
+      )
+        }})
+     
+    }
+  })
 
+}
 teste(estilo:boolean){
   this.sidenavClose.emit();
     estilo=true
     Swal.fire({
-      title: ' Cadastre de um time',
+      title: ' Editar nome do time',
       input: 'text',
       inputAttributes: {
         autocapitalize: 'off'
