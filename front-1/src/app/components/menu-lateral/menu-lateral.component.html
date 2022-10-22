@@ -30,10 +30,10 @@
                 <mat-icon>emoji_events</mat-icon> <span >Ranking</span>   
             </a>
             <a mat-list-item *ngIf="this.perfil=='ADMIN'" routerLink="/usuario">
-                <mat-icon>view_list</mat-icon><span>Lista de jogadores</span>
+                <mat-icon>view_list</mat-icon><span>Lista de usuarios</span>
             </a>
-            <a mat-list-item *ngIf="this.perfil=='ADMIN'" >
-                <mat-icon>emoji_events</mat-icon> <span >Ranking</span>
+            <a mat-list-item *ngIf="this.perfil=='ADMIN'" routerLink="/formulario">
+                <mat-icon>sports_volleyball</mat-icon> <span >Adicionar jogadora</span>
             </a>
         </mat-nav-list>
     </main>
