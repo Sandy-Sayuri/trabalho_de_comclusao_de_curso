@@ -1,34 +1,37 @@
 import { Component, OnInit } from '@angular/core';
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  pontuacao: number;
-}
-
-const ELEMENT_DATA: PeriodicElement[] = [
-  {position:100,name:'eu',pontuacao:200},
-  {position: 1, name: 'Hydrogen', pontuacao: 1.0079},
-  {position: 2, name: 'Helium', pontuacao: 4.0026},
-  {position: 3, name: 'Lithium', pontuacao: 6.941},
-  {position: 4, name: 'Beryllium',pontuacao: 9.0122},
-  {position: 5, name: 'Boron', pontuacao: 10.811},
-  {position: 6, name: 'Carbon', pontuacao: 12.0107},
-  {position: 7, name: 'Nitrogen', pontuacao: 14.0067},
-  {position: 8, name: 'Oxygen', pontuacao: 15.9994},
-  {position: 9, name: 'Fluorine', pontuacao: 18.9984},
-  {position: 10, name: 'Neon', pontuacao: 20.1797},
-];
+import { Router } from '@angular/router';
+import { LoginService } from 'src/app/shared/services/login.service';
+import { UsersService } from 'src/app/shared/services/users.service';
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
-  displayedColumns: string[] = ['demo-position', 'demo-name', 'demo-pontuacao'];
-  dataSource = ELEMENT_DATA;
-  constructor() { }
+  displayedColumns: string[] = ['id', 'name', 'email','birthDate'];
+  dataSource : any[];
+  id:number
+  constructor(private LoginService:LoginService,
+              private router: Router,
+              private UsersService:UsersService ) { }
 
   ngOnInit(): void {
+    this.id=3
+    this.LoginService.userById(this.id).subscribe({ 
+      next: (retorno:any)=>{
+        if(retorno.perfis[0]!='ADMIN'){
+          localStorage.clear();
+          this.router.navigate(['login']);
+        }else{
+          this.UsersService.user().subscribe({
+            next:(retorno:any)=>{
+              this.dataSource=retorno
+            }
+          })
+        }
+
+        
+      }})
     console.log(this.dataSource[0]);
   
   

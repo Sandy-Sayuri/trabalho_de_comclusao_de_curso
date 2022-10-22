@@ -23,6 +23,7 @@ import { CadastroService } from './shared/services/cadastro.service';
 import { HomeService } from './shared/services/home.service';
 import { LoginService } from './shared/services/login.service';
 import { MenuService } from './shared/services/menu.service';
+import { UsersService } from './shared/services/users.service';
 import { CadastroComponent } from './view/cadastro/cadastro.component';
 import { HomeComponent } from './view/home/home.component';
 import { LoginComponent } from './view/login/login.component';
@@ -65,6 +66,7 @@ import { UsersComponent } from './view/users/users.component';
     HomeService,
     CadastroService,
     MenuService,
+    UsersService,
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     {provide: MAT_DATE_LOCALE, useValue: 'en-GB' }
   ],

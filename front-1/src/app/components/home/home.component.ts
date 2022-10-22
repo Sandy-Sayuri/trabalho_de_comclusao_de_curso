@@ -109,7 +109,7 @@ export class testeComponent implements OnInit {
     }
   }})
 
-    this.homeService.listPlayers()
+this.homeService.listPlayers()
       .subscribe({
         next: result => {
          let lista=[] 

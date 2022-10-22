@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 export class MenuComponent implements OnInit {
   @Output() public sidenavToggle = new EventEmitter();
   
-  constructor(private router: Router,) { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
