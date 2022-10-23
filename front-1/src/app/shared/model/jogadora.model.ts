@@ -1,5 +1,5 @@
 export interface Jogadora{
-name: string,
+name:any ,
 preco:number,
 altura:number,
 largura:number,

@@ -96,7 +96,7 @@ export class JogadoresComponent implements OnInit{
           
         }})
       this.objectSave = {
-          "name": `${jogadoras.name}`,
+          "name": `${jogadoras.name.name}`,
           "price": jogadoras.preco,
           "height": jogadoras.altura,
           "weight": jogadoras.largura,
@@ -117,7 +117,7 @@ export class JogadoresComponent implements OnInit{
           console.log(result);
           Swal.fire({
             icon: 'success',
-            title: 'Time salvo',
+            title: 'Jogador salvo',
             showConfirmButton: false,
             timer: 1500
           })
@@ -125,46 +125,65 @@ export class JogadoresComponent implements OnInit{
         }
       })
     } if(lugar=='2'){
-      this.scoreSave={
-        "saque": jogadoras.saque,
-        "bloqueio":jogadoras.bloqueio,
-        "ataque": jogadoras.ataque,
-        "passe":jogadoras.passe
-    }
-    this.jogadoresService.colocarScore(this.scoreSave,).subscribe({
-      next: (result:any)=> {
-        console.log(result);
+      this.jogadoresService.pegarJogadora(jogadoras.name.id).subscribe({
+        next: (result:any)=> {
+          this.scoreSave={
+            "saque": jogadoras.saque,
+            "bloqueio":jogadoras.bloqueio,
+            "ataque": jogadoras.ataque,
+            "passe":jogadoras.passe
+            } 
+            this.jogadoresService.alterarScore(result.score.id,this.scoreSave).subscribe({
+              next: (result:any)=> {
+              console.log(result);  
+              this.objectSave = {
+                "name": `${jogadoras.name.name}`,
+                "price": jogadoras.preco,
+                "height": jogadoras.altura,
+                "weight": jogadoras.largura,
+                "birthDate": `${moment(jogadoras.date).format('DD/MM/YYYY')}`,
+                "clubes": `${jogadoras.clube}`,
+                "titulos": `${jogadoras.titulos}`,
+                "score": {
+                  "id":result.score.id,
+                  "saque":jogadoras.saque,
+                  "bloqueio": jogadoras.bloqueio,
+                  "ataque": jogadoras.ataque,
+                  "passe":  jogadoras.passe
+                },
+                "playerPosition": `${jogadoras.playerPosition}`
+              }
+              this.jogadoresService.alterarJogadora(jogadoras.name.id,this.objectSave).subscribe({
+                  next: (result:any)=> {
+                    Swal.fire({
+                      icon: 'success',
+                      title: 'Jogador alterado',
+                      showConfirmButton: false,
+                    })
         
+                  }
+                })
+              }
+            })
+          }
+      })
+    }else{
+    this.jogadoresService.pegarJogadora(jogadoras.name.id).subscribe({
+      next: (result:any)=> {
+        this.jogadoresService.deletarScore(result.score.id).subscribe({
+          next: ()=> {
+            this.jogadoresService.deletarJogadora(jogadoras.name.id).subscribe({
+              next: (result:any)=> {
+                Swal.fire({
+                icon: 'success',
+                title: 'Jogador deletado',
+                showConfirmButton: false,
+              })
+            }
+          })
+        }})
       }})
-    this.objectSave = {
-        "name": `${jogadoras.name}`,
-        "price": jogadoras.preco,
-        "height": jogadoras.altura,
-        "weight": jogadoras.largura,
-        "birthDate": `${moment(jogadoras.date).format('DD/MM/YYYY')}`,
-        "clubes": `${jogadoras.clube}`,
-        "titulos": `${jogadoras.titulos}`,
-        "score": {
-            "id": 7,
-            "saque": 20.0,
-            "bloqueio": 15.1,
-            "ataque": 14.5,
-            "passe": 9.4
-        },
-        "playerPosition": "LIBERO"
-    }
-    this.jogadoresService.colocarJogadora(this.objectSave).subscribe({
-      next: (result:any)=> {
-        console.log(result);
-        Swal.fire({
-          icon: 'success',
-          title: 'Time salvo',
-          showConfirmButton: false,
-          timer: 1500
-        })
-        
-      }
-    })
+    
 
 
     }

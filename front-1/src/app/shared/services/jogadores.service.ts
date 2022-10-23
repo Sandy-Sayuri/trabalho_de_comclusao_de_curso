@@ -25,7 +25,18 @@ export class JogadoresService {
   }
   colocarScore(score:Score): Observable<any> { 
     console.log(score);
-    return this.http.put<any>(`${this.apiRef}/scores`,score)
+    return this.http.post<any>(`${this.apiRef}/scores`,score)
   }
-
+  alterarScore(id:number,score:Score): Observable<any>{
+    return this.http.put<any>(`${this.apiRef}/scores/${id}`,score)
+  }
+  alterarJogadora(id:number,jogadora:Jogadora): Observable<any>{
+    return this.http.put<any>(`${this.apiRef}/players/${id}`,jogadora)
+  }
+  deletarScore(id:number): Observable<any>{
+    return this.http.delete<any>(`${this.apiRef}/scores/${id}`)
+  }
+  deletarJogadora(id:number): Observable<any>{
+    return this.http.delete<any>(`${this.apiRef}/players/${id}`)
+  }
 }
