@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { LoginService } from 'src/app/shared/services/login.service';
 import { MenuService } from 'src/app/shared/services/menu.service';
-import { loadingReducer } from 'src/app/store/loading/loading.reducer';
 import { LoginComponent } from 'src/app/view/login/login.component';
 import Swal from 'sweetalert2';
 
@@ -29,7 +28,7 @@ export class MenuLateralComponent implements OnInit {
   console.log(res,'teste');
  
     if(this.id==undefined){
-      this.router.navigateByUrl('/login')
+      // this.router.navigateByUrl('/login')
     }else{
       this.LoginService.userById(this.id).subscribe({ 
         next: (retorno:any)=>{
@@ -38,8 +37,8 @@ export class MenuLateralComponent implements OnInit {
             this.time=retorno.team.name
           }
           this.usuario=retorno.name
-          this.perfil=retorno.perfis[1]
-          console.log(retorno.perfis[1],'perfil');
+          this.perfil=retorno.perfis[0]
+          console.log(retorno.perfis[0],'perfil');
           
           
         }
