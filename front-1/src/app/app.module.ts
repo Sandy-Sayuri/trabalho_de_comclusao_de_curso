@@ -28,6 +28,7 @@ import { HomeService } from './shared/services/home.service';
 import { JogadoresService } from './shared/services/jogadores.service';
 import { LoginService } from './shared/services/login.service';
 import { MenuService } from './shared/services/menu.service';
+import { RankingService } from './shared/services/ranking.service ';
 import { SenhaService } from './shared/services/senha.service';
 import { UsersService } from './shared/services/users.service';
 import { CadastroComponent } from './view/cadastro/cadastro.component';
@@ -84,6 +85,7 @@ import { UsersComponent } from './view/users/users.component';
     UsersService,
     JogadoresService,
     SenhaService,
+    RankingService,
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     {provide: MAT_DATE_LOCALE, useValue: 'en-GB' }
   ],
