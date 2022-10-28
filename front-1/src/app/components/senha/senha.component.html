@@ -1,0 +1,35 @@
+<section class="form" >
+    <mat-card class="card">
+      <mat-card-header class="card-top">
+        <mat-card-title>  
+          <h1 class="title">Confirmação de senha</h1>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <form class="example-form"[formGroup]="senhaForm">
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Email</mat-label>
+            <input type="email" matInput formControlName="email"
+                   placeholder="Ex. pat@example.com">
+            <mat-error *ngIf="senhaForm.controls">Informe seu email.</mat-error> 
+          </mat-form-field>
+          <div class="button">
+            <div class="voltar">
+            <button mat-raised-button  
+            routerLink="/login" >voltar
+            </button>
+            </div>
+              <div class="cadastro">
+            <button mat-raised-button
+            [disabled]="senhaForm.invalid"
+            (click)="enviar(senhaForm.value)" 
+            >Enviar
+            </button>
+              </div>
+    
+          </div>
+        </form>    
+      </mat-card-content>
+    </mat-card>
+  </section>
+  

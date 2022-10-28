@@ -45,7 +45,8 @@ import { CommonModule } from '@angular/common';
     CommonModule,
     MatTabsModule,
     MatSidenavModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatSelectModule
   ],
   exports: [
     A11yModule,

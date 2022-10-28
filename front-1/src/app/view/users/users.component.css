@@ -1,0 +1,18 @@
+mat-sidenav-container, mat-sidenav-content, mat-sidenav
+mat-sidenav-container {
+    height: 100%;
+    width: 100%; 
+    overflow-x: hidden;
+    overflow-y: hidden;
+    
+}
+ 
+mat-sidenav {
+    width: 250px;
+}
+ 
+main {
+    padding: 10px;
+    height: 90%;
+    width: 100%;
+}

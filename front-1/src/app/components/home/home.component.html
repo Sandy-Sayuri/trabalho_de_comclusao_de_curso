@@ -1,49 +1,158 @@
 <section class="home">
-  <section class="form" >
-    <mat-card class="card">
-      <div  class='botao_1'>
-        <button class=tamanho_1 (click)="setJogadora(1)">1</button >
+  <div class="right" >
+    <div class="campo">
+      <mat-card class="card">
+        <div  class='botao_1'>
+        </div>
+        <div class="frente">
+          <div class='botao_2'>
+            <button mat-flat-button 
+            style="background-color: rgba(76, 175, 80, 0.0);" 
+              class="tamanho_2"
+              (click)="Setjogadoras('PONTEIRO',2)">
+              <img class='jog-4'*ngIf="name_2 != undefined" src="../../../assets/jogadoras/{{name_2}}.png">
+              <img class='camisa'*ngIf=" name_2 == undefined" src="../../../assets/CAMISA.png">
+            </button >
+          </div>
+          <div class='botao_5'>
+            <button mat-flat-button 
+            style="background-color: rgba(76, 175, 80, 0.0);" 
+            class="tamanho_2" 
+            (click)="Setjogadoras('CENTRAL',5)">
+              <img class='camisa'*ngIf=" name_5== undefined" src="../../../assets/CAMISA.png">
+              <img class='jog-4' *ngIf="name_5 != undefined" src="../../../assets/jogadoras/{{name_5}}.png"> 
+            </button >
+          </div>
+          <div class='botao_3'>
+            <button  mat-flat-button 
+            style="background-color: rgba(76, 175, 80, 0.0);" 
+            class="tamanho_2"
+            (click)="Setjogadoras('OPOSTO',3)">
+            <img class='camisa'*ngIf=" name_3 == undefined" src="../../../assets/CAMISA.png">
+              <img class='jog-4'*ngIf="name_3 != undefined" src="../../../assets/jogadoras/{{name_3}}.png"  ></button >
+          </div>
+        </div>
+        <div  class='botao_4'>
+            <button mat-flat-button 
+            style="background-color: rgba(76, 175, 80, 0.0);" 
+            class=tamanho_2
+            (click)="Setjogadoras('LIBERO',4)">
+            <img class='camisa'*ngIf=" name_4== undefined" src="../../../assets/CAMISA.png">
+            <img  class='jog-4'*ngIf="name_4 != undefined"  src="../../../assets/jogadoras/{{name_4}}.png"></button >
+          </div>
+          <div class='botao_7'>
+            <button  mat-flat-button 
+            style="background-color: rgba(76, 175, 80, 0.0);" 
+            class="tamanho_2"  
+            (click)="Setjogadoras('PONTEIRO',7)">
+              <img class='camisa'*ngIf=" name_7== undefined" src="../../../assets/CAMISA.png">
+              <img class='jog-4' *ngIf="name_7 != undefined" src="../../../assets/jogadoras/{{name_7}}.png"></button>
+        </div> 
+        <div class="fundo">
+          <div class='botao_6'>
+            <button mat-flat-button 
+            style="background-color: rgba(76, 175, 80, 0.0);" 
+            class="tamanho_2" 
+            (click)="Setjogadoras('LEVANTADOR',6)"> 
+              <img class='camisa'*ngIf=" name_6== undefined" src="../../../assets/CAMISA.png">
+              <img class='jog-4'*ngIf="name_6 != undefined" src="../../../assets/jogadoras/{{name_6}}.png"></button >
+          </div>
+        <div class='botao_8'>
+          <button mat-flat-button 
+          style="background-color: rgba(76, 175, 80, 0.0);" 
+          class="tamanho_2"
+           (click)="Setjogadoras('LIBERO',8)">
+           <img class='camisa'*ngIf=" name_8== undefined" src="../../../assets/CAMISA.png">
+            <img class='jog-4' *ngIf="name_8 != undefined" src="../../../assets/jogadoras/{{name_8}}.png"></button>
+        </div>
       </div>
-      <div class="frente">
-        <div class='botao_2'>
-          <button class="tamanho_2">2</button >
-        </div>
-        <div class='botao_3'>
-          <button  class="tamanho_2">3</button >
-        </div>
-      </div> 
-      <div  class='botao_4'>
-        <button class=tamanho_1>4</button >
-      </div>
-      <div class="centro">
-        <div class='botao_5'>
-          <button class="tamanho_2" >5</button >
-        </div>
-      </div> 
-      <div class="fundo">
-        <div class='botao_6'>
-          <button class="tamanho_2" >6</button >
-        </div>
-        <div class='botao_7'>
-          <button class="tamanho_2" >7</button >
-      </div>
-      <div class='botao_8'>
-        <button class="tamanho_2" >8</button >
-    </div>
-      </div> 
     </mat-card>
-  </section>
-  <section class="dropdown" style="text-align: right">
-    <h4>Basic mat-select</h4>
-    <mat-form-field appearance="fill">
-      <mat-label>Favorite food</mat-label>
-      <mat-select>
-        <mat-option *ngFor="let food of foods" [value]="food.value">
-          {{food.viewValue}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-  </section>
-</section>  
-<app-footer></app-footer>
+    </div>
+  </div>
 
+  <div class="left">
+    <div class="teste">
+ 
+    <table mat-table
+       [dataSource]="dataSource" multiTemplateDataRows
+       class="mat-elevation-z8"> 
+  <ng-container matColumnDef="{{column}}" *ngFor="let column of columnsToDisplay">
+    <th mat-header-cell *matHeaderCellDef> {{column}}</th>
+    <td mat-cell *matCellDef="let element "> {{element[column]}}</td>
+  </ng-container>
+  <ng-container matColumnDef="ataque">
+    <th mat-header-cell *matHeaderCellDef> Ataque</th>
+    <td mat-cell *matCellDef="let element "> {{element[score].ataque}}</td>
+  </ng-container>
+  <ng-container matColumnDef="saque">
+    <th mat-header-cell *matHeaderCellDef> Saque</th>
+    <td mat-cell *matCellDef="let element "> {{element[score].saque}}</td>
+  </ng-container>
+  <ng-container matColumnDef="bloqueio">
+    <th mat-header-cell *matHeaderCellDef> Bloqueio</th>
+    <td mat-cell *matCellDef="let element "> {{element[score].bloqueio}}</td>
+  </ng-container>
+  <ng-container matColumnDef="passe">
+    <th mat-header-cell *matHeaderCellDef> Passe</th>
+    <td mat-cell *matCellDef="let element "> {{element[score].passe}}</td>
+  </ng-container>
+  <ng-container matColumnDef="expand">
+    <th mat-header-cell *matHeaderCellDef aria-label="row actions">&nbsp;</th>
+    <td mat-cell *matCellDef="let element">
+      <button mat-icon-button aria-label="expand row" (click)="(expandedElement = expandedElement === element ? null : element); $event.stopPropagation();">
+        <mat-icon *ngIf="expandedElement !== element">keyboard_arrow_down</mat-icon>
+        <mat-icon *ngIf="expandedElement === element">keyboard_arrow_up</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="teste">
+    <th mat-header-cell *matHeaderCellDef aria-label="row "></th>
+    <td mat-cell *matCellDef="let elements">
+        <mat-checkbox   (click)="clickedRows(elements)"></mat-checkbox>
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="expandedDetail">
+    <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplayWithExpand.length">
+      <div class="example-element-detail"
+           [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+        <div class="example-element-diagram">
+          <img  class='jogadora'src="../../../assets/jogadoras/{{element.name}}.png"  >
+          <br>
+          
+        </div>
+        <br>
+        <div class="example-element-description">
+          <p>Altura: {{element.height}}m</p>
+          <p>Largura: {{element.weight}}</p>
+          <p>Data de nacimento: {{element.birthDate}}</p>
+          <p>Clube: {{element.clubes}}</p>
+          <p>Titulos: {{element.titulos}}</p>
+        </div>
+      </div>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="columnsButton"></tr>
+  <tr mat-row *matRowDef="let element; columns: columnsButton;"
+      class="row">
+  </tr>
+  <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+   
+</table>
+ <div class="botao_tabela" >
+  <div class="botao_atras">
+    <button mat-raised-button style="background-color:#0066ff ;"color="primary"[disabled]="this.pagina==0" class="botao_tabela" (click)="Atras(5)">
+      <mat-icon>arrow_forward_ios</mat-icon>
+    </button>
+  </div>
+  <div class="botao_frente">
+    <button mat-raised-button style="background-color:#0066ff ;"color="primary"class="botao_tabela"[disabled]="this.mais_pagina==false" (click)="Frente(5)">
+      <mat-icon>arrow_back_ios</mat-icon>
+    </button>
+  </div>
+</div>
+<button mat-raised-button color="primary"(click)="Salvar_time()" style="background-color:#0066ff ;" class="salvar" *ngIf="this.botao!=null">Salvar time</button>
+  </div>
+</div>
+</section>  
+  

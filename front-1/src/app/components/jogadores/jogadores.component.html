@@ -1,0 +1,93 @@
+<div class="example-container">
+    <form [formGroup]="JogadoraForm">
+        <div>
+            <label>Float label: </label>
+            <mat-radio-group [formControl]="floatLabelControl"aria-label="Select an option">
+                <mat-radio-button  value="1">Adicionar</mat-radio-button>
+                <mat-radio-button value="2">Editar</mat-radio-button>
+                <mat-radio-button  value="3">Excluir</mat-radio-button>
+            </mat-radio-group>
+        </div>
+        <mat-card class="card">
+        <mat-card-header class="card-top">
+            <mat-card-title>  
+              <h1 class="title">Cadastro</h1>
+            </mat-card-title>
+          </mat-card-header>
+        <mat-form-field  appearance="fill" *ngIf="floatLabelControl.value=='1'">
+            <input [disabled]="floatLabelControl.value==null" matInput formControlName="name" type='text' placeholder="Nome da jogadora" required>
+        </mat-form-field>  
+        <!-- nome edit e excluir -->
+        <mat-form-field appearance="fill" *ngIf="floatLabelControl.value!='1' ">
+        <mat-label>Nome da jogadora</mat-label>
+        <mat-select [disabled]="floatLabelControl.value==null" required formControlName="name" >
+            <mat-option *ngFor="let Jogadora of Jogadoras" (click)='teste(Jogadora)'[value]="Jogadora">
+            {{Jogadora.name}}
+            </mat-option>
+        </mat-select>
+        </mat-form-field>
+        <div>
+        <!-- preço -->
+        <mat-form-field appearance="fill" floatLabel="always">
+            <mat-label>Preço</mat-label>
+            <input  matInput formControlName="preco"type="number" class="example-right-align" placeholder="0">
+            <span matPrefix>$&nbsp;</span>
+            <span matSuffix>.00</span>
+        </mat-form-field>
+        <!-- altura -->
+        <mat-form-field appearance="fill" >
+            <input matInput formControlName="altura" type='number' placeholder="Altura" required>
+        </mat-form-field>  
+        <!-- largura -->
+        <mat-form-field appearance="fill" >
+            <input matInput formControlName="largura" type='number' placeholder="Largura" required>
+        </mat-form-field> 
+        <!-- data de nacimento -->
+        <mat-form-field appearance="fill" >
+            <mat-label>Data de nacimento</mat-label>
+            <input formControlName="date" matInput [matDatepicker]="picker">
+            <mat-hint>DD/MM/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <!-- clube -->
+        <mat-form-field hintLabel="Max 2000 characters" appearance="fill">
+            <mat-label>Clube</mat-label>
+            <input matInput formControlName="clube" #input maxlength="2000">
+            <mat-hint align="end">{{input.value?.length || 0}}/2000</mat-hint>
+        </mat-form-field>
+        <mat-form-field hintLabel="Max 2000 characters" appearance="fill">
+            <mat-label>Titulos</mat-label>
+            <input matInput formControlName="titulos" #input maxlength="2000">
+            <mat-hint align="end">{{input.value?.length || 0}}/2000</mat-hint>
+        </mat-form-field>
+        <mat-form-field appearance="fill" >
+            <input matInput formControlName="ataque" type='number' placeholder="Ataque" required>
+        </mat-form-field> 
+        <mat-form-field appearance="fill" >
+            <input matInput formControlName="bloqueio" type='number' placeholder="Bloqueio" required>
+        </mat-form-field> 
+        <mat-form-field appearance="fill" >
+            <input matInput formControlName="saque" type='number' placeholder="Saque" required>
+        </mat-form-field> 
+        <mat-form-field appearance="fill" >
+            <input matInput formControlName="passe" type='number' placeholder="Passe" required>
+        </mat-form-field> 
+        <mat-form-field appearance="fill">
+            <mat-label>Posição</mat-label>
+            <mat-select formControlName="playerPosition">
+              <mat-option value='PONTEIRO'>PONTEIRO</mat-option>
+              <mat-option value='CENTRAL'>CENTRAL</mat-option>
+              <mat-option value='OPOSTO'>OPOSTO</mat-option>
+              <mat-option value='LIBERO'>LIBERO</mat-option>
+              <mat-option value='LEVANTADOR'>LEVANTADOR</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>  
+      </mat-card>  
+    </form>
+     <button mat-raised-button (click)="salvar(JogadoraForm.value,floatLabelControl.value)" color="primary">Primary</button>
+     
+</div>
+
+

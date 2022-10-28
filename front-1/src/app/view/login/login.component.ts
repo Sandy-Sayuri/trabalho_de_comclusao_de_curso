@@ -25,40 +25,28 @@ export class LoginComponent implements OnInit{
   ngOnInit() {
     Swal.close()
     this.loginForm = this.fb.group({
-      username: this.fb.control('', [Validators.required]),
+      email: this.fb.control('', [Validators.required]),
       password: this.fb.control('', [Validators.required]),
-      conected: this.fb.control(''),
     })
     this.redirectTo = this.activatedRoute.snapshot.params['to'] || btoa('dashboard/home')
   }
   login(usuario: Usuario) {
-    this.loginService.username(usuario)
     let login = this.loginService.login(usuario).subscribe({ 
-      next: (retorno:any)=>{      
-        if(retorno["errors"] != undefined){
-          this.validacao = true
-        } else {
-          if(retorno["tipo"] == 2){
-            this.msgErro = "Usuário sem acesso!"
-            this.validacao = true
-          } else {
-            localStorage.setItem(`${environment.STORAGE_NAME}:Token`, JSON.stringify(retorno.access_token))
-            // this.loginService.refresh()          
-            this.router.navigate(['dashboard'])
+      next: (retorno)=>{ 
+        if(retorno!="erro"){
+            localStorage.setItem(`${environment.STORAGE_NAME}:Token`, retorno.token)        
+            this.router.navigate(['/home'])
           }
-        }
       }, 
       error: ()=>{
         this.msgErro = "Usuário ou senha inválida!"
-        this.validacao = true
+        this.router.navigate(['/login'])
+        localStorage.clear();
         console.log("error") 
       }, 
       complete: ()=>{ 
         login.unsubscribe()  
       }
     })
-  }
-  Users(usuario: Usuario){
-    this.loginService.username(usuario)
   }
 }

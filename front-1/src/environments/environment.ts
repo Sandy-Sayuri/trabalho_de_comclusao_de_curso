@@ -3,7 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  API_URL: 'http//localhost:3000', //'https://ads-stflabs-virtualassistant2-api-backend.develop.stefanini.io',
+  API_URL: 'https://tcc2022unip.herokuapp.com', //'https://ads-stflabs-virtualassistant2-api-backend.develop.stefanini.io',
+  // API_URL: 'http://localhost:3000', 
   STORAGE_NAME: 'TCC',
   production: false
 };

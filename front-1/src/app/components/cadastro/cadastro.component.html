@@ -6,61 +6,49 @@
       </mat-card-title>
     </mat-card-header>
     <mat-card-content>
-      <form class="example-form">
+      <form class="example-form"[formGroup]="cadastroForm">
         <mat-form-field class="example-full-width" appearance="fill">
           <mat-label>Email</mat-label>
-          <input type="email" matInput [formControl]="emailFormControl" 
+          <input type="email" matInput formControlName="email"
                  placeholder="Ex. pat@example.com">
-          <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
-            Please enter a valid email address
-          </mat-error>
-          <mat-error *ngIf="emailFormControl.hasError('required')">
-            Campo <strong>vasio</strong>
-          </mat-error>
+          <mat-error *ngIf="cadastroForm.controls">Informe seu email.</mat-error> 
         </mat-form-field>
         <mat-form-field class="example-full-width" appearance="fill">
           <mat-label>Name</mat-label>
-          <input  matInput [formControl]="emailFormControl" >
-          <mat-error *ngIf="emailFormControl.hasError('name') && !emailFormControl.hasError('required')">
-            Please enter a valid email address
-          </mat-error>
-          <mat-error *ngIf="emailFormControl.hasError('required')">
-            Campo <strong>vasio</strong>
-          </mat-error>
-        </mat-form-field>
-        <mat-form-field class="example-full-width" appearance="fill">
-          <mat-label>Username</mat-label>
-          <input  matInput [formControl]="emailFormControl" >
-          <mat-error *ngIf="emailFormControl.hasError('username') && !emailFormControl.hasError('required')">
-            Please enter a valid email address
-          </mat-error>
-          <mat-error *ngIf="emailFormControl.hasError('required')">
-            Campo <strong>vasio</strong>
-          </mat-error>
+          <input  matInput  formControlName="name" >
+          <mat-error *ngIf="cadastroForm.controls">Informe seu nome</mat-error> 
         </mat-form-field>
         <mat-form-field class="example-full-width" appearance="fill">
           <mat-label>Senha</mat-label>
-          <input  matInput [formControl]="emailFormControl" >
-          <mat-error *ngIf="emailFormControl.hasError('senha') && !emailFormControl.hasError('required')">
-            Please enter a valid email address
-          </mat-error>
-          <mat-error *ngIf="emailFormControl.hasError('required')">
-            Campo <strong>vasio</strong>
-          </mat-error>
+          <input  matInput formControlName="senha" >
+          <mat-error *ngIf="cadastroForm.controls">Informe sua senha</mat-error> 
         </mat-form-field>
         <mat-form-field class="example-full-width" appearance="fill">
           <mat-label>Confirme sua senha</mat-label>
-          <input  matInput [formControl]="emailFormControl" >
-          <mat-error *ngIf="emailFormControl.hasError('senha') && !emailFormControl.hasError('required')">
-            Please enter a valid email address
-          </mat-error>
-          <mat-error *ngIf="emailFormControl.hasError('required')">
-            Campo <strong>vasio</strong>
-          </mat-error>
+          <input  matInput formControlName="senha2" >
+          <mat-error *ngIf="cadastroForm.controls">Informe sua  confirmação de senha</mat-error> 
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Choose a date</mat-label>
+          <input formControlName="date" matInput [matDatepicker]="picker">
+          <mat-hint>DD/MM/YYYY</mat-hint>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
         <div class="button">
-          <button mat-button color="primary" style="color:white; "class="btn-success"routerLink="/login">Adicionar
+          <div class="voltar">
+          <button mat-raised-button  
+          routerLink="/login" >voltar
           </button>
+          </div>
+            <div class="cadastro">
+          <button mat-raised-button
+          [disabled]="cadastroForm.invalid" 
+          (click)="cadastro(cadastroForm.value)" 
+          >Cadastrar
+          </button>
+            </div>
+  
         </div>
       </form>    
     </mat-card-content>
@@ -69,4 +57,3 @@
     </mat-card-footer>
   </mat-card>
 </section>
-<app-footer></app-footer>
