@@ -92,7 +92,7 @@ export class JogadoresComponent implements OnInit{
       }
       this.jogadoresService.colocarScore(this.scoreSave).subscribe({
         next: (result:any)=> {
-          console.log(result);
+
           
         }})
       this.objectSave = {
@@ -114,7 +114,7 @@ export class JogadoresComponent implements OnInit{
       }
       this.jogadoresService.colocarJogadora(this.objectSave).subscribe({
         next: (result:any)=> {
-          console.log(result);
+
           Swal.fire({
             icon: 'success',
             title: 'Jogador salvo',
@@ -135,7 +135,6 @@ export class JogadoresComponent implements OnInit{
             } 
             this.jogadoresService.alterarScore(result.score.id,this.scoreSave).subscribe({
               next: (result:any)=> {
-              console.log(result);  
               this.objectSave = {
                 "name": `${jogadoras.name.name}`,
                 "price": jogadoras.preco,

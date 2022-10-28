@@ -153,7 +153,6 @@ this.homeService.listPlayers()
     this.dataSource=lista
     this.pagina=this.pagina - n
     this.mais_pagina=true
-    console.log(this.pagina);
   }
   Setjogadoras(posição:string, n:number){
     let lista=[]
@@ -207,7 +206,6 @@ this.homeService.listPlayers()
   // if(this.jogadora_2!=null && this.jogadora_3!=null && this.jogadora_4!=null && this.jogadora_5!=null && this.jogadora_6!=null && this.jogadora_7!=null &&this.jogadora_8!=null){
     this.LoginService.userById(this.id).subscribe({ 
       next: (retorno:any)=>{
-        console.log(retorno);
         if(retorno.team==null){
           Swal.fire({
             title: ' Cadastre de um time',
@@ -237,8 +235,7 @@ this.homeService.listPlayers()
                 })
 
                 },		
-            error: (err) => {
-            console.log(err);  
+            error: (err) => {;  
         }
         })
         },
@@ -255,7 +252,6 @@ this.homeService.listPlayers()
               }).then((result) => {
                 if (result.isConfirmed) {
                   for (let i = 0; i <=this.lista_jogadora.length; i++) {
-                    console.log(this.lista_jogadora[i]);
                     
                     this.homeService.altualizarteam(this.lista_jogadora[i],this.id_time).subscribe({
                       next:()=>{
@@ -312,6 +308,5 @@ this.homeService.listPlayers()
   }
  
   public executeSelectedChange = (event :any) => {
-    console.log(event);
   }
 }

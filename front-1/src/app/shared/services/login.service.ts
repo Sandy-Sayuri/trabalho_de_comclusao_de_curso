@@ -24,13 +24,10 @@ export class LoginService {
         return this.http.get<any>(`${this.apiRef}/users/${n}`)
     }
 
-    async userByName(): Promise<any>{
-        this.dados=2
+    userByName(): Observable<any>{
         this.decoded = jwt_decode(`${localStorage.getItem(`${environment.STORAGE_NAME}:Token`)}`);
-       
-            return await this.decoded
-        
-        
+        return this.http.get<any>(`${this.apiRef}/users/email?value=${this.decoded.sub}`)
     }
+
         
 }

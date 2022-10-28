@@ -23,19 +23,16 @@ export class MenuLateralComponent implements OnInit {
   estilo:false
   time: any
   ngOnInit() {
-    this.id=3
-  this.LoginService.userByName().then((res:any) => {
-  console.log(res,'teste');
- 
+  this.LoginService.userByName().subscribe({ 
+    next: (retorno:any)=>{
+     this.id=retorno.id 
     if(this.id==undefined){
-      // this.router.navigateByUrl('/login')
     }else{
       this.LoginService.userById(this.id).subscribe({ 
         next: (retorno:any)=>{
           if(retorno.team !=null){
             this.pontuacao=retorno.team.total
             this.time=retorno.team.name
-            console.log(this.time);
             
           }
           this.usuario=retorno.name
@@ -46,7 +43,7 @@ export class MenuLateralComponent implements OnInit {
         }
       })
     }
-  })  
+  }}) 
 }
 
 editarNome(estilo:boolean){
