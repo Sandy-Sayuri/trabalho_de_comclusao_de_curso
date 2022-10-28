@@ -10,7 +10,7 @@ export class MenuService {
     constructor(private http: HttpClient){}
     updateById(team:any,id:number): Observable<any> {
 
-        return this.http.put<any>(`${this.apiRef}/team/id/${id}`,team)
+        return this.http.put<any>(`${this.apiRef}/team/${id}`,team)
     }
         updateName(name:JSON,id:number): Observable<any> {;
         return this.http.put<any[]>(`${this.apiRef}/users/${id}`,name)

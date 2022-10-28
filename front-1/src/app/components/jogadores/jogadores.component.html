@@ -8,8 +8,12 @@
                 <mat-radio-button  value="3">Excluir</mat-radio-button>
             </mat-radio-group>
         </div>
-        
-        <!-- nome add -->
+        <mat-card class="card">
+        <mat-card-header class="card-top">
+            <mat-card-title>  
+              <h1 class="title">Cadastro</h1>
+            </mat-card-title>
+          </mat-card-header>
         <mat-form-field  appearance="fill" *ngIf="floatLabelControl.value=='1'">
             <input [disabled]="floatLabelControl.value==null" matInput formControlName="name" type='text' placeholder="Nome da jogadora" required>
         </mat-form-field>  
@@ -80,7 +84,10 @@
             </mat-select>
           </mat-form-field>
         </div>  
+      </mat-card>  
     </form>
      <button mat-raised-button (click)="salvar(JogadoraForm.value,floatLabelControl.value)" color="primary">Primary</button>
+     
 </div>
+
 

@@ -35,6 +35,8 @@ export class MenuLateralComponent implements OnInit {
           if(retorno.team !=null){
             this.pontuacao=retorno.team.total
             this.time=retorno.team.name
+            console.log(this.time);
+            
           }
           this.usuario=retorno.name
           this.perfil=retorno.perfis[0]
@@ -61,19 +63,21 @@ editarNome(estilo:boolean){
       showLoaderOnConfirm: true,
       preConfirm: (time) => {
         this.time = {
-          "name":"pato",
-          "email":"teste123@teste.com",
-          "password":"123"
+          "name":`${time}`,
       }
-        this.MenuService.updateName(this.time,this.id).subscribe({ 
+      this.LoginService.userById(this.id).subscribe({ 
+        next: (res)=>{console.log(res);
+        this.MenuService.updateName(this.time,res.team.id).subscribe({ 
         next: ()=>{
+
           Swal.fire({
             icon: 'success',
             title: 'Your work has been saved',
             showConfirmButton: false,
           })
-          
-        }})
+        }}) 
+      }})
+      
         }
       })
 }
@@ -116,7 +120,7 @@ teste(estilo:boolean){
       showLoaderOnConfirm: true,
       preConfirm: (time) => {
         this.time = {
-          "name":"pato"
+          "name":`${time}`
       }
         this.LoginService.userById(this.id).subscribe({ next: (retorno:any)=>{
         this.MenuService.updateById(this.time,retorno.team.id).subscribe({ 
