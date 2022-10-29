@@ -23,6 +23,7 @@ export class MenuLateralComponent implements OnInit {
   estilo:false
   time: any
   ngOnInit() {
+
   this.LoginService.userByName().subscribe({ 
     next: (retorno:any)=>{
      this.id=retorno.id 

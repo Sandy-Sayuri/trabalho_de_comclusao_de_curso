@@ -57,8 +57,10 @@ export class testeComponent implements OnInit {
     public LoginService: LoginService,
     private router: Router,) { }
   ngOnInit(): void {
-  
-  this.id=3
+this.LoginService.userByName().subscribe({ 
+  next: (retorno:any)=>{
+    console.log(retorno);
+       this.id=retorno.id 
  this.LoginService.userById(this.id) .subscribe({
   next: result => {
     if(result.team!=null){
@@ -108,6 +110,7 @@ export class testeComponent implements OnInit {
 
     }
   }})
+}})
 
 this.homeService.listPlayers()
       .subscribe({

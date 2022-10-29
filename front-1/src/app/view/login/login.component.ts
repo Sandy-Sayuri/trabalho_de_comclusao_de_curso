@@ -5,6 +5,7 @@ import { Usuario } from 'src/app/shared/model/user.module';
 import { LoginService } from 'src/app/shared/services/login.service';
 import { environment } from 'src/environments/environment';
 import Swal from 'sweetalert2';
+import jwt_decode from "jwt-decode";
 
 @Component({
   selector: 'app-login',
@@ -17,6 +18,7 @@ export class LoginComponent implements OnInit{
   validacao: boolean = false;
   hideSenha:boolean = true;
   msgErro: string;
+  decoded:any
   constructor(public loginService: LoginService,
               private fb: FormBuilder,
               private activatedRoute: ActivatedRoute,
@@ -28,13 +30,14 @@ export class LoginComponent implements OnInit{
       email: this.fb.control('', [Validators.required]),
       password: this.fb.control('', [Validators.required]),
     })
-    this.redirectTo = this.activatedRoute.snapshot.params['to'] || btoa('dashboard/home')
   }
   login(usuario: Usuario) {
     let login = this.loginService.login(usuario).subscribe({ 
       next: (retorno)=>{ 
-        if(retorno!="erro"){
-            localStorage.setItem(`${environment.STORAGE_NAME}:Token`, retorno.token)        
+        console.log(retorno);
+            localStorage.setItem(`${environment.STORAGE_NAME}:Token`, retorno.token)
+            let token = localStorage.getItem(`${environment.STORAGE_NAME}:Token`)
+            if(token){
             this.router.navigate(['/home'])
           }
       }, 
