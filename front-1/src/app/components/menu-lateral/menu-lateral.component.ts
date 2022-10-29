@@ -89,6 +89,10 @@ deleteById(estilo:boolean){
     confirmButtonText: 'Sim eu quero'
   }).then((result) => {
     if (result.isConfirmed) {
+      console.log(result);
+    if(this.time!=null)
+    this.MenuService.deletetime(this.id).subscribe({ 
+     next: ()=>{
       this.MenuService.deleteById(this.id).subscribe({ 
         next: ()=>{
            Swal.fire(
@@ -96,8 +100,17 @@ deleteById(estilo:boolean){
         'Your file has been deleted.',
         'success'
       )
-        }})
-     
+        } ,
+      error: (err) => {
+        console.log(err);
+      }
+    })},
+  error: (err) => {
+    console.log(err);
+    }
+      })
+    
+    
     }
   })
 

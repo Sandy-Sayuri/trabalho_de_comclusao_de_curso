@@ -15,6 +15,9 @@ export class MenuService {
         updateName(name:JSON,id:number): Observable<any> {;
         return this.http.put<any[]>(`${this.apiRef}/users/${id}`,name)
     }
+    deletetime(id:number): Observable<any> {
+        return this.http.delete<any>(`${this.apiRef}/team/${id}`)
+    }
     deleteById(id:number): Observable<any> {
         return this.http.delete<any>(`${this.apiRef}/users/${id}`)
     }
