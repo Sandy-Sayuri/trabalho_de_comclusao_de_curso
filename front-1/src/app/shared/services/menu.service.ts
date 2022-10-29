@@ -8,7 +8,7 @@ import { environment } from "src/environments/environment";
 export class MenuService {
     apiRef: string = environment.API_URL;
     constructor(private http: HttpClient){}
-    updateById(team:any,id:number): Observable<any> {
+    updateBytime(team:any,id:number): Observable<any> {
 
         return this.http.put<any>(`${this.apiRef}/team/${id}`,team)
     }

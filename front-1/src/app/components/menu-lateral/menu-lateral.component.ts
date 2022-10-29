@@ -63,9 +63,7 @@ editarNome(estilo:boolean){
         this.time = {
           "name":`${time}`,
       }
-      this.LoginService.userById(this.id).subscribe({ 
-        next: (res)=>{console.log(res);
-        this.MenuService.updateName(this.time,res.team.id).subscribe({ 
+        this.MenuService.updateName(this.time,this.id).subscribe({ 
         next: ()=>{
 
           Swal.fire({
@@ -73,8 +71,8 @@ editarNome(estilo:boolean){
             title: 'Your work has been saved',
             showConfirmButton: false,
           })
+          this.usuario=time
         }}) 
-      }})
       
         }
       })
@@ -121,14 +119,14 @@ teste(estilo:boolean){
           "name":`${time}`
       }
         this.LoginService.userById(this.id).subscribe({ next: (retorno:any)=>{
-        this.MenuService.updateById(this.time,retorno.team.id).subscribe({ 
+        this.MenuService.updateBytime(this.time,retorno.team.id).subscribe({ 
         next: ()=>{
           Swal.fire({
             icon: 'success',
             title: 'Your work has been saved',
             showConfirmButton: false,
           })
-          
+          this.time=time
         }})
       }
       })

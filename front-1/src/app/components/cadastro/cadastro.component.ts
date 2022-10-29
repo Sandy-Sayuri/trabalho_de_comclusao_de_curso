@@ -50,12 +50,11 @@ export class CadastreComponent implements OnInit {
             }           
             this.cadastroService.cadastro(this.Cadastro).subscribe({
                 next:(()=>{	
+                  Swal.fire({icon: 'success', title: "Conta criada"})
                   this.router.navigate(['login'])
                 }),		
-          error: (err) => {
-          if(err.error.status==400){
-          Swal.fire({icon: 'error', title: "Email já afiliado a uma conta!"})
-        }    
+          error: (err) => {          
+          Swal.fire({icon: 'error', title: `${err.error.errors[0].message}`}) 
       }
     })
    }  
