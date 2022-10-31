@@ -20,8 +20,9 @@
         </mat-form-field>
         <mat-form-field class="example-full-width" appearance="fill">
           <mat-label>Senha</mat-label>
-          <input  matInput formControlName="senha" >
-          <mat-error *ngIf="cadastroForm.controls">Informe sua senha</mat-error> 
+          <input  matInput formControlName="senha" #input minlength="8">
+          <mat-error *ngIf="cadastroForm.controls && input.value.length==0">Informe sua senha</mat-error> 
+          <mat-error *ngIf="input.value.length<8 &&input.value.length!=0">Tamanho minimo da senha é 8 caracteres</mat-error> 
         </mat-form-field>
         <mat-form-field class="example-full-width" appearance="fill">
           <mat-label>Confirme sua senha</mat-label>
