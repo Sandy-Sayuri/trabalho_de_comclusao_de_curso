@@ -16,10 +16,14 @@ export class UserComponent implements OnInit {
               private UsersService:UsersService ) { }
 
   ngOnInit(): void {
-    this.id=3
+    this.LoginService.userByName().subscribe({ 
+      next: (retorno:any)=>{
+        console.log(retorno);
+           this.id=retorno.id 
     this.LoginService.userById(this.id).subscribe({ 
       next: (retorno:any)=>{
-        if(retorno.perfis[0]!='ADMIN'){
+
+        if(retorno.perfis.length!=2){
           localStorage.clear();
           this.router.navigate(['login']);
         }else{
@@ -33,8 +37,8 @@ export class UserComponent implements OnInit {
         
       }})
     console.log(this.dataSource[0]);
-  
-  
+    }
+    })
     }
     public executeSelectedChange = (event :any) => {
       console.log(event);

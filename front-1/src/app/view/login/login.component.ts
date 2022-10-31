@@ -40,16 +40,11 @@ export class LoginComponent implements OnInit{
             if(token){
             this.router.navigate(['/home'])
           }
-        if(retorno=='erro'){
-          console.log(retorno,'oiiii');
-          
-        }
       }, 
       error: (err)=>{
         Swal.fire({icon: 'error', title: `${err.error.message}`})
         this.router.navigate(['/login'])
         localStorage.clear();
-        console.log("error") 
       }, 
       complete: ()=>{ 
         login.unsubscribe()  

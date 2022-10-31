@@ -133,6 +133,9 @@ export class JogadoresComponent implements OnInit{
             "ataque": jogadoras.ataque,
             "passe":jogadoras.passe
             } 
+            
+            console.log( this.scoreSave);
+            
             this.jogadoresService.alterarScore(result.score.id,this.scoreSave).subscribe({
               next: (result:any)=> {
               this.objectSave = {
@@ -152,6 +155,9 @@ export class JogadoresComponent implements OnInit{
                 },
                 "playerPosition": `${jogadoras.playerPosition}`
               }
+              console.log(jogadoras.name.id);
+              console.log(this.objectSave,'objeto');
+              
               this.jogadoresService.alterarJogadora(jogadoras.name.id,this.objectSave).subscribe({
                   next: (result:any)=> {
                     Swal.fire({

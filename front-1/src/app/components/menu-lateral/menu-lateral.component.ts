@@ -37,8 +37,11 @@ export class MenuLateralComponent implements OnInit {
             
           }
           this.usuario=retorno.name
-          this.perfil=retorno.perfis[0]
-          console.log(retorno.perfis[0],'perfil');
+          if(retorno.perfis.length==2){
+             this.perfil='ADMIN'
+          console.log(retorno.perfis,'perfil');
+          }
+         
           
           
         }
