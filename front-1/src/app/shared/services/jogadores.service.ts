@@ -28,8 +28,7 @@ export class JogadoresService {
     return this.http.post<any>(`${this.apiRef}/scores`,score)
   }
   alterarScore(id:number,score:Score): Observable<any>{
-    console.log(id);
-    console.log(score);
+
     return this.http.put<any>(`${this.apiRef}/scores/${id}`,score)
   }
   alterarJogadora(id:number,jogadora:Jogadora): Observable<any>{

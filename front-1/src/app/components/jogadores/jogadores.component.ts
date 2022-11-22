@@ -84,6 +84,8 @@ export class JogadoresComponent implements OnInit{
   }
   salvar(jogadoras:Jogadora,lugar:any){
     if(lugar=='1'){
+      console.log(lugar);
+      
       this.scoreSave={
           "saque": jogadoras.saque,
           "bloqueio":jogadoras.bloqueio,
@@ -135,6 +137,7 @@ export class JogadoresComponent implements OnInit{
             } 
             
             console.log( this.scoreSave);
+            console.log(result.score.id,'score');
             
             this.jogadoresService.alterarScore(result.score.id,this.scoreSave).subscribe({
               next: (result:any)=> {
@@ -146,13 +149,6 @@ export class JogadoresComponent implements OnInit{
                 "birthDate": `${moment(jogadoras.date).format('DD/MM/YYYY')}`,
                 "clubes": `${jogadoras.clube}`,
                 "titulos": `${jogadoras.titulos}`,
-                "score": {
-                  "id":result.score.id,
-                  "saque":jogadoras.saque,
-                  "bloqueio": jogadoras.bloqueio,
-                  "ataque": jogadoras.ataque,
-                  "passe":  jogadoras.passe
-                },
                 "playerPosition": `${jogadoras.playerPosition}`
               }
               console.log(jogadoras.name.id);
