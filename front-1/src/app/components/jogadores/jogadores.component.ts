@@ -84,21 +84,21 @@ export class JogadoresComponent implements OnInit{
   }
   salvar(jogadoras:Jogadora,lugar:any){
     if(lugar=='1'){
-      console.log(lugar);
+      // console.log(lugar);
       
-      this.scoreSave={
-          "saque": jogadoras.saque,
-          "bloqueio":jogadoras.bloqueio,
-          "ataque": jogadoras.ataque,
-          "passe":jogadoras.passe
-      }
-      this.jogadoresService.colocarScore(this.scoreSave).subscribe({
-        next: (result:any)=> {
+      // this.scoreSave={
+      //     "saque": jogadoras.saque,
+      //     "bloqueio":jogadoras.bloqueio,
+      //     "ataque": jogadoras.ataque,
+      //     "passe":jogadoras.passe
+      // }
+      // this.jogadoresService.colocarScore(this.scoreSave).subscribe({
+      //   next: (result:any)=> {
 
           
-        }})
+      //   }})
       this.objectSave = {
-          "name": `${jogadoras.name.name}`,
+          "name": `${jogadoras.name}`,
           "price": jogadoras.preco,
           "height": jogadoras.altura,
           "weight": jogadoras.largura,
@@ -114,6 +114,8 @@ export class JogadoresComponent implements OnInit{
           },
           "playerPosition": "LIBERO"
       }
+      console.log(this.objectSave);
+      
       this.jogadoresService.colocarJogadora(this.objectSave).subscribe({
         next: (result:any)=> {
 
