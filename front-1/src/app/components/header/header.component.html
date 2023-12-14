@@ -1,12 +1,13 @@
 <mat-toolbar >
-    <button mat-icon-button (click)="onToggleSidenav()" *ngIf="usuario">
-        <mat-icon style="color: white;" >menu</mat-icon>
+    <button class="button" mat-icon-button (click)="onToggleSidenav()" *ngIf="X">
+        <mat-icon>menu</mat-icon>
     </button>
     <div fxFlex fxLayout fxLayoutAlign="center" fxHide.xs>
         <ul fxLayout >
             <img src="../../../assets/Logo.png" alt="Red Seller" class="logo" >
         </ul>
     </div>
-    <button mat-icon-button *ngIf="usuario" routerLink="/login" style="color: white;" ><mat-icon>exit_to_app</mat-icon></button>
+    <button class="button" mat-icon-button routerLink="/login" *ngIf="X"><mat-icon>exit_to_app</mat-icon></button>
 
 </mat-toolbar>
+

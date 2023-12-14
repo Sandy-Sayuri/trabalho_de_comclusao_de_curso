@@ -17,7 +17,7 @@
     
 }
 .title{
-    color:#F28907;
+    color:#37a55c;
     margin-left: auto;
     margin-right: auto;
     width: 10em
@@ -33,10 +33,10 @@
     width: 100%;
 }
 .btn-success{
-    background-color:#F28907 ;
+    background-color:#37a55c;
 }
 button{
-    color:#F28907;
+    color:#37a55c;
     margin-left: 100px;
     width: 10em
 }

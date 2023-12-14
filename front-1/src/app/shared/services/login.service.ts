@@ -7,11 +7,15 @@ import { Usuario } from "../model/user.module";
 export class LoginService {
     constructor(private http: HttpClient){}
     user:string
+    validacao:boolean
     login(usuario: Usuario): Observable<any> {
         return this.http.post<any>(`http://localhost:3000/auth/tokengenerator`, usuario)
     }
+    azure(): Observable<any> {
+        return this.http.post<any>(`http://localhost:3000/azure`,'http://localhost:4200/login')
+    }
     username(usuario: Usuario){
-        this.user=usuario.username
+        return this.user=usuario.username
     }
         
 }

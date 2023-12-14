@@ -11,8 +11,11 @@
 .welcome{
     font-size: larger;
     text-align: center;
-    color:white ;
+    color:white;
     font-weight: 900;
+}
+.mat-list-item {
+    color: white;
 }
 a:hover{
     color: rgb(255, 208, 105);

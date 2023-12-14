@@ -4,12 +4,3 @@ mat-sidenav-container {
     width: 100%; 
 }
  
-mat-sidenav {
-    width: 250px;
-}
- 
-main {
-    padding: 10px;
-    height: 100%;
-    width: 100%;
-}

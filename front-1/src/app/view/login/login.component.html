@@ -1,4 +1,3 @@
-
 <section class="form" >
   <mat-card class="card">
     <mat-card-header class="card-top">
@@ -20,11 +19,14 @@
         </mat-form-field>
         <section class="sectionLogin">
           <div class="button">
-            <button mat-button color="primary" style="color:white; "class="btn-success"routerLink="/home" (click)="login(loginForm.value)">Entrar</button>
+            <button mat-button color="primary" style="color:white; "class="btn-success" (click)="login(loginForm.value)">Entrar</button>
           </div>
         </section>
         <section class="sectionLogin">
           <p>Não tem conta? <a routerLink="/cadastro">Cadastre-se</a></p>
+        </section>
+        <section class="button">
+          <button mat-button color="primary" style="color:white; "class="btn-success" (click)="azure()">Azure</button>
         </section>
       </form>      
     </mat-card-content>

@@ -1,0 +1,10 @@
+.mainDiv{
+    max-width: 800px;
+    text-align: center;
+    padding: 20px;
+    margin:0 auto;
+    display:block;
+}
+.mat-card-header-text{
+    width: 100% !important;
+}

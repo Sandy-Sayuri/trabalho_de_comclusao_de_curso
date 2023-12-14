@@ -8,14 +8,20 @@ import { LoginService } from 'src/app/shared/services/login.service';
 })
 export class HeaderComponent implements OnInit {
   @Output() public sidenavToggle = new EventEmitter();
-  usuario:string
-  constructor(public LoginService: LoginService,) { }
+  X: boolean= false;
+  constructor(public loginService:  LoginService ) { }
   ngOnInit() {
-    console.log('oiiii');
-    
-    this.usuario=this.LoginService.user
-    console.log(this.usuario,'this.usuario');
-    
+    this.onChange()
+  }
+  onChange(){
+    let user =this.loginService.username
+    console.log(user);
+    if(user!= undefined){
+      this.X= true
+    }else{
+      this.X=false
+    }
+
   }
   public onToggleSidenav = () => {
     this.sidenavToggle.emit();

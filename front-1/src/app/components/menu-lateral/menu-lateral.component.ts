@@ -1,5 +1,4 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { Router } from '@angular/router';
 import { LoginService } from 'src/app/shared/services/login.service';
 
 @Component({
@@ -10,16 +9,12 @@ import { LoginService } from 'src/app/shared/services/login.service';
 export class MenuLateralComponent implements OnInit {
   @Output() sidenavClose = new EventEmitter();
 
-  constructor(public LoginService: LoginService,
-    private router: Router,) { }
+  constructor(public LoginService: LoginService) { }
   usuario:string
-  // pontuacao:number
+  pontuacao:number
   ngOnInit() {
     this.usuario=this.LoginService.user
-    
-    if(this.usuario== undefined){
-      this.router.navigate(['/login'])
-    }
+    this.pontuacao=200
 
   }
  

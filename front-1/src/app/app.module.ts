@@ -20,6 +20,7 @@ import { LoginService } from './shared/services/login.service';
 import { CadastroComponent } from './view/cadastro/cadastro.component';
 import { HomeComponent } from './view/home/home.component';
 import { LoginComponent } from './view/login/login.component';
+import { oiiiComponent } from './view/teste/teste.controller';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { LoginComponent } from './view/login/login.component';
     MenuLateralComponent,
     testeComponent,
     CadastreComponent,
-    CadastroComponent
+    CadastroComponent, 
+    oiiiComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,7 +43,7 @@ import { LoginComponent } from './view/login/login.component';
     MaterialModule,
     ReactiveFormsModule,
     FlexLayoutModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
   ],
   providers: [ LoginService,
     {provide: MatPaginatorIntl, useValue: getPaginatorIntl()}
