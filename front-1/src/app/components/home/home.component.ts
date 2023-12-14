@@ -9,14 +9,12 @@ interface Food {
   styleUrls: ['./home.component.css']
 })
 export class testeComponent implements OnInit {
-  foods: Food[] = [
-    {value: 'steak-0', viewValue: 'Steak'},
-    {value: 'pizza-1', viewValue: 'Pizza'},
-    {value: 'tacos-2', viewValue: 'Tacos'},
-  ];
+  typesOfShoes: string[] 
+
   constructor() { }
 
   ngOnInit(): void {
+    this.typesOfShoes= ['Boots', 'Clogs', 'Loafers', 'Moccasins', 'Sneakers'];
   }
   setJogadora(val:any) {
   

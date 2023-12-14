@@ -1,5 +1,5 @@
 .menu{
-   background-color: #d5d5d5;
+   background-color:#37a55c;
    height: 100%; 
 }
 
@@ -11,7 +11,7 @@
 .welcome{
     font-size: larger;
     text-align: center;
-    color:#D97700 ;
+    color:white ;
     font-weight: 900;
 }
 a:hover{

@@ -1,49 +1,8 @@
 <section class="home">
-  <section class="form" >
-    <mat-card class="card">
-      <div  class='botao_1'>
-        <button class=tamanho_1 (click)="setJogadora(1)">1</button >
-      </div>
-      <div class="frente">
-        <div class='botao_2'>
-          <button class="tamanho_2">2</button >
-        </div>
-        <div class='botao_3'>
-          <button  class="tamanho_2">3</button >
-        </div>
-      </div> 
-      <div  class='botao_4'>
-        <button class=tamanho_1>4</button >
-      </div>
-      <div class="centro">
-        <div class='botao_5'>
-          <button class="tamanho_2" >5</button >
-        </div>
-      </div> 
-      <div class="fundo">
-        <div class='botao_6'>
-          <button class="tamanho_2" >6</button >
-        </div>
-        <div class='botao_7'>
-          <button class="tamanho_2" >7</button >
-      </div>
-      <div class='botao_8'>
-        <button class="tamanho_2" >8</button >
-    </div>
-      </div> 
-    </mat-card>
-  </section>
-  <section class="dropdown" style="text-align: right">
-    <h4>Basic mat-select</h4>
-    <mat-form-field appearance="fill">
-      <mat-label>Favorite food</mat-label>
-      <mat-select>
-        <mat-option *ngFor="let food of foods" [value]="food.value">
-          {{food.viewValue}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-  </section>
+  <button>Adicionar item</button>
+  <mat-selection-list #shoes *ngFor="let item of typesOfShoes">
+      <mat-list-option>{{item}}</mat-list-option>
+  </mat-selection-list>
 </section>  
-<app-footer></app-footer>
+
 

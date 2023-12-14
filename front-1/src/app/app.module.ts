@@ -14,7 +14,6 @@ import { HeaderComponent } from './components/header/header.component';
 import { testeComponent } from './components/home/home.component';
 
 import { MenuLateralComponent } from './components/menu-lateral/menu-lateral.component';
-import { MenuComponent } from './components/menu/menu.component';
 import { MaterialModule } from './material.module';
 import { getPaginatorIntl } from './paginator';
 import { LoginService } from './shared/services/login.service';
@@ -22,16 +21,12 @@ import { CadastroComponent } from './view/cadastro/cadastro.component';
 import { HomeComponent } from './view/home/home.component';
 import { LoginComponent } from './view/login/login.component';
 
-
-
-
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HeaderComponent,
     FooterComponent,
-    MenuComponent,
     HomeComponent, 
     MenuLateralComponent,
     testeComponent,
